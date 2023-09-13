@@ -1,9 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-image:url('images/bg.jpg');
-	background-size: cover; 
-    background-repeat: no-repeat; 
-    background-position: center center;
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
     margin: 0;
     padding: 0;
     display: flex;
