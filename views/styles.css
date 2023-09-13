@@ -1,9 +1,9 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-image:url('images/bg.jpg');
-	background-size: cover; 
-    background-repeat: no-repeat; 
-    background-position: center center;
+    background-color: #18283B;
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; */
     margin: 0;
     padding: 0;
     display: flex;
@@ -90,6 +90,7 @@ a:hover {
 	margin-top: 20px;
 	
 }
+
 
 
 

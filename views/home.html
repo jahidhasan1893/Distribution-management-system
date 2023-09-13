@@ -1,37 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage with Tabs</title>
-    <link rel="stylesheet" href="home_style.css">
+    <title>Simple Sidebar</title>
+    <style>
+        /* Basic Reset */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hide the sidebar by default */
+            transition: left 0.3s;
+        }
+
+        .sidebar.show {
+            left: 0; /* Show the sidebar when it's active */
+        }
+
+        .sidebar .logo {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 20px;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Content Styles */
+        .content {
+            margin-left: 0; /* Initialize content margin to 0 */
+            padding: 20px;
+        }
+
+        /* Sidebar Toggle Styles */
+        .sidebar-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Website</h1>
-    </header>
-    
-    <main>
-        <input type="radio" name="tabs" id="tab1" class="tab-input" checked>
-        <label for="tab1" class="tab-label">Tab 1</label>
-        <div class="tab-content">
-            <h2>Tab 1 Content</h2>
-            <p>This is the content for Tab 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac arcu at urna aliquet porttitor. Vivamus eget libero non urna fringilla dictum.</p>
+    <div class="sidebar">
+        <div class="logo">
+            <h1>My Sidebar</h1>
         </div>
-        
-        <input type="radio" name="tabs" id="tab2" class="tab-input">
-        <label for="tab2" class="tab-label">Tab 2</label>
-        <div class="tab-content">
-            <h2>Tab 2 Content</h2>
-            <p>This is the content for Tab 2. Nullam vel eros nec nulla tristique convallis. Maecenas pharetra sapien eu eros malesuada, eu ultrices purus venenatis.</p>
-        </div>
-        
-        <input type="radio" name="tabs" id="tab3" class="tab-input">
-        <label for="tab3" class="tab-label">Tab 3</label>
-        <div class="tab-content">
-            <h2>Tab 3 Content</h2>
-            <p>This is the content for Tab 3. In hac habitasse platea dictumst. Sed eget justo in nunc tincidunt condimentum. Vivamus non ex at felis cursus placerat.</p>
-        </div>
-    </main>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Welcome to my website</h1>
+        <p>This is the main content of the page.</p>
+    </div>
+
+    <!-- Sidebar Toggle Buttons -->
+    <div class="sidebar-toggle open-sidebar">Open Sidebar</div>
+    <div class="sidebar-toggle close-sidebar">Close Sidebar</div>
+
+    <script>
+        // JavaScript to toggle the sidebar
+        const sidebar = document.querySelector('.sidebar');
+        const content = document.querySelector('.content');
+        const openSidebarBtn = document.querySelector('.open-sidebar');
+        const closeSidebarBtn = document.querySelector('.close-sidebar');
+
+        openSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.add('show');
+            content.style.marginLeft = '250px'; // Adjust this value to match the sidebar width
+        });
+
+        closeSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.remove('show');
+            content.style.marginLeft = '0';
+        });
+    </script>
 </body>
 </html>
