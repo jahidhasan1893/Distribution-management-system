@@ -1,61 +1,90 @@
-/* Reset some default styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+*{
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
     margin: 0;
-    font-size: 28px;
-}
+   box-sizing: border-box;
+   text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
 
-main {
+}
+body{
+    background:white;
+}
+.header{
+     display: flex;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    text-align:lcenter;
+    justify-content: center;
+    padding: 40px 2% ;
+    background:white;
+    border-bottom: 1px soild transparent;
+    transition: all .45s ease;
+
+
+}
+.logo{
+    width: 15%;
+    padding-left: 2px;
+    
+    border-radius: 50px;    
+}
+.nav_bar{
+   margin-left: 500px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+}
+.nav_bar a{
+    color:black;
+    font-size: 33px;
+    font-weight: 500;
+    margin:0 20px; 
+    transition: all .45s ease;
+}
+.nav_bar  a:hover{
+    color:aqua;
+
 }
 
-.tab-input {
-    display: none;
+.slideshow-container {
+    max-width: 1500px;
+    position: relative;
+    margin: auto;
 }
 
-.tab-label {
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-    transition: background-color 0.3s ease;
+.mySlides {
+   display: none;
+    max-width: 100%;
+}
+.intro_image{
+    text-align: center;
+    margin-top: 140px;
+    margin-bottom: 30px;
+}
+.introduction{
+    text-align: center;
+    justify-content: center;
+    
+}
+.intro_pera{
+    font-size: 26px;
+    color: blue;
+}
+.grid_container{
+    display: flex;
+    max-width: 1500px;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+}
+.grid_container img{
+    width: 350px;
+    height:400px;
+    margin:10px;
+    margin-top: 50px;
+    margin-left: 150px;
+    object-fit: cover;
 }
 
-.tab-label:hover {
-    background-color: #ddd;
-}
-
-.tab-input:checked + .tab-label {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.tab-content {
-    display: none;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-.tab-input:checked + .tab-label + .tab-content {
-    display: block;
-}
