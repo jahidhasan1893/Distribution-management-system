@@ -1,75 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Table</title>
+    <title>Product Details</title>
     <link rel="stylesheet" href="_style.css">
 </head>
 <body>
-    <div class="stock_info">
-        <h1 >
-            Stock Information
-        </h1>
-        <div class="details">
-            <div class="input-group">
-                <label for="productId">Product ID:</label>
-                <input type="text" id="productId" placeholder="Enter Product ID">
-                <button id="addId">Add ID</button>
-            </div>
-            <div class="input-group">
-                <label for="expiryDate">Expiry Date:</label>
-                <input type="text" id="expiryDate" placeholder="Enter Expiry Date">
-                <button id="addexpiryDate">Add Expiry Date</button>
-            </div>
-            <div class="input-group">
-                <label for="productTP">Product TP:</label>
-                <input type="text" id="productTP" placeholder="Enter Product TP">
-                <button id="addproductTP">Add Product TP</button>
-            </div>
-            <div class="input-group">
-                <label for="productDP">Product DP:</label>
-                <input type="text" id="productDP" placeholder="Enter Product DP">
-                <button id="addproductDP">Add Product DP</button>
-            </div>
-            <div class="input-group">
-                <label for="productMRP">Product MRP:</label>
-                <input type="text" id="productMRP" placeholder="Enter Product MRP">
-                <button id="addproductMRP">Add Product MRP</button>
-            </div>
-            <div class="input-group">
-                <label for="productAmountInKg">Product Amount in Kg:</label>
-                <input type="text" id="productAmountInKg" placeholder="Enter Product Amount in Kg">
-                <button id="addproductAmountInKg">Add Product Amount</button>
-            </div>
-            <div class="input-group">
-                <label for="productAmountInTk">Product Amount in Tk:</label>
-                <input type="text" id="productAmountInTk" placeholder="Enter Product Amount in Tk">
-                <button id="addproductAmountInTk">Add Product Amount</button>
-            </div>
-        </div>
-        <table>
-            <tr>
-                <th>productId</th>
-                <th>expiryDate</th>
-                <th>productTP</th>
-                <th>productDP</th>
-                <th>productMRP</th>
-                <th>productAmountInKg</th>
-                <th>productAmountInTk</th>
-            </tr>
-            </tr>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-                <td>c</td>
-                <td>d</td>
-                <td>e</td>
-                <td>f</td>
-                <td>g</td>
-            </tr>
-        </table>
-    </div>
     
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Expiry Date</th>
+                <th>Product TP</th>
+                <th>Product DP</th>
+                <th>Product MRP</th>
+                <th>Product Amount in Kg</th>
+                <th>Product Price in Tk</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Data will be added here -->
+        </tbody>
+    </table>
+
+    <div class="container">
+        <h2>Add Product Details</h2>
+        <div class="input-fields" style="display: flex;flex-direction: column; ">
+             <div class="input-grp">
+                <label for="productId">Product ID</label>
+                <input type="text" id="productId" placeholder="">
+             </div>
+            <div class="input-grp">
+                <label for="expiryDate">Expiry Date</label>
+                <input type="text" id="expiryDate" placeholder="">
+            </div>
+            <div class="input-grp">
+                <label for="productTP">Product TP</label>
+                <input type="text" id="productTP" placeholder="">
+            </div>
+            <div class="input-grp">
+                <label for="productDP">Product DP</label>
+                <input type="text" id="productDP" placeholder="">
+            </div>
+           <div class="input-grp">
+            <label for="productMRP">Product MRP</label>
+            <input type="text" id="productMRP" placeholder="">
+           </div>
+            <div class="input-grp">
+                <label for="productAmountInKg">Product <br>Amount(Kg)</label>
+                <input type="text" id="productAmount" placeholder="">
+            </div>
+           <div class="input-grp">
+            <label for="productAmountInTk">Product <br>Price(Tk)</label>
+            <input type="text" id="productPrice" placeholder="">
+           </div>
+            
+            <button onclick="addProduct()">Save</button>
+        </div>
+    </div>
+
+    <script>
+        function addProduct() {
+            const productId = document.getElementById("productId").value;
+            const expiryDate = document.getElementById("expiryDate").value;
+            const productTP = document.getElementById("productTP").value;
+            const productDP = document.getElementById("productDP").value;
+            const productMRP = document.getElementById("productMRP").value;
+            const productAmount = document.getElementById("productAmount").value;
+            const productPrice = document.getElementById("productPrice").value;
+
+            const tableBody = document.getElementById("table-body");
+            const newRow = tableBody.insertRow(tableBody.rows.length);
+
+            newRow.insertCell(0).textContent = productId;
+            newRow.insertCell(1).textContent = expiryDate;
+            newRow.insertCell(2).textContent = productTP;
+            newRow.insertCell(3).textContent = productDP;
+            newRow.insertCell(4).textContent = productMRP;
+            newRow.insertCell(5).textContent = productAmount;
+            newRow.insertCell(6).textContent = productPrice;
+
+            // Clear input fields
+            document.getElementById("productId").value = "";
+            document.getElementById("expiryDate").value = "";
+            document.getElementById("productTP").value = "";
+            document.getElementById("productDP").value = "";
+            document.getElementById("productMRP").value = "";
+            document.getElementById("productAmount").value = "";
+            document.getElementById("productPrice").value = "";
+        }
+    </script>
 </body>
 </html>
