@@ -1,13 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-<<<<<<< HEAD
-    background-color: #18283B;
-    /* background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center; */
-=======
     background-image: linear-gradient(to bottom, #3498db, #2980b9);
->>>>>>> 82fb87745889721882b383baf9df4c48c8d633a0
     margin: 0;
     padding: 0;
     display: flex;
