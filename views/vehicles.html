@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Details</title>
+    <link rel="stylesheet" href="_style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="images/user.png" alt="Your Name">
+            <h3>Md Jahid Hasan</h3>
+        </div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="orders.html">Orders</a></li>
+            <li><a href="stock.html">Stock</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="transactions.html">Transactions</a></li>
+            <li><a href="suppliers.html">Suppliers</a></li>
+            <li><a href="supply.html">Supply</a></li>
+            <li><a href="workers.html">Workers</a></li>
+            <li><a href="vehicles.html">Vehicles</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Chassis No</th>
+                <th>Driver Name</th>
+                <th>Worker ID</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Data will be added here -->
+        </tbody>
+    </table>
+
+    <div class="container">
+        <h2>Add Vehicle Details</h2>
+        <div class="input-fields" style="display: flex;flex-direction: column; ">
+             <div class="input-grp">
+                <label for="chassisNo">Chassis No</label>
+                <input type="text" id="chassisNo" placeholder="">
+             </div>
+             <div class="input-grp">
+                <label for="driverName">Driver Name</label>
+                <input type="text" id="driverName" placeholder="">
+             </div>
+             <div class="input-grp">
+                <label for="workerID">Worker ID</label>
+                <input type="text" id="workerID" placeholder="">
+            </div>
+            
+            <button onclick="addProduct()">Save</button>
+        </div>
+    </div>
+
+    <script>
+        function addProduct() {
+            const chassisNo = document.getElementById("chassisNo").value;
+            const driverName = document.getElementById("driverName").value;
+            const workerID = document.getElementById("workerID").value;
+
+            const tableBody = document.getElementById("table-body");
+            const newRow = tableBody.insertRow(tableBody.rows.length);
+
+            newRow.insertCell(0).textContent = chassisNo;
+            newRow.insertCell(1).textContent = driverName;
+            newRow.insertCell(2).textContent = workerID;
+            newRow.insertCell(3).textContent = productAmountInTk;
+
+            // Clear input fields
+            document.getElementById("chassisNo").value = "";
+            document.getElementById("driverName").value = "";
+            document.getElementById("workerID").value = "";
+        }
+    </script>
+</body>
+</html>
