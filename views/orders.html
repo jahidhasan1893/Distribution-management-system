@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Details</title>
+    <link rel="stylesheet" href="_style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="images/user.png" alt="Your Name">
+            <h3>Md Jahid Hasan</h3>
+        </div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="orders.html">Orders</a></li>
+            <li><a href="stock.html">Stock</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="transactions.html">Transactions</a></li>
+            <li><a href="suppliers.html">Suppliers</a></li>
+            <li><a href="supply.html">Supply</a></li>
+            <li><a href="workers.html">Workers</a></li>
+            <li><a href="vehicles.html">Vehicles</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Order Date</th>
+                <th>Product ID</th>
+                <th>Product Amount in Kg</th>
+                <th>Product Amount in Tk</th>
+                <th>Customer ID</th>
+                <th>Delivery Date</th>
+                <th>Delivery Status</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Data will be added here -->
+        </tbody>
+    </table>
+
+    <div class="container">
+        <h2>Add Order Details</h2>
+        <div class="input-fields" style="display: flex;flex-direction: column; ">
+             <div class="input-grp">
+                <label for="orderDate">Order Date</label>
+                <input type="text" id="orderDate" placeholder="">
+             </div>
+            <div class="input-grp">
+                <label for="productID">Product ID</label>
+                <input type="text" id="productID" placeholder="">
+            </div>
+            <div class="input-grp">
+                <label for="productAmountInKg">Product<br>Amount(Kg)</label>
+                <input type="text" id="productAmountinKg" placeholder="">
+            </div>
+            <div class="input-grp">
+                <label for="productAmountInTk">Product<br>Amount(Tk)</label>
+                <input type="text" id="productAmountInTk" placeholder="">
+            </div>
+           <div class="input-grp">
+            <label for="customerID">Customer ID</label>
+            <input type="text" id="customerID" placeholder="">
+           </div>
+            <div class="input-grp">
+                <label for="deliveryDate">Delivery Date</label>
+                <input type="text" id="deliveryDate" placeholder="">
+            </div>
+           <div class="input-grp">
+            <label for="deliveryStatus">Delivery Status</label>
+            <input type="text" id="deliveryStatus" placeholder="">
+           </div>
+            
+            <button onclick="addProduct()">Save</button>
+        </div>
+    </div>
+
+    <script>
+        function addProduct() {
+            const orderDate = document.getElementById("orderDate").value;
+            const productID = document.getElementById("productID").value;
+            const productAmountinKg = document.getElementById("productAmountinKg").value;
+            const productAmountInTk = document.getElementById("productAmountInTk").value;
+            const customerID = document.getElementById("customerID").value;
+            const deliveryDate = document.getElementById("deliveryDate").value;
+            const deliveryStatus = document.getElementById("deliveryStatus").value;
+
+            const tableBody = document.getElementById("table-body");
+            const newRow = tableBody.insertRow(tableBody.rows.length);
+
+            newRow.insertCell(0).textContent = orderDate;
+            newRow.insertCell(1).textContent = productID;
+            newRow.insertCell(2).textContent = productAmountinKg;
+            newRow.insertCell(3).textContent = productAmountInTk;
+            newRow.insertCell(4).textContent = customerID;
+            newRow.insertCell(5).textContent = deliveryDate;
+            newRow.insertCell(6).textContent = deliveryStatus;
+
+            // Clear input fields
+            document.getElementById("orderDate").value = "";
+            document.getElementById("productID").value = "";
+            document.getElementById("productAmountinKg").value = "";
+            document.getElementById("productAmountInTk").value = "";
+            document.getElementById("customerID").value = "";
+            document.getElementById("deliveryDate").value = "";
+            document.getElementById("deliveryStatus").value = "";
+        }
+    </script>
+</body>
+</html>
