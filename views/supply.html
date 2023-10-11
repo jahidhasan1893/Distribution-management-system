@@ -1,57 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supply Table</title>
-    <link rel="stylesheet" href="table_style.css">
+    <title>Supply Details</title>
+    <link rel="stylesheet" href="_style.css">
 </head>
 <body>
-    <div class="customer_info">
-        <h1 >
-            Supply  Information
-        </h1>
-        <div class="details">
-            <div class="input-group">
-                <label for="customerId">Supply Date</label>
-                <input type="text" id="customerId" placeholder="Enter  Supply Date ">
-                <button id="addId">Add Date</button>
-            </div>
-            <div class="input-group">
-                <label for="productId">productId</label>
-                <input type="text" id="productId" placeholder="Enter productId ">
-                <button id="addName">Add ID</button>
-            </div>
-
-            <div class="input-group">
-                <label for="SupplierPhoneNumber">productAmountKg</label>
-                <input type="text" id="SupplierPhoneNumber" placeholder="EnterproductAmountInKg">
-                <button id="addPhoneNumber">Add Amount</button>
-            </div>
-            <div class="input-group">
-                <label for="customerAddress">productAmountTk</label>
-                <input type="text" id="customerAddress" placeholder="Enter productAmountInTk">
-                <button id="addAddress">Add Tk</button>
-            </div>
-            
+    <div class="sidebar">
+        <div class="profile">
+            <img src="images/user.png" alt="Your Name">
+            <h3>Md Jahid Hasan</h3>
         </div>
-        <table>
-            <tr>
-                <th>supplyDate</th>
-                <th>productId</th>
-                <th>productAmountInKg</th>
-                <th>productAmountInTk</th>
-                
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-               
-            </tr>
-        </table>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="orders.html">Orders</a></li>
+            <li><a href="stock.html">Stock</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="transactions.html">Transactions</a></li>
+            <li><a href="suppliers.html">Suppliers</a></li>
+            <li><a href="supply.html">Supply</a></li>
+            <li><a href="workers.html">Workers</a></li>
+            <li><a href="vehicles.html">Vehicles</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
     </div>
     
+    <table>
+        <thead>
+            <tr>
+                <th>Supply Date</th>
+                <th>Product ID</th>
+                <th>Product Amount in Kg</th>
+                <th>Product Price in Tk</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Data will be added here -->
+        </tbody>
+    </table>
+
+    <div class="container">
+        <h2>Add Supply Details</h2>
+        <div class="input-fields" style="display: flex;flex-direction: column; ">
+             <div class="input-grp">
+                <label for="supplyDate">Supply Date</label>
+                <input type="text" id="supplyDate" placeholder="">
+             </div>
+             <div class="input-grp">
+                <label for="productID">Product ID</label>
+                <input type="text" id="productID" placeholder="">
+             </div>
+             <div class="input-grp">
+                <label for="productAmountInKg">Product <br>Amount(Kg)</label>
+                <input type="text" id="productAmountInKg" placeholder="">
+            </div>
+            <div class="input-grp">
+                <label for="productAmountInTk">Product <br>Price(Tk)</label>
+                <input type="text" id="productAmountInTk" placeholder="">
+            </div>
+            
+            <button onclick="addProduct()">Save</button>
+        </div>
+    </div>
+
+    <script>
+        function addProduct() {
+            const supplyDate = document.getElementById("supplyDate").value;
+            const productID = document.getElementById("productID").value;
+            const productAmountInKg = document.getElementById("productAmountInKg").value;
+            const productAmountInTk = document.getElementById("productAmountInTk").value;
+
+            const tableBody = document.getElementById("table-body");
+            const newRow = tableBody.insertRow(tableBody.rows.length);
+
+            newRow.insertCell(0).textContent = supplyDate;
+            newRow.insertCell(1).textContent = productID;
+            newRow.insertCell(2).textContent = productAmountInKg;
+            newRow.insertCell(3).textContent = productAmountInTk;
+
+            // Clear input fields
+            document.getElementById("supplyDate").value = "";
+            document.getElementById("productID").value = "";
+            document.getElementById("productAmountInKg").value = "";
+            document.getElementById("productAmountInTk").value = "";
+        }
+    </script>
 </body>
 </html>
