@@ -17,7 +17,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     width: 40%;
-    max-width: 400px;
+    max-width: 300px;
 }
 .input-grp{
     padding: 10px;
@@ -34,6 +34,7 @@ input{
 table {
     width: 55%;
     border-collapse: collapse;
+    margin-left: 270px;
 }
 th, td {
     border: 1px solid #dddddd;
@@ -55,3 +56,58 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+/* Add this CSS to your existing CSS */
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    padding-top: 20px;
+    left: 0;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile h3 {
+    margin-top: 10px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 65px;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+/* Your existing CSS */
+/* ... */
