@@ -9,19 +9,14 @@
 <body>
     <div class="container-sign-up">
         <form id="login-form" >
-            <h1>Sign Up - Distributor</h1>
+            <h1>Sign Up - Customer</h1>
             <div class="input-container">
-                <input type="text" id="firstname" placeholder="first name" required>
-                <input type="text" id="lastname" placeholder="last name" required>
+                <input type="text" id="shopname" placeholder="shop name" required>
 				<!-- <i class='bx bx-user'></i> -->
             </div>
             <div class="input-container">
                 <input type="text" id="email" placeholder="email" required>
 				<!-- <i class='bx bxs-envelope'></i> -->
-            </div>
-            <div class="input-container">
-                <input type="text" id="nid" placeholder="NID number" required>
-				<!-- <i class='bx bx-user'></i> -->
             </div>
             
             <div class="input-container">
@@ -29,7 +24,7 @@
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
-                <select name="divisions" id="divisions" onchange="divisionsList();" required>
+                <select name="divisions" id="divisions" onchange="divisionsList();">
                     <option disabled selected>Select Division</option>
                     <option value="Barishal">Barishal</option>
                     <option value="Chattogram">Chattogram</option>
@@ -40,8 +35,8 @@
                     <option value="Rangpur">Rangpur</option>
                     <option value="Sylhet">Sylhet</option>
                   </select>
-                  <select name="" id="distr" onchange="thanaList();" required></select>
-                  <select name="" id="polic_sta" required></select>
+                  <select name="" id="distr" onchange="thanaList();"></select>
+                  <select name="" id="polic_sta"></select>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
@@ -53,7 +48,7 @@
 				<!-- <i class='bx bxs-lock-alt' ></i> -->
             </div>
             <button type="submit" >Sign Up</button>
-			<p>Already have an account? <a href="distributor_sign_in.html">Sign in</a></p> 
+			<p>Already have an account? <a href="customer_sign_in.html">Sign in</a></p> 
         </form>
     </div>
 
