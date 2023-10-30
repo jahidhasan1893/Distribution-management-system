@@ -1,154 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <!-- Include Chart.js via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="_style.css">
-    
+    <title>Home Page</title>
+    <style>
+        h1 {
+            color: #fff;
+            font-size: 36px;
+        }
+        .container {
+            padding: 20px;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('images/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-buttons {
+            display: flex;
+            justify-content: center;
+        }
+        .login-button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #fff;
+            border: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .login-button:hover {
+            background-color: rgba(52, 152, 219, 0.7);
+        }
+    </style>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="profile">
-            <img src="images/user.png" alt="Your Name">
-            <h3>Md Jahid Hasan</h3>
-        </div>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="orders.html">Orders</a></li>
-            <li><a href="stock.html">Stock</a></li>
-            <li><a href="customers.html">Customers</a></li>
-            <li><a href="transactions.html">Transactions</a></li>
-            <li><a href="suppliers.html">Suppliers</a></li>
-            <li><a href="supply.html">Supply</a></li>
-            <li><a href="workers.html">Workers</a></li>
-            <li><a href="vehicles.html">Vehicles</a></li>
-            <!-- Add more menu items as needed -->
-        </ul>
-    </div>
-
-    <div class="grid-container">
-        <!-- Sales Stats Box -->
-        <div class="grid-item">
-            <h2>Sales Summary</h2>
-            <canvas id="salesChart"></canvas>
-            <script>
-                const salesData = {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-                    datasets: [
-                        {
-                            label: 'Sales',
-                            data: [2000, 2500, 3000, 2800, 3500],
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1,
-                        },
-                    ],
-                };
-
-                const ctx = document.getElementById('salesChart').getContext('2d');
-                const mySalesChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: salesData,
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                        },
-                    },
-                });
-            </script>
-        </div>
-
-        <!-- Expenses Stats Box -->
-        <div class="grid-item">
-            <h2>Expenses Summary</h2>
-            <canvas id="expensesChart"></canvas>
-            <script>
-                const expensesData = {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-                    datasets: [
-                        {
-                            label: 'Expenses',
-                            data: [1000, 1200, 900, 1100, 950],
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            borderWidth: 1,
-                        },
-                    ],
-                };
-
-                const expensesCtx = document.getElementById('expensesChart').getContext('2d');
-                const myExpensesChart = new Chart(expensesCtx, {
-                    type: 'line',
-                    data: expensesData,
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                        },
-                    },
-                });
-            </script>
-        </div>
-
-        <!-- Product Stats Box -->
-        <div class="grid-item" >
-            <h2>Product Stats</h2>
-            <table class="center-table">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Availability</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Soyabin Oil - 5L</td>
-                        <td>10 units</td>
-                    </tr>
-                    <tr>
-                        <td>Pure Drinking Water - 250 ml</td>
-                        <td>25 units</td>
-                    </tr>
-                    <!-- Add more rows with random product data as needed -->
-                </tbody>
-            </table>
-            <p><a href="products.html">See More</a></p>
-        </div>
-
-        <!-- Customer List Box -->
-        <div class="grid-item">
-            <h2>Customer List</h2>
-            <table class="center-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Phone Number</th>
-                        <th>Location</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Alfred Rasel</td>
-                        <td>123-456-7890</td>
-                        <td>Madina Market, Sylhet</td>
-                    </tr>
-                    <tr>
-                        <td>Sajib Kumar Chowdhury</td>
-                        <td>987-654-3210</td>
-                        <td>Ambarkhana, Sylhet</td>
-                    </tr>
-                    <!-- Add more rows with random customer data as needed -->
-                </tbody>
-            </table>
-            <p><a href="Customers.html">See More</a></p>
+    <div class="container">
+        <h1>Welcome to DMS</h1>
+        <div class="login-buttons">
+            <a href="user1-login.html" class="login-button">User 1 Login</a>
+            <a href="user2-login.html" class="login-button">User 2 Login</a>
+            <a href="user3-login.html" class="login-button">User 3 Login</a>
         </div>
     </div>
+    
 </body>
 </html>
