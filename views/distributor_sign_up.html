@@ -29,9 +29,19 @@
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
-                <input type="text" id="district" placeholder="district" required>
-                <input type="text" id="upazilla" placeholder="upazilla" required>
-                <input type="text" id="phone" placeholder="post code" required>
+                <select name="divisions" id="divisions" onchange="divisionsList();">
+                    <option disabled selected>Select Division</option>
+                    <option value="Barishal">Barishal</option>
+                    <option value="Chattogram">Chattogram</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Mymensingh">Mymensingh</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Sylhet">Sylhet</option>
+                  </select>
+                  <select name="" id="distr" onchange="thanaList();"></select>
+                  <select name="" id="polic_sta"></select>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
@@ -47,7 +57,7 @@
         </form>
     </div>
 
-    
+    <script src="js/change.js"></script>
 </body>
 
 

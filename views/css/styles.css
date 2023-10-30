@@ -53,6 +53,13 @@ input {
     border-radius: 5px;
 }
 
+select{
+    width: 350px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 button {
     background-image: linear-gradient(90deg, rgba(152,214,63,1) 0%, rgba(32,143,137,1) 100%);
     color: #fff;
