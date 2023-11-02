@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 24px;
+      width: 90px;
+      height: 60px;
+      border-radius: 5px;
+    }
+
+    #popup-container {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      width: 300px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 20px;
+      z-index: 1;
+      display: none;
+    }
+
+    #button:hover + #popup-container, #popup-container:hover {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button id="button">
+    <i class="fas fa-shopping-cart"></i>
+  </button>
+  <div id="popup-container">
+    <h2>Card Title</h2>
+    <p>This is the content of the card. It looks more realistic now with shadows and rounded corners.</p>
+  </div>
+</body>
+</html>

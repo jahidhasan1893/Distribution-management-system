@@ -1,89 +1,822 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Customer Details</title>
-    <link rel="stylesheet" href="_style.css">
-</head>
-<body>
-    <div class="sidebar">
-        <div class="profile">
-            <img src="images/user.png" alt="Your Name">
-            <h3>Md Jahid Hasan</h3>
-        </div>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="orders.html">Orders</a></li>
-            <li><a href="stock.html">Stock</a></li>
-            <li><a href="customers.html">Customers</a></li>
-            <li><a href="transactions.html">Transactions</a></li>
-            <li><a href="suppliers.html">Suppliers</a></li>
-            <li><a href="supply.html">Supply</a></li>
-            <li><a href="workers.html">Workers</a></li>
-            <li><a href="vehicles.html">Vehicles</a></li>
-            <!-- Add more menu items as needed -->
-        </ul>
-    </div>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Customer ID</th>
-                <th>Customer Name</th>
-                <th>Phone Number</th>
-                <th>Address</th>
-            </tr>
-        </thead>
-        <tbody id="table-body">
-            <!-- Data will be added here -->
-        </tbody>
-    </table>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusti | Customers</title>
 
-    <div class="container">
-        <h2>Add Customer Details</h2>
-        <div class="input-fields" style="display: flex;flex-direction: column; ">
-             <div class="input-grp">
-                <label for="customerID">Customer ID</label>
-                <input type="text" id="customerID" placeholder="">
-             </div>
-            <div class="input-grp">
-                <label for="customerName">Customer Name</label>
-                <input type="text" id="customerName" placeholder="">
-            </div>
-            <div class="input-grp">
-                <label for="phoneNumber">Phone Number</label>
-                <input type="text" id="phoneNumber" placeholder="">
-            </div>
-            <div class="input-grp">
-                <label for="address">Address</label>
-                <input type="text" id="address" placeholder="">
-            </div>
-            
-            <button onclick="addProduct()">Save</button>
-        </div>
-    </div>
+    <link rel="stylesheet" href="https://boxicons.com/css/boxicons.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-    <script>
-        function addProduct() {
-            const customerID = document.getElementById("customerID").value;
-            const customerName = document.getElementById("customerName").value;
-            const phoneNumber = document.getElementById("phoneNumber").value;
-            const address = document.getElementById("address").value;
-
-            const tableBody = document.getElementById("table-body");
-            const newRow = tableBody.insertRow(tableBody.rows.length);
-
-            newRow.insertCell(0).textContent = customerID;
-            newRow.insertCell(1).textContent = customerName;
-            newRow.insertCell(2).textContent = phoneNumber;
-            newRow.insertCell(3).textContent = address;
-
-            // Clear input fields
-            document.getElementById("customerID").value = "";
-            document.getElementById("customerName").value = "";
-            document.getElementById("phoneNumber").value = "";
-            document.getElementById("address").value = "";
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            background: #f0f0f0;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            
+        }
+
+        .container {
+            position: relative;
+            width: 220px;
+            height: 300px;
+            transition: 0.5s;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .container:hover {
+            width: 250px;
+        }
+
+        .card {
+            width: 100%;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+        }
+
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #9bdc28;
+            clip-path: circle(150px at 80% 20%);
+            transition: 0.5s ease-in-out;
+        }
+
+        /* .container:hover .card:before {
+            clip-path: circle(300px at 80% -20%);
+        } */
+
+        .card .imgBx {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .card .imgBx img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .container:hover .card .imgBx img {
+            transform: scale(1.1);
+        }
+
+        .card .contentBx {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+        }
+
+        .container:hover .card .contentBx {
+            transform: translateY(0);
+        }
+
+        .card .contentBx h2 {
+            position: relative;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .card .contentBx .price {
+            font-size: 20px;
+            color: #9bdc28;
+            /* Green color for price */
+        }
+
+        .card .contentBx .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card .contentBx .counter button {
+            background: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .card .contentBx .size,
+        .card .contentBx .color {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 20px;
+            transition: 0.5s;
+            opacity: 0;
+            visibility: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .container:hover .card .contentBx .size,
+        .container:hover .card .contentBx .color {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0.5s;
+        }
+
+        .card .contentBx .size h3,
+        .card .contentBx .color h3 {
+            color: #fff;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-right: 10px;
+        }
+
+        .card .contentBx .size span {
+            width: 26px;
+            height: 26px;
+            text-align: center;
+            line-height: 26px;
+            font-size: 14px;
+            display: inline-block;
+            color: #111;
+            background: #fff;
+            margin: 0 5px;
+            transition: 0.5s;
+            color: #111;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .card .contentBx .color span {
+            width: 20px;
+            height: 20px;
+            background: #ff0;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .card .contentBx .color span:nth-child(2) {
+            background: #9bdc28;
+        }
+
+        .card .contentBx .color span:nth-child(3) {
+            background: #03a9f4;
+        }
+
+        .card .contentBx .color span:nth-child(4) {
+            background: #e91e63;
+        }
+
+        .card .contentBx a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #fff;
+            border-radius: 4px;
+            margin-top: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #111;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 0.5s;
+            margin-top: 0;
+        }
+
+        .container:hover .card .contentBx a {
+            opacity: 1;
+            transform: translateY(0px);
+            transition-delay: 0.6s;
+        }
+
+        #button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            width: 90px;
+            height: 60px;
+            border-radius: 5px;
+            position: fixed;
+            /* Change to fixed position */
+            right: 20px;
+            /* Adjust the right distance from the right edge of the page */
+            top: 50%;
+            /* Position vertically in the middle of the page */
+            transform: translateY(-50%);
+        }
+
+        #popup-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 450px;
+            position: fixed;
+            right: 0;
+            padding: 20px;
+            z-index: 1;
+            display: none;
+            height: 100%;
+
+        }
+
+        #button:hover+#popup-container,
+        #popup-container:hover {
+            display: block;
+        }
+
+        .shopping-card {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .shopping-card table {
+            height: 10px;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: none;
+        }
+
+        .shopping-card th,
+        td {
+            padding: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .shopping-card th {
+            background-color: #95A5A6;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .shopping-card img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .shopping-card .product-details h3 {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .shopping-card .total {
+            margin-top: 20px;
+        }
+
+        .shopping-card .make-payment {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .shopping-card .make-payment:hover {
+            background-color: #0056b3;
+        }
+
+
+        /* Style the navigation bar */
+        .navbar {
+            z-index: 1;
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            height: 70px;
+            /* Change the font */
+        }
+
+      
+
+        /* Style the navigation bar links */
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 14px;
+            height: 70px;
+        }
+
+        /* Change the color of the links when you hover over them */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        /* Add a logo to the left side of the navbar */
+        .navbar .logo {
+            float: left;
+           
+        }
+
+        /* Style the logo image */
+        .navbar .logo img {
+            max-height: 30px;
+            
+            max-width: 60px;
+            max-height: 60px;
+        }
+
+        /* Style a button on the right side of the navbar */
+        .navbar .btn {
+            float: right;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Add a search icon on the right side of the navbar */
+        .navbar .search-icon {
+            float: right;
+            font-size: 20px;
+            margin: 10px 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Add responsiveness to the navigation bar */
+        @media screen and (max-width: 600px) {
+
+            .navbar a,
+            .navbar .btn,
+            .navbar .search-icon {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                padding: 10px;
+            }
+        }
+
+        /* Style the search input field */
+        .navbar #search-field {
+            float: left;
+            width: 560px;
+            margin: 10px 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Style the search icon */
+        .navbar .search-icon {
+            float: right;
+            font-size: 20px;
+            margin: 10px 10px;
+            color: white;
+            cursor: pointer;
+            margin-top: 17px;
+        }
+
+        /* Add responsiveness to the navigation bar */
+        @media screen and (max-width: 600px) {
+
+            .navbar #search-field,
+            .navbar .search-icon {
+                display: block;
+            }
+        }
+
+        /* Add a button to reject the search bar */
+        .navbar #reject-search {
+            float: left;
+            margin: 10px 10px;
+            background-color: #ff4f4f;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Add responsiveness to the navigation bar */
+        @media screen and (max-width: 600px) {
+            .navbar #search-field, .navbar .search-icon, .navbar #reject-search {
+                display: block;
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+      background-color: #222;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .social-icons {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .social-icons li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+    
+    .social-icons a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: #007bff; /* Change to your preferred hover color */
+    }
+    
+    .footer-text {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="left">
+            <div class="logo">
+                <img src="images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
+            </div>
+        </div>
+
+        <div class="right" >
+            <input type="text" id="search-field"  placeholder="Search...">
+            <button id="reject-search"><i class='bx bx-search-alt-2'></i></button>
+            <a href="#home">Products</a>
+            <a href="#news">News</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+            <!-- <span class="search-icon" onclick="toggleSearch()"><i class='bx bx-search-alt-2'></i></span>
+            <input type="text" id="search-field" style="display: none;" placeholder="Search...">
+            <button id="reject-search" onclick="rejectSearch()"><i class='bx bx-x ' ></i></button> -->
+        </div>
+
+    </div>
+
+    <div class="motto" style="margin-top: 150px; margin-bottom: 50px;align-items: center;">
+        <h1 style="font-size:40px;margin-bottom: 40px;">Explore our range of PUSTI products.</h1>
+        <p style="font-size: 20px;">‘PUSTI’ is one of the leading consumer brands of Bangladesh from the house of  T. K. GROUP.</p>
+    </div>
+
+
+    <div class="grid-container">
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/Aata-1-Kg-Single-600x921.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳15.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/Soyabean-Oil-600x921.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳12.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/CD-500g-Single-646x1024.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳9.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/Bop-500g-Single-646x1024.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳14.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/Best-Leaf-500g-Single-646x1024.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳14.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/Dust-500g-Single-646x1024.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳14.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/Suji-250g-Single-600x921.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳14.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/rsz_sorisa.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳14.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/milk-po.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳14.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/mus.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳14.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/Gold-500g-Single-646x1024.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳14.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="images/products/Moida-2-KG-Single-600x921.jpg">
+                </div>
+                <div class="contentBx">
+                    <h2>Pusti</h2>
+                    <p class="price">৳14.99</p>
+                    <div class="counter">
+                        <button id="decrement">-</button>
+                        <span id="count">0</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="button">
+        <i class="fas fa-shopping-cart"></i>
+    </button>
+    <div id="popup-container">
+        <div class="shopping-card">
+            <div class="header">
+                <h1>Your Cart</h1>
+            </div>
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+                <tr class="cart-item">
+                    <td style="display: inline-flex;">
+                        <img src="images/products/Aata-1-Kg-Single-600x921.jpg" alt="Product 1">
+                        <div class="product-details">
+                            <h3>Product Name 1</h3>
+                        </div>
+                    </td>
+                    <td>2</td>
+                    <td>$10.00</td>
+                    <td>$20.00</td>
+                </tr>
+
+                <!-- Add more cart items here as needed -->
+            </table>
+            <div class="total">
+                <p>Total: $20.00</p>
+            </div>
+            <button class="make-payment">Make Payment</button>
+        </div>
+    </div>
+
+
+
+    
+
+
+    <div class="footer">
+        <ul class="social-icons">
+          <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
+          <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
+          <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
+          <li><a href="#"><i class='bx bxl-linkedin'></i></a></li>
+          <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
+        </ul>
+        <p class="footer-text">&copy; 2023 
+            Pusti | T. K. Group. All rights reserved.</p>
+      </div>
+    <script>
+        const incrementButton = document.getElementById("increment");
+        const decrementButton = document.getElementById("decrement");
+        const countSpan = document.getElementById("count");
+
+        let count = 0;
+
+        incrementButton.addEventListener("click", () => {
+            count++;
+            countSpan.innerText = count;
+        });
+
+        decrementButton.addEventListener("click", () => {
+            if (count > 0) {
+                count--;
+                countSpan.innerText = count;
+            }
+        });
+
+       
+    </script>
     </script>
 </body>
+
 </html>
