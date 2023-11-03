@@ -25,13 +25,14 @@
             min-height: 100vh;
             background: #f0f0f0;
             text-align: center;
+            font-family: 'Open Sans', sans-serif;
         }
 
         .grid-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            
+
         }
 
         .container {
@@ -343,7 +344,7 @@
             /* Change the font */
         }
 
-      
+
 
         /* Style the navigation bar links */
         .navbar a {
@@ -366,13 +367,13 @@
         /* Add a logo to the left side of the navbar */
         .navbar .logo {
             float: left;
-           
+
         }
 
         /* Style the logo image */
         .navbar .logo img {
             max-height: 30px;
-            
+
             max-width: 60px;
             max-height: 60px;
         }
@@ -454,46 +455,89 @@
 
         /* Add responsiveness to the navigation bar */
         @media screen and (max-width: 600px) {
-            .navbar #search-field, .navbar .search-icon, .navbar #reject-search {
+
+            .navbar #search-field,
+            .navbar .search-icon,
+            .navbar #reject-search {
                 display: block;
             }
         }
 
-        .footer {
-            margin-top: 40px;
-      background-color: #222;
-      color: #fff;
-      padding: 30px 0;
-      text-align: center;
-      width: 100%;
-    }
-    
-    .social-icons {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .social-icons li {
-      display: inline-block;
-      margin: 0 15px;
-    }
-    
-    .social-icons a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 24px;
-      transition: color 0.3s;
-    }
-    
-    .social-icons a:hover {
-      color: #007bff; /* Change to your preferred hover color */
-    }
-    
-    .footer-text {
-      margin-top: 20px;
-      font-size: 14px;
-    }
+        footer {
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            margin-right: 140px;
+        }
+
+        .social-icons li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+            /* Change to your preferred hover color */
+        }
+
+        footer a {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .social-icons a {
+            padding: 8px;
+            color: #707070;
+            line-height: 22px;
+            letter-spacing: 0.01em;
+        }
+        .feature-box .feature-header h3{
+            margin-bottom: 13%;
+            color:#282828;
+            font-weight: 600;
+            line-height: 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            margin-left: 6px;
+        }
+        .feature-box .feature-text a{
+            text-decoration: none;
+            color: #707070;
+            font-size: 14px;
+            letter-spacing: 0.01em;
+            text-align: center;
+        }
+
+        .feature-box .feature-text{
+            text-decoration: none;
+            color: #707070;
+            font-size: 14px;
+            letter-spacing: 0.01em;
+            text-align: center;
+        }
+
+        .feature-box .feature-header{
+            display: inline-block; vertical-align: middle;
+        }
+
+        .feature-box .feature-header i{
+           color: #707070;
+        } 
+       
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -509,8 +553,8 @@
             </div>
         </div>
 
-        <div class="right" >
-            <input type="text" id="search-field"  placeholder="Search...">
+        <div class="right">
+            <input type="text" id="search-field" placeholder="Search...">
             <button id="reject-search"><i class='bx bx-search-alt-2'></i></button>
             <a href="#home">Products</a>
             <a href="#news">News</a>
@@ -525,7 +569,8 @@
 
     <div class="motto" style="margin-top: 150px; margin-bottom: 50px;align-items: center;">
         <h1 style="font-size:40px;margin-bottom: 40px;">Explore our range of PUSTI products.</h1>
-        <p style="font-size: 20px;">‘PUSTI’ is one of the leading consumer brands of Bangladesh from the house of  T. K. GROUP.</p>
+        <p style="font-size: 20px;">‘PUSTI’ is one of the leading consumer brands of Bangladesh from the house of T. K.
+            GROUP.</p>
     </div>
 
 
@@ -781,20 +826,91 @@
 
 
 
-    
 
 
-    <div class="footer">
-        <ul class="social-icons">
-          <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
-          <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
-          <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
-          <li><a href="#"><i class='bx bxl-linkedin'></i></a></li>
-          <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
-        </ul>
-        <p class="footer-text">&copy; 2023 
-            Pusti | T. K. Group. All rights reserved.</p>
-      </div>
+
+    <section style="width: 100%;background-color: #ffffff;padding: 120px;box-sizing: border-box; display: flex;justify-content: space-around;flex-direction: row;margin-top: 60px;border-bottom: 1px solid #ececec;">
+
+        <div class="feature-box">
+            <div class="feature-header">
+                <i class='bx bxs-location-plus bx-sm' ></i>
+                <h3>
+                    Contact Address</h3>
+            </div>
+           
+            <div class="feature-text">Shahporan Hall, SUST,<br>Sylhet,
+                Bangladesh.</div>
+        </div>
+
+        <!-- end feature box -->
+        <!-- feature box -->
+
+        <div class="feature-box">
+            <div class="feature-header">
+                <i class='bx bxs-phone-call bx-sm' ></i>
+            <h3>
+                Call Us Today!</h3>
+            </div>
+            
+            <div class="feature-text">(M) +88 (0) 171 010 8965<br>(O) +88 (0)
+                187 603 8253</div>
+        </div>
+
+        <!-- end feature box -->
+        <!-- feature box -->
+
+        <div class="feature-box">
+            <div class="feature-header">
+                <i class='bx bxs-envelope bx-sm' ></i>
+                <h3>
+                    Email</h3>
+            </div>
+           
+            <div class="feature-text"><a class="tz-text" href="mailto:no-reply@domain.com" >jahdihasan1893@gmail.com</a><br><a class="tz-text"
+                    href="mailto:help@domain.com" >abc392@gmail.com</a></div>
+
+        </div>
+        <!-- end feature box -->
+        <!-- feature box -->
+
+        <div class="feature-box">
+            <div class="feature-header">
+                <i class='bx bxs-time bx-sm' ></i>
+                <h3>
+                    Contact Hours</h3>
+            </div>
+           
+            <div class="feature-text">Mon to Sat - 9 AM to 11 PM<br>Sunday -
+                10 AM to 6 PM</div>
+
+        </div>
+        <!-- end feature box -->
+        
+    </section>
+    <footer style="width: 100%;background-color: #ffffff;padding: 60px;box-sizing: border-box;">
+        <!-- social elements -->
+        <div class="social-icons" style="text-align: right;">
+            <a href="#" class="margin-eight-right">
+                <i class='bx bxl-facebook bx-sm'></i>
+            </a>
+            <a href="#" class="margin-eight-right">
+                <i class='bx bxl-twitter bx-sm'></i>
+            </a>
+            <a href="#" class="margin-eight-right">
+                <i class='bx bxl-google-plus bx-sm'></i>
+            </a>
+            <a href="#" class="margin-eight-right">
+                <i class='bx bxl-pinterest bx-sm'></i>
+            </a>
+            <a href="#" class="margin-eight-right">
+                <i class='bx bxl-linkedin bx-sm'></i>
+            </a>
+            <a href="#">
+                <i class='bx bxl-youtube bx-sm'></i>
+            </a>
+        </div>
+        <!-- end social elements -->
+    </footer>
     <script>
         const incrementButton = document.getElementById("increment");
         const decrementButton = document.getElementById("decrement");
@@ -814,7 +930,7 @@
             }
         });
 
-       
+
     </script>
     </script>
 </body>
