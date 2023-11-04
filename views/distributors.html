@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pusti | Customers</title>
+    <title>Pusti | Distributors</title>
 
     <link rel="stylesheet" href="https://boxicons.com/css/boxicons.min.css">
     <style>
@@ -335,7 +335,7 @@
             display: flex;
             justify-content: space-around;
             background-color: #333;
-            overflow: hidden;
+            /* overflow: hidden; */
             position: fixed;
             top: 0;
             width: 100%;
@@ -400,7 +400,7 @@
         }
 
         /* Add responsiveness to the navigation bar */
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 1200px) {
 
             .navbar a,
             .navbar .btn,
@@ -633,12 +633,12 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-          
+
             padding-left: 250px;
             padding-right: 250px;
-           
+
             margin: 0 auto;
-           
+
         }
 
         .gallery-item {
@@ -662,18 +662,130 @@
         .gallery-item:hover img {
             transform: scale(1.1);
         }
+
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
+        .navbar .right .dropdown {
+            margin-left: 20px;
+            width: 130px;
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+           
+        }
+
+        .navbar .right .dropdown>a {
+            margin-top: 7px;
+            border-radius: 50%;
+            /* Make the image circular */
+            overflow: hidden;
+            /* Hide overflow for circle */
+            box-shadow: 0 6px 5px -5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            /* Use flexbox for centering */
+            justify-content: center;
+            /* Horizontally center the content */
+            align-items: center;
+            /* Vertically center the content */
+            width: 40px;
+            /* Adjust the width to your liking */
+            height: 40px;
+            /* Adjust the height to your liking */
+        }
+
+        .navbar .right .dropdown>a img {
+            width: 80px;
+            /* Ensure the image takes the full space inside the circle */
+            height: 80px;
+            /* object-fit: cover; */
+            /* Keep the image's original size within the circular container */
+        }
+
+        .navbar .right .dropdown ul {
+            
+            list-style-type: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            width: 100%;
+            box-shadow: 0 6px 5px -5px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .navbar .right .dropdown ul a {
+            width: 100%;
+            text-align: left;
+            display: block;
+            padding: 0 0 0 10px;
+            text-decoration: none;
+            line-height: 40px;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #999;
+            background-color: #FFF;
+        }
+
+        .navbar .right .dropdown li {
+            
+            height: 0;
+            overflow: hidden;
+            transition: all 500ms;
+        }
+
+        .navbar .right .dropdown.hover li {
+            transition-delay: 300ms;
+        }
+
+        .navbar .right  .dropdown li:first-child a {
+            border-radius: 2px 2px 0 0;
+        }
+
+        .navbar .right .dropdown li:last-child a {
+            border-radius: 0 0 2px 2px;
+        }
+
+        .navbar .right .dropdown li:first-child a::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #FFF;
+            margin: -10px 0 0 30px;
+        }
+
+        .navbar .right .dropdown a:hover {
+            background-color: #EEE;
+            color: #666;
+        }
+
+        .navbar .right .dropdown.hover:hover li {
+            height: 40px;
+        }
+
+       .navbar .right .dropdown.hover:hover li:first-child {
+            padding-top: 65px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -692,6 +804,19 @@
             <a href="#gallery">Gallery</a>
             <a href="#news">News</a>
             <a href="#contact">Contact</a>
+            <div class="dropdown hover">
+                <a href="#">
+                    <img src="images/products/Aata-1-Kg-Single-600x921.jpg" alt="" style="object-fit: fill;">
+                </a>
+                <ul>
+                    <li ><a href="#">Item</a></li>
+                    <li ><a href="#">Profile</a></li>
+                    <li><a href="#">Your Cart</a></li>
+                    <li><a href="#">Orders</a></li>
+                    <li><a href="#">Log Out</a></li>
+                   
+                </ul>
+            </div>
             <!-- <span class="search-icon" onclick="toggleSearch()"><i class='bx bx-search-alt-2'></i></span>
             <input type="text" id="search-field" style="display: none;" placeholder="Search...">
             <button id="reject-search" onclick="rejectSearch()"><i class='bx bx-x ' ></i></button> -->
@@ -699,7 +824,7 @@
 
     </div>
 
-    
+
 
 
     <section id="products">
@@ -707,11 +832,12 @@
             <h1 style="font-size:40px;margin-bottom: 40px;font-family: 'Poppins', sans-serif;
             font-family: 'Roboto', sans-serif;">Explore our range of PUSTI products.</h1>
             <p style="font-size: 20px; font-family: 'Nunito Sans', sans-serif;
-            font-family: 'Poppins', sans-serif;">‘PUSTI’ is one of the leading consumer brands of Bangladesh from the house of T. K.
+            font-family: 'Poppins', sans-serif;">‘PUSTI’ is one of the leading consumer brands of Bangladesh from the
+                house of T. K.
                 GROUP.</p>
         </div>
-    
-    
+
+
         <div class="grid-container" style="padding-bottom: 90px;">
             <div class="container">
                 <div class="card">
@@ -781,7 +907,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="container">
                 <div class="card">
                     <div class="imgBx">
@@ -799,7 +925,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="container">
                 <div class="card">
                     <div class="imgBx">
@@ -817,7 +943,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="container">
                 <div class="card">
                     <div class="imgBx">
@@ -835,7 +961,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="container">
                 <div class="card">
                     <div class="imgBx">
@@ -853,7 +979,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="container">
                 <div class="card">
                     <div class="imgBx">
@@ -871,7 +997,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="container">
                 <div class="card">
                     <div class="imgBx">
@@ -889,7 +1015,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="container">
                 <div class="card">
                     <div class="imgBx">
@@ -907,7 +1033,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="container">
                 <div class="card">
                     <div class="imgBx">
@@ -989,7 +1115,7 @@
             <div class="gallery-item">
                 <img src="images/3.jpg" alt="Image 3">
             </div>
-    
+
             <div class="gallery-item">
                 <img src="images/4.jpg" alt="Image 4">
             </div>
@@ -1011,93 +1137,98 @@
 
     <section id="news">
         <div class="container2"
-        style="background-color: #F7F7F7;width: 100%;padding: 60px; border-bottom: 1px solid #ececec;box-sizing: border-box;padding-top: 80px;">
-        <h2 style="width: 100%;text-align: center;margin-bottom: 70px;font-size: 36px; 
+            style="background-color: #F7F7F7;width: 100%;padding: 60px; border-bottom: 1px solid #ececec;box-sizing: border-box;padding-top: 80px;">
+            <h2 style="width: 100%;text-align: center;margin-bottom: 70px;font-size: 36px; 
         color: #707070; 
         letter-spacing: 2px; 
         font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif; ">News & Events</h2>
-        <div class="card2">
-            <div class="card-header">
-                <img src="images/Happy-Times-PR-460x295.jpg" alt="rover" />
+            <div class="card2">
+                <div class="card-header">
+                    <img src="images/Happy-Times-PR-460x295.jpg" alt="rover" />
+                </div>
+                <div class="card-body">
+                    <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
+                    <h4>
+                        পুষ্টি পরিবারের নতুন সদস্য ‘পুষ্টি হ্যাপি টাইম ম্যাংগো ড্রিংক’
+                    </h4>
+                    <p>
+                        বাংলাদেশের অন্যতম শিল্প প্রতিষ্ঠান টি.কে. গ্রুপের একটি অঙ্গ প্রতিষ্ঠান পুষ্টি কনজ্যুমার ডিভিশনের
+                        অধীনে বাজারে এসেছে.....
+                    </p>
+                    <button class="btn"
+                        style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read
+                        More
+                    </button>
+                </div>
             </div>
-            <div class="card-body">
-                <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
-                <h4>
-                    পুষ্টি পরিবারের নতুন সদস্য ‘পুষ্টি হ্যাপি টাইম ম্যাংগো ড্রিংক’
-                </h4>
-                <p>
-                    বাংলাদেশের অন্যতম শিল্প প্রতিষ্ঠান টি.কে. গ্রুপের একটি অঙ্গ প্রতিষ্ঠান পুষ্টি কনজ্যুমার ডিভিশনের
-                    অধীনে বাজারে এসেছে.....
-                </p>
-                <button class="btn"
-                    style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read More
-                </button>
+            <div class="card2">
+                <div class="card-header">
+                    <img src="images/TK-460x295.jpg" alt="ballons" />
+                </div>
+                <div class="card-body">
+                    <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
+                    <h4>
+                        চট্টগ্রামে দুটি হাসপাতালে ভেন্টিলেটর দিচ্ছে টি.কে গ্রুপ
+                    </h4>
+                    <p>
+                        করোনা চিকিৎসায় চট্টগ্রামের দুটি হাসপাতালে ২০টি ভেন্টিলেটর দিতে যাচ্ছে শিল্প প্রতিষ্ঠান টি. কে.
+                        গ্রুপ। সম্প্রতি.....
+                    </p>
+                    <button class="btn"
+                        style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read
+                        More
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="card2">
-            <div class="card-header">
-                <img src="images/TK-460x295.jpg" alt="ballons" />
-            </div>
-            <div class="card-body">
-                <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
-                <h4>
-                    চট্টগ্রামে দুটি হাসপাতালে ভেন্টিলেটর দিচ্ছে টি.কে গ্রুপ
-                </h4>
-                <p>
-                    করোনা চিকিৎসায় চট্টগ্রামের দুটি হাসপাতালে ২০টি ভেন্টিলেটর দিতে যাচ্ছে শিল্প প্রতিষ্ঠান টি. কে.
-                    গ্রুপ। সম্প্রতি.....
-                </p>
-                <button class="btn"
-                    style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read More
-                </button>
-            </div>
-        </div>
-        <div class="card2">
-            <div class="card-header">
-                <img src="images/2021-10-23_103239-460x295.png" alt="city" />
-            </div>
-            <div class="card-body">
-                <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
-                <h4>
-                    পুষ্টি ১৩ তম ইলিশ উৎসব উদযাপিত | Pusti
+            <div class="card2">
+                <div class="card-header">
+                    <img src="images/2021-10-23_103239-460x295.png" alt="city" />
+                </div>
+                <div class="card-body">
+                    <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
+                    <h4>
+                        পুষ্টি ১৩ তম ইলিশ উৎসব উদযাপিত | Pusti
 
-                </h4>
-                <p>
-                    রবিবার থেকে শুরু হচ্ছে বহুল প্রতীক্ষিত ইলিশ উৎসব। রাজধানী ঢাকার আগারগাঁও এ আয়োজিত.....
-                </p>
-                <button class="btn"
-                    style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read More
-                </button>
+                    </h4>
+                    <p>
+                        রবিবার থেকে শুরু হচ্ছে বহুল প্রতীক্ষিত ইলিশ উৎসব। রাজধানী ঢাকার আগারগাঁও এ আয়োজিত.....
+                    </p>
+                    <button class="btn"
+                        style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read
+                        More
+                    </button>
+                </div>
             </div>
+            <div class="card2">
+                <div class="card-header">
+                    <img src="images/PUSTI_Drinking-water-1-460x295.jpg" alt="city" />
+                </div>
+                <div class="card-body">
+                    <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
+                    <h4>
+                        পুষ্টি পরিবারে নতুন সদস্য ‘পুষ্টি ড্রিংকিং ওয়াটার’
+                    </h4>
+                    <p>
+                        বাজারে এসেছে ‘পুষ্টি ড্রিংকিং ওয়াটার’। বাংলাদেশের অন্যতম শিল্পপ্রতিষ্ঠান টি কে গ্রুপের .....
+                    </p>
+                    <button class="btn"
+                        style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read
+                        More
+                    </button>
+
+                </div>
+            </div>
+
+
         </div>
-        <div class="card2">
-            <div class="card-header">
-                <img src="images/PUSTI_Drinking-water-1-460x295.jpg" alt="city" />
-            </div>
-            <div class="card-body">
-                <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
-                <h4>
-                    পুষ্টি পরিবারে নতুন সদস্য ‘পুষ্টি ড্রিংকিং ওয়াটার’
-                </h4>
-                <p>
-                    বাজারে এসেছে ‘পুষ্টি ড্রিংকিং ওয়াটার’। বাংলাদেশের অন্যতম শিল্পপ্রতিষ্ঠান টি কে গ্রুপের .....
-                </p>
-                <button class="btn"
-                    style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read More
-                </button>
-
-            </div>
-        </div>
-
-
-    </div>
 
     </section>
 
 
     <section
-        style="width: 100%;background-color: #ffffff;padding: 120px;box-sizing: border-box; display: flex;justify-content: space-around;flex-direction: row;border-bottom: 1px solid #ececec;" id="contact">
+        style="width: 100%;background-color: #ffffff;padding: 120px;box-sizing: border-box; display: flex;justify-content: space-around;flex-direction: row;border-bottom: 1px solid #ececec;"
+        id="contact">
 
         <div class="feature-box">
             <div class="feature-header">

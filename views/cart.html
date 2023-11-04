@@ -7,6 +7,11 @@
     <title>Pusti | Customers</title>
 
     <link rel="stylesheet" href="https://boxicons.com/css/boxicons.min.css">
+
+    <title>Your Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -771,6 +776,88 @@
        .navbar .right .dropdown.hover:hover li:first-child {
             padding-top: 65px;
         }
+
+
+
+        .container3 {
+            margin-top: 200px;
+            padding: 2rem 0rem;
+            margin-bottom: 60px;
+        }
+
+        .table-image thead td,
+        .table-image thead th {
+            border: 0;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .table-image td,
+        .table-image th {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table-image td.qty,
+        .table-image th.qty {
+            max-width: 2rem;
+        }
+
+        .price {
+            margin-left: 1rem;
+            font-weight: bold;
+        }
+
+        .modal-footer {
+            padding-top: 0rem;
+        }
+
+        /* Additional Card Styles */
+        .card3 {
+            
+            
+            max-width: 800px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .card-header3 {
+            background-color: #1f2e45;
+            color: #fff;
+            border-bottom: none;
+            border-radius: 15px 15px 0 0;
+            padding: 15px;
+        }
+
+        .modal-body {
+            padding: 1rem;
+        }
+
+        .btn-danger {
+            font-size: 10px;
+            padding: 8px;
+            background-color: #ff5a5f;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            color: #fff;
+        }
+
+        .btn-success {
+            font-size: 14px;
+            background-color: #00a859;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-success:hover {
+            color: #fff;
+            background-color: #00894f;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -827,467 +914,92 @@
 
 
 
-    <section id="products">
-        <div class="motto" style="margin-top: 150px; margin-bottom: 50px;align-items: center;">
-            <h1 style="font-size:40px;margin-bottom: 40px;font-family: 'Poppins', sans-serif;
-            font-family: 'Roboto', sans-serif;">Explore our range of PUSTI products.</h1>
-            <p style="font-size: 20px; font-family: 'Nunito Sans', sans-serif;
-            font-family: 'Poppins', sans-serif;">‘PUSTI’ is one of the leading consumer brands of Bangladesh from the
-                house of T. K.
-                GROUP.</p>
-        </div>
-
-
-        <div class="grid-container" style="padding-bottom: 90px;">
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/Aata-1-Kg-Single-600x921.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳15.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
+    <div class="container3 justify-content-center align-items-center" style="height: 100vh;">
+        <div class="card3 mx-auto">
+            <div class="modal-content">
+                <div class="card-header3">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Your Shopping Cart
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-image">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="max-width: 70px; min-height: 70px;">
+                                    <img src="images/products/Best-Leaf-500g-Single-646x1024.jpg"
+                                        class="img-fluid img-thumbnail" alt="Product Image">
+                                </td>
+                                <td>Product Name</td>
+                                <td>$89</td>
+                                <td class="qty"><input type="text"
+                                        style="width: 28px; height: 30px; padding: 5px; border: 1px solid #ccc; border-radius: 15%; box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2;"
+                                        id="input1" value="1"></td>
+                                <td>$89</td>
+                                <td>
+                                    <a href="#" class="btn btn-danger btn-sm">
+                                        Remove
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="max-width: 70px; min-height: 70px;">
+                                    <img src="images/products/Dust-500g-Single-646x1024.jpg"
+                                        class="img-fluid img-thumbnail" alt="Product Image">
+                                </td>
+                                <td>Product Name</td>
+                                <td>$89</td>
+                                <td class="qty"><input type="text"
+                                        style="width: 28px; height: 30px; padding: 5px; border: 1px solid #ccc; border-radius: 15%; box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2;"
+                                        id="input1" value="1"></td>
+                                <td>$89</td>
+                                <td>
+                                    <a href="#" class="btn btn-danger btn-sm">
+                                        Remove
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="max-width: 70px; min-height: 70px;">
+                                    <img src="images/products/milk-po.jpg"
+                                        class="img-fluid img-thumbnail" alt="Product Image">
+                                </td>
+                                <td>Product Name</td>
+                                <td>$89</td>
+                                <td class="qty"><input type="text"
+                                        style="width: 28px; height: 30px; padding: 5px; border: 1px solid #ccc; border-radius: 15%; box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2;"
+                                        id="input1" value="1"></td>
+                                <td>$89</td>
+                                <td>
+                                    <a href="#" class="btn btn-danger btn-sm">
+                                        Remove
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-end">
+                        <h5>Total: <span class="price text-success">$89</span></h5>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/Soyabean-Oil-600x921.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳12.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
+                <div class="modal-footer border-top-0 d-flex justify-content-end">
+                    <button type="button" class="btn btn-success">Checkout</button>
                 </div>
             </div>
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/CD-500g-Single-646x1024.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳9.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/Bop-500g-Single-646x1024.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳14.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/Best-Leaf-500g-Single-646x1024.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳14.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/Dust-500g-Single-646x1024.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳14.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/Suji-250g-Single-600x921.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳14.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/rsz_sorisa.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳14.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/milk-po.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳14.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/mus.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳14.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/Gold-500g-Single-646x1024.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳14.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="images/products/Moida-2-KG-Single-600x921.jpg">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Pusti</h2>
-                        <p class="price">৳14.99</p>
-                        <div class="counter">
-                            <button id="decrement">-</button>
-                            <span id="count">0</span>
-                            <button id="increment">+</button>
-                        </div>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <button id="button">
-        <i class="fas fa-shopping-cart"></i>
-    </button>
-    <div id="popup-container">
-        <div class="shopping-card">
-            <div class="header">
-                <h1>Your Cart</h1>
-            </div>
-            <table>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
-                </tr>
-                <tr class="cart-item">
-                    <td style="display: inline-flex;">
-                        <img src="images/products/Aata-1-Kg-Single-600x921.jpg" alt="Product 1">
-                        <div class="product-details">
-                            <h3>Product Name 1</h3>
-                        </div>
-                    </td>
-                    <td>2</td>
-                    <td>$10.00</td>
-                    <td>$20.00</td>
-                </tr>
-
-                <!-- Add more cart items here as needed -->
-            </table>
-            <div class="total">
-                <p>Total: $20.00</p>
-            </div>
-            <button class="make-payment">Make Payment</button>
         </div>
     </div>
 
-
-
-
-
-
-    <section id="gallery">
-        <div class="gallery">
-            <h2 style="width: 100%;text-align: center;margin-bottom: 60px;font-size: 36px; 
-            color: #707070; 
-            letter-spacing: 2px; 
-            font-family: 'Poppins', sans-serif;
-    font-family: 'Roboto', sans-serif; ">Photo Gallery</h2>
-            <div class="gallery-item">
-                <img src="images/1.jpg" alt="Image 1">
-            </div>
-            <div class="gallery-item">
-                <img src="images/2.jpg" alt="Image 2">
-            </div>
-            <div class="gallery-item">
-                <img src="images/3.jpg" alt="Image 3">
-            </div>
-
-            <div class="gallery-item">
-                <img src="images/4.jpg" alt="Image 4">
-            </div>
-            <div class="gallery-item">
-                <img src="images/5.jpg" alt="Image 5">
-            </div>
-            <div class="gallery-item">
-                <img src="images/6.jpg" alt="Image 6">
-            </div>
-            <!-- Add more gallery items here -->
-        </div>
-    </section>
-
-
-
-
-
-
-
-    <section id="news">
-        <div class="container2"
-            style="background-color: #F7F7F7;width: 100%;padding: 60px; border-bottom: 1px solid #ececec;box-sizing: border-box;padding-top: 80px;">
-            <h2 style="width: 100%;text-align: center;margin-bottom: 70px;font-size: 36px; 
-        color: #707070; 
-        letter-spacing: 2px; 
-        font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif; ">News & Events</h2>
-            <div class="card2">
-                <div class="card-header">
-                    <img src="images/Happy-Times-PR-460x295.jpg" alt="rover" />
-                </div>
-                <div class="card-body">
-                    <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
-                    <h4>
-                        পুষ্টি পরিবারের নতুন সদস্য ‘পুষ্টি হ্যাপি টাইম ম্যাংগো ড্রিংক’
-                    </h4>
-                    <p>
-                        বাংলাদেশের অন্যতম শিল্প প্রতিষ্ঠান টি.কে. গ্রুপের একটি অঙ্গ প্রতিষ্ঠান পুষ্টি কনজ্যুমার ডিভিশনের
-                        অধীনে বাজারে এসেছে.....
-                    </p>
-                    <button class="btn"
-                        style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read
-                        More
-                    </button>
-                </div>
-            </div>
-            <div class="card2">
-                <div class="card-header">
-                    <img src="images/TK-460x295.jpg" alt="ballons" />
-                </div>
-                <div class="card-body">
-                    <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
-                    <h4>
-                        চট্টগ্রামে দুটি হাসপাতালে ভেন্টিলেটর দিচ্ছে টি.কে গ্রুপ
-                    </h4>
-                    <p>
-                        করোনা চিকিৎসায় চট্টগ্রামের দুটি হাসপাতালে ২০টি ভেন্টিলেটর দিতে যাচ্ছে শিল্প প্রতিষ্ঠান টি. কে.
-                        গ্রুপ। সম্প্রতি.....
-                    </p>
-                    <button class="btn"
-                        style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read
-                        More
-                    </button>
-                </div>
-            </div>
-            <div class="card2">
-                <div class="card-header">
-                    <img src="images/2021-10-23_103239-460x295.png" alt="city" />
-                </div>
-                <div class="card-body">
-                    <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
-                    <h4>
-                        পুষ্টি ১৩ তম ইলিশ উৎসব উদযাপিত | Pusti
-
-                    </h4>
-                    <p>
-                        রবিবার থেকে শুরু হচ্ছে বহুল প্রতীক্ষিত ইলিশ উৎসব। রাজধানী ঢাকার আগারগাঁও এ আয়োজিত.....
-                    </p>
-                    <button class="btn"
-                        style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read
-                        More
-                    </button>
-                </div>
-            </div>
-            <div class="card2">
-                <div class="card-header">
-                    <img src="images/PUSTI_Drinking-water-1-460x295.jpg" alt="city" />
-                </div>
-                <div class="card-body">
-                    <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
-                    <h4>
-                        পুষ্টি পরিবারে নতুন সদস্য ‘পুষ্টি ড্রিংকিং ওয়াটার’
-                    </h4>
-                    <p>
-                        বাজারে এসেছে ‘পুষ্টি ড্রিংকিং ওয়াটার’। বাংলাদেশের অন্যতম শিল্পপ্রতিষ্ঠান টি কে গ্রুপের .....
-                    </p>
-                    <button class="btn"
-                        style="padding: 12px;border-radius: 5px; background-color: #F0F0F0;border-style:none ;">Read
-                        More
-                    </button>
-
-                </div>
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <section
-        style="width: 100%;background-color: #ffffff;padding: 120px;box-sizing: border-box; display: flex;justify-content: space-around;flex-direction: row;border-bottom: 1px solid #ececec;"
-        id="contact">
-
-        <div class="feature-box">
-            <div class="feature-header">
-                <i class='bx bxs-location-plus bx-sm'></i>
-                <h3>
-                    Contact Address</h3>
-            </div>
-
-            <div class="feature-text">Shahporan Hall, SUST,<br>Sylhet,
-                Bangladesh.</div>
-        </div>
-
-        <!-- end feature box -->
-        <!-- feature box -->
-
-        <div class="feature-box">
-            <div class="feature-header">
-                <i class='bx bxs-phone-call bx-sm'></i>
-                <h3>
-                    Call Us Today!</h3>
-            </div>
-
-            <div class="feature-text">(M) +88 (0) 171 010 8965<br>(O) +88 (0)
-                187 603 8253</div>
-        </div>
-
-        <!-- end feature box -->
-        <!-- feature box -->
-
-        <div class="feature-box">
-            <div class="feature-header">
-                <i class='bx bxs-envelope bx-sm'></i>
-                <h3>
-                    Email</h3>
-            </div>
-
-            <div class="feature-text"><a class="tz-text"
-                    href="mailto:no-reply@domain.com">jahdihasan1893@gmail.com</a><br><a class="tz-text"
-                    href="mailto:help@domain.com">abc392@gmail.com</a></div>
-
-        </div>
-        <!-- end feature box -->
-        <!-- feature box -->
-
-        <div class="feature-box">
-            <div class="feature-header">
-                <i class='bx bxs-time bx-sm'></i>
-                <h3>
-                    Contact Hours</h3>
-            </div>
-
-            <div class="feature-text">Mon to Sat - 9 AM to 11 PM<br>Sunday -
-                10 AM to 6 PM</div>
-
-        </div>
-        <!-- end feature box -->
-
-    </section>
-
+    
 
 
     <footer style="width: 100%;background-color: #ffffff;padding: 60px;box-sizing: border-box;">
