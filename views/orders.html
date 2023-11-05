@@ -11,12 +11,7 @@
     <title>Your Shopping Cart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Open+Sans:ital,wght@1,300&family=Poppins:wght@700&display=swap"
-        rel="stylesheet">
-
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -38,12 +33,12 @@
             font-family: 'Open Sans', sans-serif;
         }
 
+        
+        
 
+        
 
-
-
-
-
+        
 
 
 
@@ -73,7 +68,7 @@
 
         /* Style the logo image */
         .navbar1 .logo img {
-
+           
 
             max-width: 60px;
             max-height: 60px;
@@ -367,21 +362,21 @@
         @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
-
+        
 
 
         .navbar1 {
-            z-index: 1;
-            display: flex;
-            justify-content: space-around;
-            background-color: #333;
-            /* overflow: hidden; */
-            position: fixed;
-            top: 0;
-            width: 100%;
-            font-family: Arial, sans-serif;
-            height: 70px;
-        }
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    /* overflow: hidden; */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    height: 70px;
+}
 
 
 
@@ -391,7 +386,7 @@
             display: inline-block;
             margin-right: 10px;
             position: relative;
-
+           
         }
 
         .navbar1 .right .dropdown>a {
@@ -422,7 +417,7 @@
         }
 
         .navbar1 .right .dropdown ul {
-
+            
             list-style-type: none;
             display: block;
             margin: 0;
@@ -448,7 +443,7 @@
         }
 
         .navbar1 .right .dropdown li {
-
+            
             height: 0;
             overflow: hidden;
             transition: all 500ms;
@@ -458,7 +453,7 @@
             transition-delay: 300ms;
         }
 
-        .navbar1 .right .dropdown li:first-child a {
+        .navbar1 .right  .dropdown li:first-child a {
             border-radius: 2px 2px 0 0;
         }
 
@@ -487,7 +482,7 @@
             height: 40px;
         }
 
-        .navbar1 .right .dropdown.hover:hover li:first-child {
+       .navbar1 .right .dropdown.hover:hover li:first-child {
             padding-top: 65px;
         }
 
@@ -528,8 +523,8 @@
 
         /* Additional Card Styles */
         .card3 {
-
-
+            
+            
             max-width: 800px;
             border: none;
             border-radius: 15px;
@@ -590,179 +585,6 @@
             margin: 0 5px;
             cursor: pointer;
         }
-
-        /* Styles for the overlay background */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Styles for the checkout form */
-        .checkout-form {
-            width: 450px;
-            display: none;
-            background: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            z-index: 2;
-            text-align: center;
-            padding-left: 30px;
-            padding-right: 30px;
-        }
-
-        .checkout-form h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-
-        }
-        .checkout-form h3 {
-            font-size: 18px;
-            margin-top: 15px;
-
-        }
-
-        .checkout-form label {
-            display: block;
-            font-weight: bold;
-            /* margin-top: 10px; */
-        }
-
-        .checkout-form div {
-            margin-top: 10px;
-        }
-
-        .checkout-form div label {
-            display: inline-block;
-            width: 150px;
-        }
-
-        .checkout-form div span {
-            text-align: left;
-        }
-
-        .address-card,
-        .payment-card,
-        .bill-card {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 10px;
-            text-align: left;
-        }
-
-        .checkout-form .payment-card {
-            display: flex;
-            /* Make the payment card a flex container */
-            justify-content: space-between;
-            /* Push the radio button to the right */
-            align-items: center;
-            /* Center the content vertically */
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 10px;
-            text-align: left;
-        }
-
-        .checkout-form .payment-card .left {
-            display: flex;
-            align-items: center;
-            /* Center the content horizontally */
-        }
-
-        .checkout-form .payment-card img {
-            width: 30px;
-            margin-right: 2px;
-            vertical-align: middle;
-        }
-
-        .checkout-form .payment-card label {
-            margin-left: 2px;
-            /* Adjust the margin-left to control the space between image and label */
-        }
-
-        .checkout-form .payment-options input[type="radio"] {
-
-            margin-right: 0;
-            /* Remove any right margin on the radio button */
-        }
-
-
-        .checkout-form .bill-card {
-            max-height: 90px;
-            overflow-y: auto;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 10px;
-        }
-
-        .checkout-form .bill-card div {
-            margin-top: 5px;
-        }
-
-        .checkout-form .bill-card::-webkit-scrollbar {
-            width: 8px;
-            /* Set the width as needed */
-        }
-
-        .checkout-form .bill-card::-webkit-scrollbar-thumb {
-            background-color: transparent;
-            /* Set the background color to match the background */
-        }
-
-        .checkout-form button {
-            display: inline-block;
-            background-color: #00a859;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        
-
-        .checkout-form button:hover {
-            background: #00894f;
-        }
-
-
-
-        .checkout-form .bill-items {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .checkout-form .bill-item {
-            display: flex;
-            justify-content: space-between;
-            /* Align item name to the left, and price to the right */
-            margin-bottom: 5px;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .checkout-form .bill-item span.item-name {
-            margin-right: auto;
-            /* Push the item name to the left */
-        }
-
-        .checkout-form .bill-item span.item-price {
-            margin-left: auto;
-            /* Push the price to the right */
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -782,8 +604,8 @@
 </head>
 
 <body>
-    <div class="navbar1">
-        <div class="left">
+    <div class="navbar1" >
+        <div class="left" >
             <div class="logo">
                 <img src="images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
             </div>
@@ -801,12 +623,12 @@
                     <img src="images/products/Aata-1-Kg-Single-600x921.jpg" alt="" style="object-fit: fill;">
                 </a>
                 <ul>
-                    <li><a href="#">Item</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li ><a href="#">Item</a></li>
+                    <li ><a href="#">Profile</a></li>
                     <li><a href="cart.html">Your Cart</a></li>
                     <li><a href="orders.html">Orders</a></li>
                     <li><a href="#">Log Out</a></li>
-
+                   
                 </ul>
             </div>
             <!-- <span class="search-icon" onclick="toggleSearch()"><i class='bx bx-search-alt-2'></i></span>
@@ -847,13 +669,11 @@
                                 </td>
                                 <td>Product Name</td>
                                 <td>$89</td>
-                                <td class="qty" style="padding-left: 60px;padding-right: 60px;">
-                                    <div class="counter">
-                                        <button id="decrement">-</button>
-                                        <span id="count">0</span>
-                                        <button id="increment">+</button>
-                                    </div>
-                                </td>
+                                <td class="qty" style="padding-left: 60px;padding-right: 60px;"> <div class="counter">
+                                    <button id="decrement">-</button>
+                                    <span id="count">0</span>
+                                    <button id="increment">+</button>
+                                </div></td>
                                 <td>$89</td>
                                 <td>
                                     <a href="#" class="btn btn-danger btn-sm">
@@ -868,13 +688,11 @@
                                 </td>
                                 <td>Product Name</td>
                                 <td>$89</td>
-                                <td class="qty">
-                                    <div class="counter">
-                                        <button id="decrement">-</button>
-                                        <span id="count">0</span>
-                                        <button id="increment">+</button>
-                                    </div>
-                                </td>
+                                <td class="qty"> <div class="counter">
+                                    <button id="decrement">-</button>
+                                    <span id="count">0</span>
+                                    <button id="increment">+</button>
+                                </div></td>
                                 <td>$89</td>
                                 <td>
                                     <a href="#" class="btn btn-danger btn-sm">
@@ -884,18 +702,16 @@
                             </tr>
                             <tr>
                                 <td style="max-width: 70px; min-height: 70px;">
-                                    <img src="images/products/milk-po.jpg" class="img-fluid img-thumbnail"
-                                        alt="Product Image">
+                                    <img src="images/products/milk-po.jpg"
+                                        class="img-fluid img-thumbnail" alt="Product Image">
                                 </td>
                                 <td>Product Name</td>
                                 <td>$89</td>
-                                <td class="qty">
-                                    <div class="counter">
-                                        <button id="decrement">-</button>
-                                        <span id="count">0</span>
-                                        <button id="increment">+</button>
-                                    </div>
-                                </td>
+                                <td class="qty"> <div class="counter">
+                                    <button id="decrement">-</button>
+                                    <span id="count">0</span>
+                                    <button id="increment">+</button>
+                                </div></td>
                                 <td>$89</td>
                                 <td>
                                     <a href="#" class="btn btn-danger btn-sm">
@@ -910,84 +726,13 @@
                     </div>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" onclick="openCheckoutForm()">Checkout</button>
-                    <div class="overlay" id="overlay">
-                        <div class="checkout-form" id="checkout-form">
-                            <h2>Checkout</h2>
-                            <h3 style="text-align: left;">Address</h3>
-                            <div class="address-card">
-                                <span>Adam Johnson<br>
-                                    403 Oakland Ave Street, A city, Florida, 32104,<br>
-                                    United States of America</span>
-                            </div>
-                            <h3 style="text-align: left;">Payment Options</h3>
-                            <div class="payment-card">
-                                <div class="left">
-                                    <img src="images/bkash.png" alt="Bkash" />
-                                    <label for="bkash">Bkash</label>
-                                </div>
-
-                                <input type="radio" name="payment" id="bkash" value="bkash" style="accent-color: #00894f;">
-                            </div>
-                            <div class="payment-card">
-                                <div class="left">
-                                    <img src="images/card.png" alt="Card" />
-                                    <label for="card">Card</label>
-                                </div>
-
-                                <input type="radio" name="payment" id="card" value="card" style="accent-color: #00894f;">
-                            </div>
-                            <div class="payment-card">
-                                <div class="left">
-                                    <img src="images/cash.png" alt="Cash" />
-                                    <label for="cash">Cash</label>
-                                </div>
-
-                                <input type="radio" name="payment" id="cash" value="cash" style="accent-color: #00894f;">
-                            </div>
-                            <h3 style="text-align: left;">Shopping Bill</h3>
-                            <div class="bill-card" style="margin-bottom: 10px;">
-                                <div class="bill-items">
-                                    <div class="bill-item">
-                                        <span class="item-name">Item 1</span>
-                                        <span class="item-price">$10.00</span>
-                                    </div>
-                                    <div class="bill-item">
-                                        <span class="item-name">Item 2</span>
-                                        <span class="item-price">$20.00</span>
-                                    </div>
-                                    <div class="bill-item">
-                                        <span class="item-name">Item 3</span>
-                                        <span class="item-price">$15.00</span>
-                                    </div>
-                                    <div class="bill-item">
-                                        <span class="item-name">Item 3</span>
-                                        <span class="item-price">$15.00</span>
-                                    </div>
-                                    <div class="bill-item">
-                                        <span class="item-name">Item 3</span>
-                                        <span class="item-price">$15.00</span>
-                                    </div>
-                                    <!-- Add more bill items here -->
-                                </div>
-                            </div>
-                            <strong>Total Amount: $169.00</strong><br>
-
-                            <div class="btns">
-                                <button onclick="closeCheckoutForm()"
-                                    style="background:#fff;color: #000;border:solid 0.1em #000;">Cancel</button>
-                                <button>Buy Now</button>
-                            </div>
-
-                        </div>
-                    </div>
-
+                    <button type="button" class="btn btn-success">Checkout</button>
                 </div>
             </div>
         </div>
     </div>
 
-
+    
 
 
     <footer style="width: 100%;background-color: #ffffff;padding: 60px;box-sizing: border-box;">
@@ -1034,20 +779,7 @@
         });
 
 
-        function openCheckoutForm() {
-            const overlay = document.getElementById("overlay");
-            const checkoutForm = document.getElementById("checkout-form");
-            overlay.style.display = "flex";
-            checkoutForm.style.display = "block";
-        }
-
-        function closeCheckoutForm() {
-            const overlay = document.getElementById("overlay");
-            const checkoutForm = document.getElementById("checkout-form");
-            overlay.style.display = "none";
-            checkoutForm.style.display = "none";
-        }
-
+    </script>
     </script>
 </body>
 

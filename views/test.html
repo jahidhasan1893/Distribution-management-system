@@ -1,145 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Shopping Cart</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Checkout Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Open+Sans:ital,wght@1,300&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
     <style>
-        body {
-            background-color: #f7f7f7;
+        /* Styles for the overlay background */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
         }
 
-        .container {
-            padding: 2rem 0rem;
-        }
-
-        .table-image thead td,
-        .table-image thead th {
-            border: 0;
-            color: #333;
-            font-size: 0.9rem;
-        }
-
-        .table-image td,
-        .table-image th {
-            vertical-align: middle;
+        /* Styles for the checkout form */
+        .checkout-form {
+            width: 350px;
+            display: none;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 2;
             text-align: center;
+            padding-left: 30px;
+            padding-right: 30px;
         }
 
-        .table-image td.qty,
-        .table-image th.qty {
-            max-width: 2rem;
+        .checkout-form h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+
         }
 
-        .price {
-            margin-left: 1rem;
+        .checkout-form label {
+            display: block;
             font-weight: bold;
+            /* margin-top: 10px; */
         }
 
-        .modal-footer {
-            padding-top: 0rem;
+        .checkout-form div {
+            margin-top: 10px;
         }
 
-        /* Additional Card Styles */
-        .card {
-            max-width: 800px;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+        .checkout-form div label {
+            display: inline-block;
+            width: 150px;
         }
 
-        .card-header {
-            background-color: #1f2e45;
+        .checkout-form div span {
+            text-align: left;
+        }
+
+        .address-card,
+        .payment-card,
+        .bill-card {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .checkout-form .payment-card {
+            display: flex;
+            /* Make the payment card a flex container */
+            justify-content: space-between;
+            /* Push the radio button to the right */
+            align-items: center;
+            /* Center the content vertically */
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .checkout-form .payment-card .left {
+            display: flex;
+            align-items: center;
+            /* Center the content horizontally */
+        }
+
+        .checkout-form .payment-card img {
+            width: 30px;
+            margin-right: 2px;
+            vertical-align: middle;
+        }
+
+        .checkout-form .payment-card label {
+            margin-left: 2px;
+            /* Adjust the margin-left to control the space between image and label */
+        }
+
+        .checkout-form .payment-options input[type="radio"] {
+
+            margin-right: 0;
+            /* Remove any right margin on the radio button */
+        }
+
+
+        .checkout-form .bill-card {
+            max-height: 90px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .checkout-form .bill-card div {
+            margin-top: 5px;
+        }
+
+        .checkout-form .bill-card::-webkit-scrollbar {
+            width: 8px;
+            /* Set the width as needed */
+        }
+
+        .checkout-form .bill-card::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            /* Set the background color to match the background */
+        }
+
+        .checkout-form button {
+            display: inline-block;
+            background-color: rgb(72, 186, 108);
             color: #fff;
-            border-bottom: none;
-            border-radius: 15px 15px 0 0;
-            padding: 15px;
-        }
-
-        .modal-body {
-            padding: 1rem;
-        }
-
-        .btn-danger {
-            background-color: #ff5a5f;
-            color: #fff;
             border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
-        .btn-danger:hover {
-            background-color: #ff3c41;
+        .checkout-form .btns .cancel-btn:hover {
+            color: brown;
+
         }
 
-        .btn-success {
-            background-color: #00a859;
-            color: #fff;
-            border: none;
+        .checkout-form button:hover {
+            background: #248C46
         }
 
-        .btn-success:hover {
-            background-color: #00894f;
+
+
+        .checkout-form .bill-items {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkout-form .bill-item {
+            display: flex;
+            justify-content: space-between;
+            /* Align item name to the left, and price to the right */
+            margin-bottom: 5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .checkout-form .bill-item span.item-name {
+            margin-right: auto;
+            /* Push the item name to the left */
+        }
+
+        .checkout-form .bill-item span.item-price {
+            margin-left: auto;
+            /* Push the price to the right */
         }
     </style>
 </head>
 
 <body>
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <div class="card mx-auto">
-            <div class="modal-content">
-                <div class="card-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Your Shopping Cart
-                    </h5>
+    <button onclick="openCheckoutForm()">Open Checkout</button>
+    <div class="overlay" id="overlay">
+        <div class="checkout-form" id="checkout-form">
+            <h2>Checkout</h2>
+            <h3 style="text-align: left;">Address</h3>
+            <div class="address-card">
+                <span>Adam Johnson<br>
+                    403 Oakland Ave Street, A city, Florida, 32104,<br>
+                    United States of America</span>
+            </div>
+            <h3 style="text-align: left;">Payment Options</h3>
+            <div class="payment-card">
+                <div class="left">
+                    <img src="images/bkash.png" alt="Bkash" />
+                    <label for="bkash">Bkash</label>
                 </div>
-                <div class="modal-body">
-                    <table class="table table-image">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Total</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="max-width: 70px; min-height: 70px;">
-                                    <img src="images/products/Best-Leaf-500g-Single-646x1024.jpg"
-                                        class="img-fluid img-thumbnail" alt="Product Image">
-                                </td>
-                                <td>Product Name</td>
-                                <td>$89</td>
-                                <td class="qty"><input type="text"
-                                        style="width: 28px; height: 30px; padding: 5px; border: 1px solid #ccc; border-radius: 15%; box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2;"
-                                        id="input1" value="1"></td>
-                                <td>$89</td>
-                                <td>
-                                    <a href="#" class="btn btn-danger btn-sm">
-                                        Remove
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="d-flex justify-content-end">
-                        <h5>Total: <span class="price text-success">$89</span></h5>
+
+                <input type="radio" name="payment" id="bkash" value="bkash">
+            </div>
+            <div class="payment-card">
+                <div class="left">
+                    <img src="images/card.png" alt="Card" />
+                    <label for="card">Card</label>
+                </div>
+
+                <input type="radio" name="payment" id="card" value="card">
+            </div>
+            <div class="payment-card">
+                <div class="left">
+                    <img src="images/cash.png" alt="Cash" />
+                    <label for="cash">Cash</label>
+                </div>
+
+                <input type="radio" name="payment" id="cash" value="cash">
+            </div>
+            <h3 style="text-align: left;">Shopping Bill</h3>
+            <div class="bill-card" style="margin-bottom: 10px;">
+                <div class="bill-items">
+                    <div class="bill-item">
+                        <span class="item-name">Item 1</span>
+                        <span class="item-price">$10.00</span>
                     </div>
-                </div>
-                <div class="modal-footer border-top-0 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success">Checkout</button>
+                    <div class="bill-item">
+                        <span class="item-name">Item 2</span>
+                        <span class="item-price">$20.00</span>
+                    </div>
+                    <div class="bill-item">
+                        <span class="item-name">Item 3</span>
+                        <span class="item-price">$15.00</span>
+                    </div>
+                    <div class="bill-item">
+                        <span class="item-name">Item 3</span>
+                        <span class="item-price">$15.00</span>
+                    </div>
+                    <div class="bill-item">
+                        <span class="item-name">Item 3</span>
+                        <span class="item-price">$15.00</span>
+                    </div>
+                    <!-- Add more bill items here -->
                 </div>
             </div>
+            <strong>Total Amount: $169.00</strong><br>
+
+            <div class="btns">
+                <button onclick="closeCheckoutForm()"
+                    style="background:#fff;color: #000;border:solid 0.1em #000;">Cancel</button>
+                <button>Buy Now</button>
+            </div>
+
         </div>
     </div>
+
+    <script>
+        function openCheckoutForm() {
+            const overlay = document.getElementById("overlay");
+            const checkoutForm = document.getElementById("checkout-form");
+            overlay.style.display = "flex";
+            checkoutForm.style.display = "block";
+        }
+
+        function closeCheckoutForm() {
+            const overlay = document.getElementById("overlay");
+            const checkoutForm = document.getElementById("checkout-form");
+            overlay.style.display = "none";
+            checkoutForm.style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
