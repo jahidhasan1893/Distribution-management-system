@@ -1,7 +1,8 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: rgb(152,214,63);
-    background: linear-gradient(90deg, rgba(152,214,63,1) 0%, rgba(32,143,137,1) 100%);
+    background-image: url("bg1.png"); 
+    background-size: cover; 
+    background-position: center center;
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,8 +12,6 @@ body {
 }
 
 .container {
-	width: 40%;
-    background-color: rgba(255, 255, 255, 0.9);
     padding: 40px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -61,7 +60,7 @@ select{
 }
 
 button {
-    background-image: linear-gradient(90deg, rgba(152,214,63,1) 0%, rgba(32,143,137,1) 100%);
+    background:#00a859;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -71,18 +70,18 @@ button {
 }
 
 button:hover {
-    background-color:#208F89;
+    background-color:#00894f;
 }
 
 
 a {
-    color: #98D63F;
+    color: #00a859;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #208F89;
+    color: #00894f;
 }
 
 @media (max-width: 500px) {
