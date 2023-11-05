@@ -1,275 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Checkout Form</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Open+Sans:ital,wght@1,300&family=Poppins:wght@700&display=swap"
-        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        /* Styles for the overlay background */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
+
+        .right5 {
+            width: 600px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+
+        }
+        .left5 {
+            width: 350px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        /* Styles for the checkout form */
-        .checkout-form {
-            width: 350px;
-            display: none;
-            background: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            z-index: 2;
-            text-align: center;
-            padding-left: 30px;
-            padding-right: 30px;
+        .right5 h1 {
+            margin-top: 0;
+            color: #333;
+        }
+        .left5 h3 {
+            margin-top: 0;
+            color: #333;
         }
 
-        .checkout-form h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-
+        .input-container5 {
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 10px;
         }
 
-        .checkout-form label {
-            display: block;
-            font-weight: bold;
-            /* margin-top: 10px; */
+        
+
+        .right5 input {
+            width: 450px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
-        .checkout-form div {
-            margin-top: 10px;
-        }
-
-        .checkout-form div label {
-            display: inline-block;
+        .right5 select {
             width: 150px;
-        }
-
-        .checkout-form div span {
-            text-align: left;
-        }
-
-        .address-card,
-        .payment-card,
-        .bill-card {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
             padding: 10px;
-            margin-top: 10px;
-            text-align: left;
-        }
-
-        .checkout-form .payment-card {
-            display: flex;
-            /* Make the payment card a flex container */
-            justify-content: space-between;
-            /* Push the radio button to the right */
-            align-items: center;
-            /* Center the content vertically */
-            background: #f9f9f9;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 10px;
-            margin-top: 10px;
-            text-align: left;
         }
 
-        .checkout-form .payment-card .left {
-            display: flex;
-            align-items: center;
-            /* Center the content horizontally */
-        }
-
-        .checkout-form .payment-card img {
-            width: 30px;
-            margin-right: 2px;
-            vertical-align: middle;
-        }
-
-        .checkout-form .payment-card label {
-            margin-left: 2px;
-            /* Adjust the margin-left to control the space between image and label */
-        }
-
-        .checkout-form .payment-options input[type="radio"] {
-
-            margin-right: 0;
-            /* Remove any right margin on the radio button */
-        }
-
-
-        .checkout-form .bill-card {
-            max-height: 90px;
-            overflow-y: auto;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 10px;
-        }
-
-        .checkout-form .bill-card div {
-            margin-top: 5px;
-        }
-
-        .checkout-form .bill-card::-webkit-scrollbar {
-            width: 8px;
-            /* Set the width as needed */
-        }
-
-        .checkout-form .bill-card::-webkit-scrollbar-thumb {
-            background-color: transparent;
-            /* Set the background color to match the background */
-        }
-
-        .checkout-form button {
-            display: inline-block;
-            background-color: rgb(72, 186, 108);
+        .right5 button,.left5 button {
+            background: #00a859;
             color: #fff;
             border: none;
-            padding: 10px 20px;
-            margin-top: 15px;
-            cursor: pointer;
             border-radius: 5px;
+            padding: 10px 40px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .checkout-form .btns .cancel-btn:hover {
-            color: brown;
-
-        }
-
-        .checkout-form button:hover {
-            background: #248C46
+        .right5  button:hover,.left5 button:hover {
+            background-color: #00894f;
         }
 
 
+        
 
-        .checkout-form .bill-items {
-            display: flex;
-            flex-direction: column;
-        }
+       
 
-        .checkout-form .bill-item {
-            display: flex;
-            justify-content: space-between;
-            /* Align item name to the left, and price to the right */
-            margin-bottom: 5px;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .checkout-form .bill-item span.item-name {
-            margin-right: auto;
-            /* Push the item name to the left */
-        }
-
-        .checkout-form .bill-item span.item-price {
-            margin-left: auto;
-            /* Push the price to the right */
-        }
+        
     </style>
 </head>
 
 <body>
-    <button onclick="openCheckoutForm()">Open Checkout</button>
-    <div class="overlay" id="overlay">
-        <div class="checkout-form" id="checkout-form">
-            <h2>Checkout</h2>
-            <h3 style="text-align: left;">Address</h3>
-            <div class="address-card">
-                <span>Adam Johnson<br>
-                    403 Oakland Ave Street, A city, Florida, 32104,<br>
-                    United States of America</span>
-            </div>
-            <h3 style="text-align: left;">Payment Options</h3>
-            <div class="payment-card">
-                <div class="left">
-                    <img src="images/bkash.png" alt="Bkash" />
-                    <label for="bkash">Bkash</label>
+    <div style="display:flex;justify-content: space-between;width: 950px;height: 80vh;font-family: 'Arial', sans-serif;margin-top: 160px;margin-bottom: 160px;">
+        <div class="left5" >
+            
+            <img src="images/bkash.png" alt="" style="max-width: 90px;max-height: 90px;border-radius: 50%;background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);flex-shrink: 0;
+            margin: 20px;
+            height: calc(150px + 6vw);
+            width: calc(150px + 6vw);
+            border: calc(8px + 0.2vw) solid transparent;
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            background-size: cover;
+            box-sizing: border-box;
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);">
+            <h3 style="padding-top: 0px;">Taqwa Super Shop</h3>
+            <button style="margin-top: 10px;">Update Photo</button>
+        </div>
+        <div class="right5">
+            <form id="login-form">
+                <h1>Update Profile</h1>
+                <div class="input-container5">
+                    <input type="text" id="shopname" placeholder="shop name" required>
+                    <!-- <i class='bx bx-user'></i> -->
+                </div>
+                <div class="input-container5">
+                    <input type="text" id="email" placeholder="email" required>
+                    <!-- <i class='bx bxs-envelope'></i> -->
                 </div>
 
-                <input type="radio" name="payment" id="bkash" value="bkash">
-            </div>
-            <div class="payment-card">
-                <div class="left">
-                    <img src="images/card.png" alt="Card" />
-                    <label for="card">Card</label>
+                <div class="input-container5">
+                    <input type="text" id="phonenumber" placeholder="phone number" required>
+                    <!-- <i class='bx bxs-envelope'></i> -->
                 </div>
-
-                <input type="radio" name="payment" id="card" value="card">
-            </div>
-            <div class="payment-card">
-                <div class="left">
-                    <img src="images/cash.png" alt="Cash" />
-                    <label for="cash">Cash</label>
+                <div class="input-container5">
+                    <select name="divisions" id="divisions" onchange="divisionsList();">
+                        <option disabled selected>Select Division</option>
+                        <option value="Barishal">Barishal</option>
+                        <option value="Chattogram">Chattogram</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Khulna">Khulna</option>
+                        <option value="Mymensingh">Mymensingh</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Sylhet">Sylhet</option>
+                    </select>
+                    <select name="" id="distr" onchange="thanaList();"></select>
+                    <select name="" id="polic_sta"></select>
+                    <!-- <i class='bx bxs-envelope'></i> -->
                 </div>
-
-                <input type="radio" name="payment" id="cash" value="cash">
-            </div>
-            <h3 style="text-align: left;">Shopping Bill</h3>
-            <div class="bill-card" style="margin-bottom: 10px;">
-                <div class="bill-items">
-                    <div class="bill-item">
-                        <span class="item-name">Item 1</span>
-                        <span class="item-price">$10.00</span>
-                    </div>
-                    <div class="bill-item">
-                        <span class="item-name">Item 2</span>
-                        <span class="item-price">$20.00</span>
-                    </div>
-                    <div class="bill-item">
-                        <span class="item-name">Item 3</span>
-                        <span class="item-price">$15.00</span>
-                    </div>
-                    <div class="bill-item">
-                        <span class="item-name">Item 3</span>
-                        <span class="item-price">$15.00</span>
-                    </div>
-                    <div class="bill-item">
-                        <span class="item-name">Item 3</span>
-                        <span class="item-price">$15.00</span>
-                    </div>
-                    <!-- Add more bill items here -->
+                <div class="input-container5">
+                    <input type="text" id="address" placeholder="shop address" required>
+                    <!-- <i class='bx bxs-envelope'></i> -->
                 </div>
-            </div>
-            <strong>Total Amount: $169.00</strong><br>
-
-            <div class="btns">
-                <button onclick="closeCheckoutForm()"
-                    style="background:#fff;color: #000;border:solid 0.1em #000;">Cancel</button>
-                <button>Buy Now</button>
-            </div>
-
+                <div class="input-container5">
+                    <input type="password" id="password" placeholder="update password" required>
+                    <!-- <i class='bx bxs-lock-alt' ></i> -->
+                </div>
+                <div class="input-container5">
+                    <input type="password" id="password" placeholder="confirm password" required>
+                    <!-- <i class='bx bxs-lock-alt' ></i> -->
+                </div>
+                <button type="submit">Update</button>
+            </form>
         </div>
     </div>
-
-    <script>
-        function openCheckoutForm() {
-            const overlay = document.getElementById("overlay");
-            const checkoutForm = document.getElementById("checkout-form");
-            overlay.style.display = "flex";
-            checkoutForm.style.display = "block";
-        }
-
-        function closeCheckoutForm() {
-            const overlay = document.getElementById("overlay");
-            const checkoutForm = document.getElementById("checkout-form");
-            overlay.style.display = "none";
-            checkoutForm.style.display = "none";
-        }
-    </script>
+    <script src="js/change.js"></script>
 </body>
 
 </html>

@@ -11,12 +11,17 @@
     <title>Your Shopping Cart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Open+Sans:ital,wght@1,300&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         * {
-            font-family: 'Poppins', sans-serif;
+            
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -24,7 +29,7 @@
 
         body {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
@@ -32,8 +37,11 @@
             text-align: center;
             font-family: 'Open Sans', sans-serif;
             background-image: url("images/bg1.png"); 
-    background-size: cover; 
+            background-size: cover;
+    
     background-position: center center;
+    margin: 0;
+    padding: 0;
         }
 
 
@@ -193,7 +201,7 @@
         }
 
         footer a {
-            margin-top: 10px;
+            margin-top: 20px;
             font-size: 14px;
         }
 
@@ -490,104 +498,76 @@
         }
 
 
-
-        .container3 {
-            margin-top: 200px;
-            padding: 2rem 0rem;
-            margin-bottom: 60px;
-        }
-
-        .table-image thead td,
-        .table-image thead th {
-            border: none;
-            color: #333;
-            font-size: 0.9rem;
-        }
-
-        .table-image td,
-        .table-image th {
-            vertical-align: middle;
+        .right5 {
+            width: 600px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             text-align: center;
+
+        }
+        .left5 {
+            width: 350px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .table-image td.qty,
-        .table-image th.qty {
-            max-width: 2rem;
+        .right5 h1 {
+            margin-top: 0;
+            color: #333;
+        }
+        .left5 h3 {
+            margin-top: 0;
+            color: #333;
         }
 
-        .price {
-            margin-left: 1rem;
-            font-weight: bold;
-        }
-
-        .modal-footer {
-            padding-top: 0rem;
-        }
-
-        /* Additional Card Styles */
-        .card3 {
-
-
-            max-width: 800px;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .card-header3 {
-            background-color: #1f2e45;
-            color: #fff;
-            border-bottom: none;
-            border-radius: 15px 15px 0 0;
-            padding: 15px;
-        }
-
-        .modal-body {
-            padding: 1rem;
-        }
-
-        .btn-danger {
-            font-size: 10px;
-            padding: 8px;
-            background-color: #ff5a5f;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-danger:hover {
-            color: #fff;
-        }
-
-        .btn-success {
-            font-size: 14px;
-            background-color: #00a859;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-success:hover {
-            color: #fff;
-            background-color: #00894f;
-        }
-
-
-        .counter {
+        .input-container5 {
+            margin: 10px 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            column-gap: 10px;
+            font-size: small;
         }
 
-        .counter button {
-            background: #E1E8EE;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            margin: 0 5px;
-            cursor: pointer;
+        
+
+        .right5 input {
+            width: 478px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
+
+        .right5 select {
+            width: 152px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .right5 button,.left5 button {
+            background: #00a859;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 40px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .right5  button:hover,.left5 button:hover {
+            background-color: #00894f;
+        }
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -607,7 +587,7 @@
 </head>
 
 <body>
-    <div class="navbar1">
+    <div class="navbar1" style="font-family: 'Poppins', sans-serif;">
         <div class="left">
             <div class="logo">
                 <img src="images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
@@ -643,115 +623,72 @@
 
 
 
-
-    <div class="container3 justify-content-center align-items-center" style="height: 100vh;">
-        <div class="card3 mx-auto">
-            <div class="modal-content">
-                <div class="card-header3">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Your Orders
-                    </h5>
+    <div style="display:flex;justify-content: space-between;width: 950px;height: 80vh;font-family: 'Arial', sans-serif;margin-top: 160px;margin-bottom: 160px;">
+        <div class="left5" >
+            
+            <img src="images/bkash.png" alt="" style="max-width: 90px;max-height: 90px;border-radius: 50%;background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);flex-shrink: 0;
+            margin: 20px;
+            height: calc(150px + 6vw);
+            width: calc(150px + 6vw);
+            border: calc(8px + 0.2vw) solid transparent;
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            background-size: cover;
+            box-sizing: border-box;
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);">
+            <h3 style="padding-top: 0px;">Taqwa Super Shop</h3>
+            <button style="margin-top: 10px;">Update Photo</button>
+        </div>
+        <div class="right5">
+            <form id="login-form">
+                <h1>Update Profile</h1>
+                <div class="input-container5">
+                    <input type="text" id="shopname" placeholder="shop name" required>
+                    <!-- <i class='bx bx-user'></i> -->
                 </div>
-                <div class="modal-body">
-                    <table class="table table-image" style="border: none;">
-
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="address-card"
-                                        style="text-align: left; background: #f9f9f9;
-                                border: 1px solid #ddd;padding: 20px;padding-left: 10px;padding-right: 300px;border-radius: 10px;">
-                                        <span>
-                                            <div class="bill-items" style="border-bottom: 1px double #504848">
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Item 2&emsp;X&emsp;5</span>
-                                                    <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                </div>
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Item 2&emsp;X&emsp;2</span>
-                                                    <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                </div>
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Item 3&emsp;X&emsp;10</span>
-                                                    <span class="item-price" style="color: #84c622;">$25.00</span>
-                                                </div>
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Item 3&emsp;X&emsp;10</span>
-                                                    <span class="item-price" style="color: #84c622;">$25.00</span>
-                                                </div>
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Item 3&emsp;X&emsp;10</span>
-                                                    <span class="item-price" style="color: #84c622;">$25.00</span>
-                                                </div>
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Delivery</span>
-                                                    <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                </div>
-                                                <!-- Add more bill items here -->
-                                            </div>
-                                            <div class="bill-item"
-                                                style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                <strong class="item-name">Total</strong>
-                                                <span class="item-price" style="color: #84c622;">$20.00</span>
-                                            </div>
-                                        </span>
-                                        <span class="tag bg-success"  >Delivered</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="address-card"
-                                        style="text-align: left; background: #f9f9f9;
-                                border: 1px solid #ddd;padding: 20px;padding-left: 10px;padding-right: 300px;border-radius: 10px;">
-                                        <span>
-                                            <div class="bill-items" style="border-bottom: 1px double #504848">
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Item 2&emsp;X&emsp;5</span>
-                                                    <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                </div>
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Item 2&emsp;X &emsp;2</span>
-                                                    <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                </div>
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Item 3&emsp;X&emsp;10</span>
-                                                    <span class="item-price" style="color: #84c622;">$25.00</span>
-                                                </div>
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <span class="item-name">Delivery</span>
-                                                    <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                </div>
-                                                <!-- Add more bill items here -->
-                                            </div>
-                                            <div class="bill-item"
-                                                style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                <strong class="item-name">Total</strong>
-                                                <span class="item-price" style="color: #84c622;">$20.00</span>
-                                            </div>
-                                        </span>
-                                        <span class="tag bg-secondary" >Processing</span>
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
+                <div class="input-container5">
+                    <input type="text" id="email" placeholder="email" required>
+                    <!-- <i class='bx bxs-envelope'></i> -->
                 </div>
 
-            </div>
+                <div class="input-container5">
+                    <input type="text" id="phonenumber" placeholder="phone number" required>
+                    <!-- <i class='bx bxs-envelope'></i> -->
+                </div>
+                <div class="input-container5">
+                    <select name="divisions" id="divisions" onchange="divisionsList();">
+                        <option disabled selected>Select Division</option>
+                        <option value="Barishal">Barishal</option>
+                        <option value="Chattogram">Chattogram</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Khulna">Khulna</option>
+                        <option value="Mymensingh">Mymensingh</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Sylhet">Sylhet</option>
+                    </select>
+                    <select name="" id="distr" onchange="thanaList();"></select>
+                    <select name="" id="polic_sta"></select>
+                    <!-- <i class='bx bxs-envelope'></i> -->
+                </div>
+                <div class="input-container5">
+                    <input type="text" id="address" placeholder="shop address" required>
+                    <!-- <i class='bx bxs-envelope'></i> -->
+                </div>
+                <div class="input-container5">
+                    <input type="password" id="password" placeholder="update password" required>
+                    <!-- <i class='bx bxs-lock-alt' ></i> -->
+                </div>
+                <div class="input-container5">
+                    <input type="password" id="password" placeholder="confirm password" required>
+                    <!-- <i class='bx bxs-lock-alt' ></i> -->
+                </div>
+                <button type="submit">Update</button>
+            </form>
         </div>
     </div>
+
+    
 
 
 
@@ -780,27 +717,9 @@
         </div>
         <!-- end social elements -->
     </footer>
+    <script src="js/change.js"></script>
     <script>
-        const incrementButton = document.getElementById("increment");
-        const decrementButton = document.getElementById("decrement");
-        const countSpan = document.getElementById("count");
 
-        let count = 0;
-
-        incrementButton.addEventListener("click", () => {
-            count++;
-            countSpan.innerText = count;
-        });
-
-        decrementButton.addEventListener("click", () => {
-            if (count > 0) {
-                count--;
-                countSpan.innerText = count;
-            }
-        });
-
-
-    </script>
     </script>
 </body>
 
