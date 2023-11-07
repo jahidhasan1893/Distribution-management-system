@@ -8,23 +8,23 @@
 </head>
 <body>
     <div class="container-sign-up">
-        <form id="login-form" >
+        <form id="login-form" action="/customer_sign_up" method="post">
             <h1>Sign Up - Customer</h1>
             <div class="input-container">
-                <input type="text" id="shopname" placeholder="shop name" required>
+                <input type="text" id="shopname" name="shopname" placeholder="shop name" required>
 				<!-- <i class='bx bx-user'></i> -->
             </div>
             <div class="input-container">
-                <input type="text" id="email" placeholder="email" required>
+                <input type="text" id="email" name="email" placeholder="email" required>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             
             <div class="input-container">
-                <input type="text" id="phonenumber" placeholder="phone number" required>
+                <input type="text" id="phonenumber" name="phonenumber" placeholder="phone number" required>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
-                <select name="divisions" id="divisions" onchange="divisionsList();">
+                <select name="divisions" id="divisions"  onchange="divisionsList();">
                     <option disabled selected >Select Division</option>
                     <option value="Barishal">Barishal</option>
                     <option value="Chattogram">Chattogram</option>
@@ -35,16 +35,16 @@
                     <option value="Rangpur">Rangpur</option>
                     <option value="Sylhet">Sylhet</option>
                   </select>
-                  <select name="" id="distr" onchange="thanaList();"></select>
-                  <select name="" id="polic_sta"></select>
+                  <select name="district" id="distr" onchange="thanaList();"></select>
+                  <select name="policestation" id="polic_sta"></select>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
-                <input type="text" id="address" placeholder="shop address" required>
+                <input type="text" id="address" name="shopaddress" placeholder="shop address" required>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
-                <input type="password" id="password" placeholder="password" required>
+                <input type="password" id="password" name="password" placeholder="password" required>
 				<!-- <i class='bx bxs-lock-alt' ></i> -->
             </div>
             <div class="input-container">
