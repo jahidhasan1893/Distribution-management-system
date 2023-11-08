@@ -27,6 +27,10 @@ const pool = mysql.createPool({
 
 
 
+
+
+
+
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+"/views/home.html");
 })
