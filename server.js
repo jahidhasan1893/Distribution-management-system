@@ -2,6 +2,7 @@ const express =require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
+const validator = require('validator');
 
 
 
@@ -52,6 +53,10 @@ app.post('/customer_sign_up', (req, res) => {
   const password = req.body.password;
 
 
+  if (!validator.isEmail(email)) {
+    res.status(400).send('Invalid email address');
+  } 
+
   // Hash the password 
   bcrypt.hash(password, 10, function(err, hashedPassword) {
     // Store hash in your password DB.
@@ -77,6 +82,14 @@ app.post('/customer_sign_in', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
+
+
+  if (!validator.isEmail(email)) {
+    res.status(400).send('Invalid email address');
+    return;
+  } 
+
+  
 
   pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
     if (error) {
@@ -119,7 +132,8 @@ app.post('/customer_sign_in', (req, res) => {
 
 
 
-  
+
+
 
 
 
