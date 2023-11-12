@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 
-
+global.email;
 
 
 const app =express();
@@ -38,7 +38,7 @@ app.get('/',(req,res)=>{
 
 
 
-
+var userEmail;
 
 
 
@@ -78,7 +78,7 @@ app.post('/customer_sign_up', (req, res) => {
 
 
 
-app.post('/customer_sign_in', (req, res) => {
+app.post('/customer_sign_in', (req, res,next) => {
   const email = req.body.email;
   const password = req.body.password;
 
@@ -118,7 +118,11 @@ app.post('/customer_sign_in', (req, res) => {
             // // Set the token as an HTTP-only cookie
             // res.cookie('token', token, { httpOnly: true, maxAge: 3600000 }); // 1 hour expiry
   
+            // res.json({email});
+            // console.log(userEmail+"1");
+            global.email=email;
             res.redirect('/customers.html');
+            next();
           } else {
             // Password did not match
             res.status(401).send('Invalid username or password.');
@@ -133,7 +137,10 @@ app.post('/customer_sign_in', (req, res) => {
 
 
 
-
+app.get('/profile',(req,res)=>{
+  console.log(global.email);
+  
+})
 
 
 
