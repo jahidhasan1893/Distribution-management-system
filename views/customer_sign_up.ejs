@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Distribution management system</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container-sign-up">
+        <form id="login-form" action="/customer_sign_up" method="post">
+            <h1>Sign Up - Customer</h1>
+            <div class="input-container">
+                <input type="text" id="shopname" name="shopname" placeholder="shop name" required>
+				<!-- <i class='bx bx-user'></i> -->
+            </div>
+            <div class="input-container">
+                <input type="text" id="email" name="email" placeholder="email" required>
+				<!-- <i class='bx bxs-envelope'></i> -->
+            </div>
+            
+            <div class="input-container">
+                <input type="text" id="phonenumber" name="phonenumber" placeholder="phone number" required>
+				<!-- <i class='bx bxs-envelope'></i> -->
+            </div>
+            <div class="input-container">
+                <select name="divisions" id="divisions"  onchange="divisionsList();">
+                    <option disabled selected >Select Division</option>
+                    <option value="Barishal">Barishal</option>
+                    <option value="Chattogram">Chattogram</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Mymensingh">Mymensingh</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Sylhet">Sylhet</option>
+                  </select>
+                  <select name="district" id="distr" onchange="thanaList();"></select>
+                  <select name="policestation" id="polic_sta"></select>
+				<!-- <i class='bx bxs-envelope'></i> -->
+            </div>
+            <div class="input-container">
+                <input type="text" id="address" name="shopaddress" placeholder="shop address" required>
+				<!-- <i class='bx bxs-envelope'></i> -->
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" name="password" placeholder="password" required>
+				<!-- <i class='bx bxs-lock-alt' ></i> -->
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" placeholder="confirm password" required>
+				<!-- <i class='bx bxs-lock-alt' ></i> -->
+            </div>
+            <button type="submit" >Sign Up</button>
+			<p>Already have an account? <a href="#" id="customers_sign_in">Sign in</a></p> 
+        </form>
+    </div>
+
+    <script src="js/change.js"></script>
+    <script>
+        document.getElementById('customers_sign_in').addEventListener('click', function () {
+            window.location.href = '/customers_sign_in';
+        });
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Distribution managment system</title>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="login-form" action="/customers" method="post">
+            <h1>Sign In - Customer</h1>
+            <div class="input-container">
+                <input type="text" id="email" name="email" placeholder="email" required>
+				<i class='bx bx-user'></i>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" name="password" placeholder="password" required>
+				<i class='bx bxs-lock-alt' ></i>
+            </div>
+            <button type="submit" >Sign In</button>
+			<div class="remember-forgot" >
+				<!-- <input type="checkbox" style="margin: 0; padding: 0; float: left;"><label> Remember me</label> -->
+				<a href="#" >Forgotten password?</a>
+			</div>
+			<p>Don't have an account? <a href="#" id="customers_sign_up">Sign up</a></p> 
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('customers_sign_up').addEventListener('click', function () {
+            window.location.href = '/customers_sign_up';
+        });
+    </script>
+</body>
+</html>

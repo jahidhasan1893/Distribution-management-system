@@ -104,38 +104,41 @@
 <body>
 
     <section id="home" data-img-size="(W)1920px X (H)800px"
-        style=" background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) repeat scroll 0% 0%, transparent url('images/Web-Banner-1920x1080-1-scaled.jpg') repeat scroll 0% 0%;background-attachment: fixed;background-size: cover;">
+        style=" background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) repeat scroll 0% 0%, transparent url('images/Web-Banner-1920x1080-1-scaled.jpg') repeat scroll 0% 0%;background-attachment: fixed;background-size: cover;">
         <div class="container one-sixth-screen xs-height-auto position-relative">
             <div class="row">
 
                 <div class="col-md-9 col-sm-12 col-xs-12 center-col margin-twenty-five-top slider-typography xs-position-static text-center"
                     style="position: relative;top: 170px;">
                     <!-- title -->
-                    <!-- <h1
-                        class="title-extra-large-3 md-title-extra-large-2 xs-title-extra-large-3 letter-spacing-minus-1  alt-font font-weight-600 margin-one-bottom sm-margin-three-bottom tz-text center-col" style="color: rgb(185, 28, 28)">
+                    <h1
+                        class="text-white title-extra-large-3 md-title-extra-large-2 xs-title-extra-large-3 letter-spacing-minus-1  alt-font font-weight-600 margin-one-bottom sm-margin-three-bottom tz-text center-col" style="filter: brightness(350%);filter: contrast(350%);">
                         Pusti | T. K. Group</h1>
                     <div
-                        class="text-white text-extra-large font-weight-480 center-col xs-text-extra-large tz-text margin-eight-bottom sm-margin-six-bottom xs-margin-eleven-bottom sm-margin-nine-bottom" style="color: #791716;">
-                        <p class="sm-width-80 center-col">PUSTI is one of the leading consumer brands of Bangladesh from the house of T. K. Group.</p>
-                    </div> -->
+                        class="text-white text-extra-large font-weight-480 center-col xs-text-extra-large tz-text margin-eight-bottom sm-margin-six-bottom xs-margin-eleven-bottom sm-margin-nine-bottom">
+                        <p class="sm-width-80 center-col" style="filter: brightness(350%);filter: contrast(350%);">PUSTI is one of the leading consumer brands of Bangladesh from
+                            the house of T. K. Group.</p>
+                    </div>
                     <!-- end title -->
                     <div class="btn-dual btn-group">
                         <a class="btn btn-large dropdown-toggle propClone bg-golden-yellow text-black btn-circle xs-margin-ten-bottom xs-width-100 "
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
-                                class="tz-text">Register Now</span></a>
-                        <a
-                            class="btn btn-large propClone bg-white text-black btn-circle xs-margin-ten-bottom xs-width-100"><span
-                                class="tz-text">READ MORE</span></a>
+                                class="tz-text">SIGN IN</span></a>
+                        <a class="btn btn-large dropdown-toggle propClone bg-white text-black btn-circle xs-margin-ten-bottom xs-width-100"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="tz-text">Read More</span></a>
 
                         <ul class="dropdown-menu" style="
                                         padding: 10px 20px 10px 20px; 
                                         float: left;
                                         border-radius: 10px;
                                         margin-top: 10px;" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item text-right" href="distributor_sign_up.html">Distributor</a></li>
+                            <li><a class="dropdown-item text-right" href="#" id="distributors_sign_in">Distributor</a>
+                            </li>
                             <div class="dropdown-divider"></div>
-                            <li><a class="dropdown-item text-right" href="customer_sign_up.html">Customer</a></li>
+                            <li><a class="dropdown-item text-right" href="#" id="customers_sign_in">Customer</a></li>
                         </ul>
+
+                        
                     </div>
 
                 </div>
@@ -158,7 +161,7 @@
                             PUSTI is one of the leading consumer brands of Bangladesh.
                         </h2>
                         <!-- end section title -->
-                        
+
                         <div
                             class="text-medium tz-text width-90 sm-width-100 margin-fifteen-bottom sm-margin-ten-bottom">
                             <p>T.K. Group was founded by two brothers, Mohammed Abu Tayab and Mohammad Abul Kalam, in
@@ -281,6 +284,14 @@
         </div>
     </footer>
     <!-- javascript libraries -->
+    <script>
+        document.getElementById('customers_sign_in').addEventListener('click', function () {
+            window.location.href = '/customers_sign_in';
+        });
+        document.getElementById('distributors_sign_up').addEventListener('click', function () {
+            window.location.href = '/distributors_sign_up';
+        });
+    </script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.appear.js"></script>
     <script type="text/javascript" src="js/smooth-scroll.js"></script>
