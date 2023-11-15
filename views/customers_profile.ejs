@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pusti | <%= email %></title>
+    <title>Pusti | Customers</title>
 
     <link rel="stylesheet" href="https://boxicons.com/css/boxicons.min.css">
 
@@ -592,8 +592,8 @@
         </div>
 
         <div class="right">
-            <a href="#" style="margin-top: 10px;height: 50px;">Dashboard</a>
-            
+            <a href="#" style="margin-top: 10px;height: 50px;" id="dashboard">Dashboard</a>
+
             <div class="dropdown hover">
                 <a href="#">
                     <img src="images/products/Aata-1-Kg-Single-600x921.jpg" alt="" style="object-fit: fill;">
@@ -718,6 +718,9 @@
     <script>
         
 
+        document.getElementById('dashboard').addEventListener('click', function () {
+            window.location.href = '/dashboard?email=<%= encodeURIComponent(email) %>';
+        });
         
 
         document.getElementById('cart').addEventListener('click', function () {

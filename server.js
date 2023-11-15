@@ -165,6 +165,19 @@ app.get('/customers_sign_in', (req, res) => {
 });
 
 
+app.get('/dashboard',(req,res)=>{
+  const email = req.query.email;
+  pool.query('SELECT * FROM products ', (error, products) => {
+    if (error) {
+      console.error('Error Log In:', error);
+      return res.status(500).send('Error occurred. Please try again later.');
+    }
+
+    res.render('customers', { email: email, products: products });
+  });
+});
+
+
 app.get('/profile', (req, res) => {
 
   const email = req.query.email;

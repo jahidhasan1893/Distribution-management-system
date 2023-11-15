@@ -794,7 +794,7 @@
 
         <div class="right">
             
-            <a href="#" style="margin-top: 10px;height: 50px;">Dashboard</a>
+            <a href="#" style="margin-top: 10px;height: 50px;" id="dashboard">Dashboard</a>
            
             <div class="dropdown hover">
                 <a href="#">
@@ -974,7 +974,9 @@
         });
 
         
-        
+        document.getElementById('dashboard').addEventListener('click', function () {
+            window.location.href = '/dashboard?email=<%= encodeURIComponent(email) %>';
+        });
 
         document.getElementById('orders').addEventListener('click', function () {
             window.location.href = '/orders?email=<%= encodeURIComponent(email) %>';
