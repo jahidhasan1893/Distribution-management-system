@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pusti | Customers </title>
+    <title>Pusti | Customers</title>
 
     <link rel="stylesheet" href="https://boxicons.com/css/boxicons.min.css">
     <style>
@@ -261,12 +261,12 @@
         #button:hover+#popup-container,
         #popup-container:hover {
             display: block;
-
+            
         }
 
         .shopping-card {
-            width: 440px;
-            /* margin: 0 auto; */
+            width: 400px;
+            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -673,7 +673,7 @@
             display: inline-block;
             margin-right: 10px;
             position: relative;
-
+           
         }
 
         .navbar .right .dropdown>a {
@@ -704,7 +704,7 @@
         }
 
         .navbar .right .dropdown ul {
-
+            
             list-style-type: none;
             display: block;
             margin: 0;
@@ -730,7 +730,7 @@
         }
 
         .navbar .right .dropdown li {
-
+            
             height: 0;
             overflow: hidden;
             transition: all 500ms;
@@ -740,7 +740,7 @@
             transition-delay: 300ms;
         }
 
-        .navbar .right .dropdown li:first-child a {
+        .navbar .right  .dropdown li:first-child a {
             border-radius: 2px 2px 0 0;
         }
 
@@ -769,7 +769,7 @@
             height: 40px;
         }
 
-        .navbar .right .dropdown.hover:hover li:first-child {
+       .navbar .right .dropdown.hover:hover li:first-child {
             padding-top: 65px;
         }
     </style>
@@ -811,11 +811,11 @@
                 </a>
                 <ul>
                     <li><a href="#">Item</a></li>
-                    <li><a href="#" id="profile">Profile</a></li>
-                    <li><a href="#" id="cart">Your Cart</a></li>
-                    <li><a href="#" id="orders">Orders</a></li>
-                    <li><a href="#" id="log-out">Log Out</a></li>
-
+                    <li><a href="customers_profile.html">Profile</a></li>
+                    <li><a href="customers_cart.html">Your Cart</a></li>
+                    <li><a href="customer_orders.html">Orders</a></li>
+                    <li><a href="#">Log Out</a></li>
+                   
                 </ul>
             </div>
             <!-- <span class="search-icon" onclick="toggleSearch()"><i class='bx bx-search-alt-2'></i></span>
@@ -840,33 +840,218 @@
 
 
         <div class="grid-container" style="padding-bottom: 90px;">
-            <% products.forEach(product=> {%>
-                <div class="container">
-                    <div class="card">
-                        <div class="imgBx">
-                            <img class="product-img" src="<%= product.link_of_image %>">
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/Aata-1-Kg-Single-600x921.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Atta - 1kg</h3>
+                        <p class="price">৳60</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
                         </div>
-                        <div class="contentBx">
-                            <h3>
-                                <%= product.product_name %>
-                            </h3>
-                            <p class="price" id="price">
-                                <%= product.price %>
-                            </p>
-                            
-                            <div class="counter">
-                                <button class="decrement" onclick="decrementCount(this)">-</button>
-                                <span class="count">0</span>
-                                <button class="increment" onclick="incrementCount(this)">+</button>
-                            </div>
-                            <a href="#" class="add_to_cart" onclick="addToCart(this)">Add to Cart</a>
-                        </div>
+                        <a href="#">Add to Cart</a>
                     </div>
                 </div>
-                <% }); %>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/Soyabean-Oil-600x921.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Oil - 5L</h3>
+                        <p class="price">৳825</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/CD-500g-Single-646x1024.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Black Tea - 500gm</h3>
+                        <p class="price">৳215</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/Bop-500g-Single-646x1024.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Black Tea - 500gm</h3>
+                        <p class="price">৳215</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/Best-Leaf-500g-Single-646x1024.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Black Tea - 500gm</h3>
+                        <p class="price">৳215</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/Dust-500g-Single-646x1024.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Black Tea - 500gm</h3>
+                        <p class="price">৳215</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/Suji-250g-Single-600x921.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Suji - 250gm</h3>
+                        <p class="price">৳26</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/rsz_sorisa.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Mustard Honey - 500gm</h3>
+                        <p class="price">৳340</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/milk-po.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Full Cream Milk Powder - 500gm</h3>
+                        <p class="price">৳425</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/mus.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Oil - 1L</h3>
+                        <p class="price">৳169</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/Gold-500g-Single-646x1024.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti Black Tea - 500gm</h3>
+                        <p class="price">৳215</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="images/products/Moida-2-KG-Single-600x921.jpg">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Pusti White Flour - 2kg</h3>
+                        <p class="price">৳160</p>
+                        <div class="counter">
+                            <button id="decrement">-</button>
+                            <span id="count">0</span>
+                            <button id="increment">+</button>
+                        </div>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -882,14 +1067,14 @@
             <div class="header">
                 <h1>Your Cart</h1>
             </div>
-            <table id="cartTable">
-                <tr class="cart-item">
+            <table>
+                <tr>
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Total</th>
                 </tr>
-                <!-- <tr class="cart-item">
+                <tr class="cart-item">
                     <td style="display: inline-flex;">
                         <img src="images/products/Aata-1-Kg-Single-600x921.jpg" alt="Product 1">
                         <div class="product-details">
@@ -899,14 +1084,13 @@
                     <td>2</td>
                     <td>$10.00</td>
                     <td>$20.00</td>
-                </tr> -->
+                </tr>
 
                 <!-- Add more cart items here as needed -->
             </table>
             <div class="total">
-                <p>Total: ৳<span id="totalPrice">0.00</span></p>
+                <p>Total: $20.00</p>
             </div>
-
             <button class="make-payment">Make Payment</button>
         </div>
     </div>
@@ -1132,121 +1316,28 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
         <!-- end social elements -->
     </footer>
     <script>
+        const incrementButton = document.getElementById("increment");
+        const decrementButton = document.getElementById("decrement");
+        const countSpan = document.getElementById("count");
 
-        document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/profile?email=<%= encodeURIComponent(email) %>';
-        });
+        let count = 0;
 
-        document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/cart?email=<%= encodeURIComponent(email) %>';
-        });
-
-        document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/orders?email=<%= encodeURIComponent(email) %>';
-        });
-
-        // document.getElementById('add_to_cart').addEventListener('click', function () {
-        //     const quantity = document.getElementById("count");
-        //     const product_price = document.getElementById("price");
-        //     window.location.href = '/add_to_cart?encode({quantity,product_price,email})';
-        // });
-
-
-        function incrementCount(element) {
-            var countElement = element.parentNode.querySelector('.count');
-            var count = parseInt(countElement.innerText);
+        incrementButton.addEventListener("click", () => {
             count++;
-            countElement.innerText = count;
-        }
+            countSpan.innerText = count;
+        });
 
-        function decrementCount(element) {
-            var countElement = element.parentNode.querySelector('.count');
-            var count = parseInt(countElement.innerText);
+        decrementButton.addEventListener("click", () => {
             if (count > 0) {
                 count--;
-                countElement.innerText = count;
+                countSpan.innerText = count;
             }
-        }
-
-
-        var total = 0;
-
-        function addToCart(element) {
-            var productName = element.parentNode.querySelector('h3').innerText;
-            var price = element.parentNode.querySelector('.price').innerText;
-            var quantity = element.parentNode.querySelector('.count').innerText;
-            var totalPrice = parseInt(price) * parseInt(quantity);
-            var productImg = element.parentNode.parentNode.querySelector('.imgBx img').src
-
-
-            // Log the information including the product id to the console.
-            console.log(" Name - " + productName + ", Quantity - " + quantity + ", Total Price - " + (parseInt(price) * parseInt(quantity)));
-            var userEmail = '<%= email %>';
-            console.log(userEmail);
-
-            // Create a new table row
-            var newRow = document.createElement('tr');
-            newRow.className = 'cart-item';
-
-            // Create table cells and set their content
-            var imageCell = document.createElement('td');
-            imageCell.style.display = 'inline-flex';
-            imageCell.innerHTML = '<img src="' + element.parentNode.parentNode.querySelector('.imgBx img').src + '" alt="' + productName + '"><div class="product-details"><h3>' + productName + '</h3></div>';
-
-            var quantityCell = document.createElement('td');
-            quantityCell.innerText = quantity;
-
-            var priceCell = document.createElement('td');
-            priceCell.innerText = '৳' + parseFloat(price).toFixed(2);
-
-            var totalCell = document.createElement('td');
-            totalCell.innerText = '৳' + totalPrice.toFixed(2);
-
-            total += totalPrice;
-
-            document.getElementById('totalPrice').innerText = total.toFixed(2);
-
-            // Append cells to the new row
-            newRow.appendChild(imageCell);
-            newRow.appendChild(quantityCell);
-            newRow.appendChild(priceCell);
-            newRow.appendChild(totalCell);
-
-            // Append the new row to the table
-            document.getElementById('cartTable').appendChild(newRow);
-            sendToServer(productImg, productName, quantity, price, totalPrice, total, userEmail);
-
-        }
-
-
-        function sendToServer(productImg, productName, quantity, price, totalPrice, total, userEmail) {
-        // Using fetch API to send data to the server.
-        fetch('/add-to-cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                productImg: productImg,
-                productName: productName,
-                quantity: parseInt(quantity),
-                price: parseInt(price),
-                totalPrice: parseInt(totalPrice),
-                total: parseInt(total),
-                userEmail: userEmail
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Data sent to server:', data);
-        })
-        .catch(error => {
-            console.error('Error sending data to server:', error);
         });
-    }
 
+
+        
     </script>
-
+    
 </body>
 
 </html>
