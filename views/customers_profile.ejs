@@ -648,7 +648,7 @@
                     </div>
                     <div class="input-container5">
                         <select name="divisions" id="divisions" onchange="divisionsList();" >
-                            <option disabled selected>Select Division</option>
+                            <option disabled>Select Division</option>
                             <option value="Barishal">Barishal</option>
                             <option value="Chattogram">Chattogram</option>
                             <option value="Dhaka">Dhaka</option>
@@ -714,6 +714,12 @@
     <script src="js/change.js"></script>
     <script>
         
+
+        document.getElementById('divisions').value = '<%= division %>';
+        divisionsList()
+        document.getElementById('distr').value = '<%= district %>';
+        thanaList()
+        document.getElementById('polic_sta').value = '<%= policestation %>';
 
         document.getElementById('dashboard').addEventListener('click', function () {
             window.location.href = '/customer_dashboard?email=<%= encodeURIComponent(email) %>';

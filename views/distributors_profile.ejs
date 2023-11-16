@@ -724,6 +724,11 @@
     <script src="js/change.js"></script>
     <script>
         
+        document.getElementById('divisions').value = '<%= division %>';
+        divisionsList()
+        document.getElementById('distr').value = '<%= district %>';
+        thanaList()
+        document.getElementById('polic_sta').value = '<%= policestation %>';
 
         document.getElementById('dashboard').addEventListener('click', function () {
             window.location.href = '/distributor_dashboard?email=<%= encodeURIComponent(email) %>';
