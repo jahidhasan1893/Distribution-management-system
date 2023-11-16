@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pusti | Customers</title>
+    <title>Pusti | Distributors</title>
 
     <link rel="stylesheet" href="https://boxicons.com/css/boxicons.min.css">
 
@@ -533,6 +533,7 @@
             align-items: center;
             column-gap: 10px;
             font-size: small;
+            width: 480px;
         }
 
         
@@ -592,23 +593,18 @@
         </div>
 
         <div class="right">
-            <input type="text" id="search-field" placeholder="Search...">
-            <button id="reject-search"><i class='bx bx-search-alt-2'></i></button>
-            <a href="distributors.html#products">Products</a>
-            <a href="distributors.html#gallery">Gallery</a>
-            <a href="distributors.html#news">News</a>
-            <a href="distributors.html#contact">Contact</a>
+            <a href="#" style="margin-top: 10px;height: 50px;" id="dashboard">Dashboard</a>
+
             <div class="dropdown hover">
                 <a href="#">
-                    <img src="images/products/Aata-1-Kg-Single-600x921.jpg" alt="" style="object-fit: fill;">
+                    <img src="<%= dp %>" alt="" style="object-fit: fill;">
                 </a>
                 <ul>
                     <li><a href="#">Item</a></li>
-                    <li><a href="distributors_profile.html">Profile</a></li>
-                    <li><a href="distributors_cart.html">Your Cart</a></li>
-                    <li><a href="distributors_order.html">Orders</a></li>
-                    <li><a href="distributors_stock.html">Stocks</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#" id="profile">Profile</a></li>
+                    <li><a href="#" id="cart">Your Cart</a></li>
+                    <li><a href="#" id="orders">Orders</a></li>
+                    <li><a href="#" id="log-out">Log Out</a></li>
 
                 </ul>
             </div>
@@ -625,7 +621,7 @@
         <div style="display:flex;justify-content: space-between;width: 950px;height: 80vh;font-family: 'Arial', sans-serif;margin-top: 160px;margin-bottom: 160px;">
             <div class="left5" >
                 
-                <img src="images/bkash.png" alt="" style="max-width: 90px;max-height: 90px;border-radius: 50%;background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);flex-shrink: 0;
+                <img src="<%= dp %>" alt="" style="max-width: 90px;max-height: 90px;border-radius: 50%;background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);flex-shrink: 0;
                 margin: 20px;
                 height: calc(150px + 6vw);
                 width: calc(150px + 6vw);
@@ -635,27 +631,33 @@
                 background-size: cover;
                 box-sizing: border-box;
                 box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);">
-                <h3 style="padding-top: 0px;">Taqwa Super Shop</h3>
+                <h3 style="padding-top: 0px;"><%= firstname %> <%= lastname %></h3>
                 <button style="margin-top: 10px;">Update Photo</button>
             </div>
             <div class="right5">
                 <form id="login-form">
                     <h1>Update Profile</h1>
                     <div class="input-container5">
-                        <input type="text" id="shopname" placeholder="shop name" required>
+                        <input type="text" id="shopname" placeholder="shop name" value="<%= firstname %>">
+                        <input type="text" id="shopname" placeholder="shop name" value=" <%= lastname %>">
                         <!-- <i class='bx bx-user'></i> -->
                     </div>
+                  
                     <div class="input-container5">
-                        <input type="text" id="email" placeholder="email" required>
+                        <input type="text" id="nid" placeholder="NID number" value="<%= nid %>">
+                        <!-- <i class='bx bxs-envelope'></i> -->
+                    </div>
+                    <div class="input-container5">
+                        <input type="text" id="licence" placeholder="Distributor licence number" value="<%= licence %>">
                         <!-- <i class='bx bxs-envelope'></i> -->
                     </div>
     
                     <div class="input-container5">
-                        <input type="text" id="phonenumber" placeholder="phone number" required>
+                        <input type="text" id="phonenumber" placeholder="phone number" value="<%= phonenumber %>">
                         <!-- <i class='bx bxs-envelope'></i> -->
                     </div>
                     <div class="input-container5">
-                        <select name="divisions" id="divisions" onchange="divisionsList();">
+                        <select name="divisions" id="divisions" onchange="divisionsList();" >
                             <option disabled selected>Select Division</option>
                             <option value="Barishal">Barishal</option>
                             <option value="Chattogram">Chattogram</option>
@@ -671,15 +673,15 @@
                         <!-- <i class='bx bxs-envelope'></i> -->
                     </div>
                     <div class="input-container5">
-                        <input type="text" id="address" placeholder="shop address" required>
+                        <input type="text" id="address" placeholder="shop address" value="<%= address %>">
                         <!-- <i class='bx bxs-envelope'></i> -->
                     </div>
                     <div class="input-container5">
-                        <input type="password" id="password" placeholder="update password" required>
+                        <input type="password" id="password" placeholder="update password" value="<%= password %>">
                         <!-- <i class='bx bxs-lock-alt' ></i> -->
                     </div>
                     <div class="input-container5">
-                        <input type="password" id="password" placeholder="confirm password" required>
+                        <input type="password" id="password" placeholder="confirm password" value="<%= password %>">
                         <!-- <i class='bx bxs-lock-alt' ></i> -->
                     </div>
                     <button type="submit">Update</button>
@@ -721,7 +723,29 @@
     </footer>
     <script src="js/change.js"></script>
     <script>
+        
 
+        document.getElementById('dashboard').addEventListener('click', function () {
+            window.location.href = '/distributor_dashboard?email=<%= encodeURIComponent(email) %>';
+        });
+        
+
+        document.getElementById('cart').addEventListener('click', function () {
+            window.location.href = '/distributors_cart?email=<%= encodeURIComponent(email) %>';
+        });
+
+        document.getElementById('orders').addEventListener('click', function () {
+            window.location.href = '/distributors_orders?email=<%= encodeURIComponent(email) %>';
+        });
+
+        document.getElementById('log-out').addEventListener('click', function () {
+            window.location.href = '/customer_logout';
+        });
+
+
+        
+
+       
     </script>
 </body>
 

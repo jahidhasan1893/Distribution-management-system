@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 
 
 
-app.post('/customer_sign_up', (req, res) => {
+app.post('/customers1', (req, res) => {
   const shopname = req.body.shopname;
   const email = req.body.email;
   const phonenumber = req.body.phonenumber;
@@ -51,6 +51,7 @@ app.post('/customer_sign_up', (req, res) => {
   const policestation = req.body.policestation;
   const address = req.body.shopaddress;
   const password = req.body.password;
+  const dp="images/businessman.png";
 
 
   if (!validator.isEmail(email)) {
@@ -61,7 +62,7 @@ app.post('/customer_sign_up', (req, res) => {
   bcrypt.hash(password, 10, function (err, hashedPassword) {
     // Store hash in your password DB.
     // Insert the hashed password and salt into the MySQL database
-    pool.query('INSERT INTO customers (shopname, email, phonenumber, division, district, policestation, address, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [shopname, email, phonenumber, division, district, policestation, address, hashedPassword], (error, results) => {
+    pool.query('INSERT INTO customers (shopname, email, phonenumber, division, district, policestation, address, password, dp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [shopname, email, phonenumber, division, district, policestation, address, hashedPassword, dp], (error, results) => {
       if (error) {
         console.error('Error saving data to the database:', error);
         res.status(500).send('Error occurred. Please try again later.');
@@ -73,7 +74,52 @@ app.post('/customer_sign_up', (req, res) => {
             return res.status(500).send('Error occurred. Please try again later.');
           }
 
-          res.render('customers', { email: email, products: products });
+          res.render('customers', { email: email, products: products ,dp : dp});
+        });
+      }
+    });
+  });
+
+
+});
+
+
+app.post('/distributors1', (req, res) => {
+  const firstname = req.body.firstname;
+  const lastname = req.body.lastname;
+  const email = req.body.email;
+  const nid = req.body.nid;
+  const licence = req.body.licence;
+  const phonenumber = req.body.phonenumber;
+  const division = req.body.divisions;
+  const district = req.body.district;
+  const policestation = req.body.policestation;
+  const address = req.body.address;
+  const password = req.body.password;
+  const dp="images/businessman.png";
+
+
+  if (!validator.isEmail(email)) {
+    res.status(400).send('Invalid email address');
+  }
+
+  // Hash the password 
+  bcrypt.hash(password, 10, function (err, hashedPassword) {
+    // Store hash in your password DB.
+    // Insert the hashed password and salt into the MySQL database
+    pool.query('INSERT INTO distributors (firstname, lastname, email, nid, licence, phonenumber, division, district, policestation, address, password, dp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [firstname, lastname, email, nid, licence, phonenumber, division, district, policestation, address, hashedPassword, dp], (error, results) => {
+      if (error) {
+        console.error('Error saving data to the database:', error);
+        res.status(500).send('Error occurred. Please try again later.');
+      } else {
+        console.log('Data saved to the database successfully!');
+        pool.query('SELECT * FROM products ', (error, products) => {
+          if (error) {
+            console.error('Error Log In:', error);
+            return res.status(500).send('Error occurred. Please try again later.');
+          }
+
+          res.render('distributors', { email: email, products: products ,dp :dp });
         });
       }
     });
@@ -85,7 +131,7 @@ app.post('/customer_sign_up', (req, res) => {
 
 
 
-app.post('/customers', (req, res, next) => {
+app.post('/customers2', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
 
@@ -132,8 +178,85 @@ app.post('/customers', (req, res, next) => {
                 console.error('Error Log In:', error);
                 return res.status(500).send('Error occurred. Please try again later.');
               }
+              pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
+                if (error) {
+                  console.error('Error Log In:', error);
+                  res.status(500).send('Error occurred. Please try again later.');
+                } 
+                res.render('customers', { email: email, products: products ,dp :results[0].dp });
+              });
 
-              res.render('customers', { email: email, products: products });
+            });
+
+
+
+          } else {
+            // Password did not match
+            res.status(401).send('Invalid username or password.');
+          }
+        });
+      }
+    }
+  });
+
+});
+
+
+app.post('/distributor2', (req, res, next) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+
+
+  if (!validator.isEmail(email)) {
+    res.status(400).send('Invalid email address');
+    return;
+  }
+
+ 
+
+  pool.query('SELECT * FROM distributors WHERE email = ?', [email], (error, results) => {
+    if (error) {
+      console.error('Error Log In:', error);
+      res.status(500).send('Error occurred. Please try again later.');
+    } else {
+      if (results.length === 0) {
+        // User not found
+        res.status(401).send('Invalid username or password.');
+      } else {
+        const user = results[0];
+
+
+        bcrypt.compare(password, user.password, function (err, result) {
+          if (err) {
+            return res.status(500).send("Error comparing passwords");
+          }
+
+
+          if (result) {
+            // Password matched, login successful
+
+            // // Generate a token
+            // const token = generateToken(user);
+
+            // // Set the token as an HTTP-only cookie
+            // res.cookie('token', token, { httpOnly: true, maxAge: 3600000 }); // 1 hour expiry
+
+            // res.json({email});
+            // console.log(userEmail+"1");
+            pool.query('SELECT * FROM products ', (error, products) => {
+              if (error) {
+                console.error('Error Log In:', error);
+                return res.status(500).send('Error occurred. Please try again later.');
+              }
+
+              pool.query('SELECT * FROM distributors WHERE email = ?', [email], (error, results) => {
+                if (error) {
+                  console.error('Error Log In:', error);
+                  res.status(500).send('Error occurred. Please try again later.');
+                } 
+                res.render('distributors', { email: email, products: products ,dp :results[0].dp });
+              });
             });
 
 
@@ -164,21 +287,53 @@ app.get('/customers_sign_in', (req, res) => {
   res.render('customer_sign_in');
 });
 
+app.get('/distributors_sign_in', (req, res) => {
 
-app.get('/dashboard',(req,res)=>{
+  res.render('distributor_sign_in');
+});
+
+app.get('/distributors_sign_up', (req, res) => {
+
+  res.render('distributor_sign_up');
+});
+
+
+app.get('/customer_dashboard',(req,res)=>{
   const email = req.query.email;
   pool.query('SELECT * FROM products ', (error, products) => {
     if (error) {
       console.error('Error Log In:', error);
       return res.status(500).send('Error occurred. Please try again later.');
     }
+    pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
+      if (error) {
+        console.error('Error Log In:', error);
+        res.status(500).send('Error occurred. Please try again later.');
+      } 
+      res.render('customers', { email: email,products: products, dp: results[0].dp });
+    });
+  });
+});
 
-    res.render('customers', { email: email, products: products });
+app.get('/distributor_dashboard',(req,res)=>{
+  const email = req.query.email;
+  pool.query('SELECT * FROM products ', (error, products) => {
+    if (error) {
+      console.error('Error Log In:', error);
+      return res.status(500).send('Error occurred. Please try again later.');
+    }
+    pool.query('SELECT * FROM distributors WHERE email = ?', [email], (error, results) => {
+      if (error) {
+        console.error('Error Log In:', error);
+        res.status(500).send('Error occurred. Please try again later.');
+      } 
+      res.render('distributors', { email: email,products: products, dp: results[0].dp });
+    });
   });
 });
 
 
-app.get('/profile', (req, res) => {
+app.get('/customers_profile', (req, res) => {
 
   const email = req.query.email;
   pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
@@ -188,7 +343,7 @@ app.get('/profile', (req, res) => {
     } else {
 
       const user = results[0];
-      res.render('customers_profile', { shopname: user.shopname, email: user.email, phonenumber: user.phonenumber, division: user.division, district: user.district, policestation: user.policestation, address: user.address, password: user.password });
+      res.render('customers_profile', { shopname: user.shopname, email: user.email, phonenumber: user.phonenumber, division: user.division, district: user.district, policestation: user.policestation, address: user.address, password: user.password, dp: user.dp });
 
 
     }
@@ -198,7 +353,27 @@ app.get('/profile', (req, res) => {
 });
 
 
-app.get('/cart', (req, res) => {
+app.get('/distributors_profile', (req, res) => {
+
+  const email = req.query.email;
+  pool.query('SELECT * FROM distributors WHERE email = ?', [email], (error, results) => {
+    if (error) {
+      console.error('Error Log In:', error);
+      res.status(500).send('Error occurred. Please try again later.');
+    } else {
+
+      const user = results[0];
+      res.render('distributors_profile', { firstname: user.firstname, lastname: user.lastname, email: user.email, nid: user.nid, licence: user.licence, phonenumber: user.phonenumber, division: user.division, district: user.district, policestation: user.policestation, address: user.address, password: user.password, dp: user.dp });
+
+
+    }
+  });
+
+
+});
+
+
+app.get('/customers_cart', (req, res) => {
   const email = req.query.email;
   pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
     if (error) {
@@ -215,7 +390,7 @@ app.get('/cart', (req, res) => {
     
           
           
-          res.render('customers_cart', { shopname: user.shopname, email: user.email, phonenumber: user.phonenumber, division: user.division, district: user.district, policestation: user.policestation, address: user.address,carts: carts });
+          res.render('customers_cart', { shopname: user.shopname, email: user.email, phonenumber: user.phonenumber, division: user.division, district: user.district, policestation: user.policestation, address: user.address,carts: carts, dp: user.dp });
     
     
         }
@@ -228,9 +403,57 @@ app.get('/cart', (req, res) => {
 })
 
 
-app.get('/orders', (req, res) => {
+app.get('/distributors_cart', (req, res) => {
   const email = req.query.email;
-  res.render('customer_orders', { email: email })
+  pool.query('SELECT * FROM distributors WHERE email = ?', [email], (error, results) => {
+    if (error) {
+      console.error('Error Log In:', error);
+      res.status(500).send('Error occurred. Please try again later.');
+    } else {
+
+      const user = results[0];
+      pool.query('SELECT * FROM cart WHERE userEmail = ?', [email], (error, carts) => {
+        if (error) {
+          console.error('Error Log In:', error);
+          res.status(500).send('Error occurred. Please try again later.');
+        } else {
+    
+          
+          
+          res.render('distributors_cart', { shopname: user.shopname, email: user.email, phonenumber: user.phonenumber, division: user.division, district: user.district, policestation: user.policestation, address: user.address,carts: carts, dp: user.dp });
+    
+    
+        }
+      });
+      // res.render('customers_cart', { shopname: user.shopname, email: user.email, phonenumber: user.phonenumber, division: user.division, district: user.district, policestation: user.policestation, address: user.address });
+
+
+    }
+  });
+})
+
+
+app.get('/customers_orders', (req, res) => {
+  const email = req.query.email;
+  pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
+    if (error) {
+      console.error('Error Log In:', error);
+      res.status(500).send('Error occurred. Please try again later.');
+    } 
+    res.render('customer_orders', { email: email, dp: results[0].dp });
+  });
+});
+
+
+app.get('/distributors_orders', (req, res) => {
+  const email = req.query.email;
+  pool.query('SELECT * FROM distributors WHERE email = ?', [email], (error, results) => {
+    if (error) {
+      console.error('Error Log In:', error);
+      res.status(500).send('Error occurred. Please try again later.');
+    } 
+    res.render('distributors_order', { email: email, dp: results[0].dp });
+  });
 });
 
 
@@ -253,6 +476,14 @@ app.post('/add-to-cart', (req, res) => {
   });
 });
 
+
+app.get('/customer_logout',(req,res)=>{
+  res.render('customer_sign_in')
+});
+
+app.get('/distributor_logout',(req,res)=>{
+  res.render('distributor_sign_in')
+})
 
 
 app.listen(port, (req, res) => {

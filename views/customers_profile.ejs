@@ -596,7 +596,7 @@
 
             <div class="dropdown hover">
                 <a href="#">
-                    <img src="images/products/Aata-1-Kg-Single-600x921.jpg" alt="" style="object-fit: fill;">
+                    <img src="<%= dp %>" alt="" style="object-fit: fill;">
                 </a>
                 <ul>
                     <li><a href="#">Item</a></li>
@@ -620,7 +620,7 @@
         <div style="display:flex;justify-content: space-between;width: 950px;height: 80vh;font-family: 'Arial', sans-serif;margin-top: 160px;margin-bottom: 160px;">
             <div class="left5" >
                 
-                <img src="images/bkash.png" alt="" style="max-width: 90px;max-height: 90px;border-radius: 50%;background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);flex-shrink: 0;
+                <img src="<%= dp %>" alt="" style="max-width: 90px;max-height: 90px;border-radius: 50%;background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);flex-shrink: 0;
                 margin: 20px;
                 height: calc(150px + 6vw);
                 width: calc(150px + 6vw);
@@ -640,10 +640,7 @@
                         <input type="text" id="shopname" placeholder="shop name" value="<%= shopname %>">
                         <!-- <i class='bx bx-user'></i> -->
                     </div>
-                    <div class="input-container5">
-                        <input type="text" id="email" placeholder="email" value="<%= email %>">
-                        <!-- <i class='bx bxs-envelope'></i> -->
-                    </div>
+                  
     
                     <div class="input-container5">
                         <input type="text" id="phonenumber" placeholder="phone number" value="<%= phonenumber %>">
@@ -719,16 +716,20 @@
         
 
         document.getElementById('dashboard').addEventListener('click', function () {
-            window.location.href = '/dashboard?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customer_dashboard?email=<%= encodeURIComponent(email) %>';
         });
         
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers_cart?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers_orders?email=<%= encodeURIComponent(email) %>';
+        });
+
+        document.getElementById('log-out').addEventListener('click', function () {
+            window.location.href = '/customer_logout';
         });
 
 

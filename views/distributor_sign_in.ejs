@@ -9,14 +9,14 @@
 </head>
 <body>
     <div class="container">
-        <form id="login-form" >
+        <form id="login-form" action="/distributor2" method="post">
             <h1>Sign In - Distributor</h1>
             <div class="input-container">
-                <input type="text" id="email" placeholder="email" required>
+                <input type="text" id="email" placeholder="email" name="email" required>
 				<i class='bx bx-user'></i>
             </div>
             <div class="input-container">
-                <input type="password" id="password" placeholder="password" required>
+                <input type="password" id="password" placeholder="password" name="password" required>
 				<i class='bx bxs-lock-alt' ></i>
             </div>
             <button type="submit" >Sign In</button>
@@ -24,9 +24,14 @@
 				<!-- <input type="checkbox" style="margin: 0; padding: 0; float: left;"><label> Remember me</label> -->
 				<a href="#" >Forgotten password?</a>
 			</div>
-			<p>Don't have an account? <a href="distributor_sign_up.html">Sign up</a></p> 
+			<p>Don't have an account? <a href="#" id="distributors_sign_up">Sign up</a></p> 
         </form>
     </div>
 
+    <script>
+        document.getElementById('distributors_sign_up').addEventListener('click', function () {
+            window.location.href = '/distributors_sign_up';
+        });
+    </script>
 </body>
 </html>

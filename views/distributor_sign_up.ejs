@@ -8,24 +8,29 @@
 </head>
 <body>
     <div class="container-sign-up">
-        <form id="login-form" >
+        <form id="login-form" action="/distributors1" method="post">
             <h1>Sign Up - Distributor</h1>
             <div class="input-container">
-                <input type="text" id="firstname" placeholder="first name" required>
-                <input type="text" id="lastname" placeholder="last name" required>
+                <input type="text" id="firstname" placeholder="first name" name="firstname" required>
+                <input type="text" id="lastname" placeholder="last name" name="lastname" required>
 				<!-- <i class='bx bx-user'></i> -->
             </div>
             <div class="input-container">
-                <input type="text" id="email" placeholder="email" required>
+                <input type="text" id="email" placeholder="email" name="email" required>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
-                <input type="text" id="nid" placeholder="NID number" required>
+                <input type="text" id="nid" placeholder="NID number" name="nid" required>
+				<!-- <i class='bx bx-user'></i> -->
+            </div>
+
+            <div class="input-container">
+                <input type="text" id="licence" placeholder="Distributor licence number" name="licence" required>
 				<!-- <i class='bx bx-user'></i> -->
             </div>
             
             <div class="input-container">
-                <input type="text" id="phonenumber" placeholder="phone number" required>
+                <input type="text" id="phonenumber" placeholder="phone number" name="phonenumber" required>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
@@ -40,28 +45,33 @@
                     <option value="Rangpur">Rangpur</option>
                     <option value="Sylhet">Sylhet</option>
                   </select>
-                  <select name="" id="distr" onchange="thanaList();" required></select>
-                  <select name="" id="polic_sta" required></select>
+                  <select name="district" id="distr" onchange="thanaList();" required></select>
+                  <select name="policestation" id="polic_sta" required></select>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
-                <input type="text" id="address" placeholder="distribution point address" required>
+                <input type="text" id="address" placeholder="distribution point address" name="address" required>
 				<!-- <i class='bx bxs-envelope'></i> -->
             </div>
             <div class="input-container">
-                <input type="password" id="password" placeholder="password" required>
+                <input type="password" id="password" placeholder="password" name="password" required>
 				<!-- <i class='bx bxs-lock-alt' ></i> -->
             </div>
             <div class="input-container">
-                <input type="password" id="password" placeholder="confirm password" required>
+                <input type="password" id="password" placeholder="confirm password" name="" required>
 				<!-- <i class='bx bxs-lock-alt' ></i> -->
             </div>
             <button type="submit" >Sign Up</button>
-			<p>Already have an account? <a href="distributor_sign_in.html">Sign in</a></p> 
+			<p>Already have an account? <a href="#" id="distributors_sign_in">Sign in</a></p> 
         </form>
     </div>
 
     <script src="js/change.js"></script>
+    <script>
+        document.getElementById('distributors_sign_in').addEventListener('click', function () {
+            window.location.href = '/distributors_sign_in';
+        });
+    </script>
 </body>
 
 

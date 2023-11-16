@@ -617,7 +617,7 @@
 
             <div class="dropdown hover">
                 <a href="#">
-                    <img src="images/products/Aata-1-Kg-Single-600x921.jpg" alt="" style="object-fit: fill;">
+                    <img src="<%= dp %>" alt="" style="object-fit: fill;">
                 </a>
                 <ul>
                     <li><a href="#">Item</a></li>
@@ -781,23 +781,24 @@
     </footer>
     <script>
          document.getElementById('dashboard').addEventListener('click', function () {
-            window.location.href = '/dashboard?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customer_dashboard?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/profile?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers_profile?email=<%= encodeURIComponent(email) %>';
         });
 
 
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers_cart?email=<%= encodeURIComponent(email) %>';
         });
 
 
 
-        
-
+        document.getElementById('log-out').addEventListener('click', function () {
+            window.location.href = '/customer_logout';
+        });
 
 
 
