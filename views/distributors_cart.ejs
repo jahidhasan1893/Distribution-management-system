@@ -805,6 +805,7 @@
                     <li><a href="#" id="profile">Profile</a></li>
                     <li><a href="#" id="cart">Your Cart</a></li>
                     <li><a href="#" id="orders">Orders</a></li>
+                    <li><a href="#" id="requests">Requests</a></li>
                     <li><a href="#" id="log-out">Log Out</a></li>
 
                 </ul>
@@ -978,6 +979,9 @@
             window.location.href = '/distributor_dashboard?email=<%= encodeURIComponent(email) %>';
         });
 
+        document.getElementById('requests').addEventListener('click', function () {
+            window.location.href = '/distributors_requests?email=<%= encodeURIComponent(email) %>';
+        });
         document.getElementById('orders').addEventListener('click', function () {
             window.location.href = '/distributors_orders?email=<%= encodeURIComponent(email) %>';
         });

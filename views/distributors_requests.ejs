@@ -11,6 +11,11 @@
     <title>Your Shopping Cart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Open+Sans:ital,wght@1,300&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -32,8 +37,21 @@
             text-align: center;
             font-family: 'Open Sans', sans-serif;
 
+
         }
 
+
+        .btn-accept:hover {
+        background-color: #00894f; 
+        color: #ddd; 
+        cursor: pointer; 
+    }
+
+    .btn-reject:hover {
+        background-color: #ac1919; /* Change to the color you want on hover */
+        color: #000; /* Change to the text color you want on hover */
+        cursor: pointer; /* Change to the desired cursor style on hover */
+    }
 
 
 
@@ -191,7 +209,7 @@
         }
 
         footer a {
-            margin-top: 10px;
+            margin-top: 20px;
             font-size: 14px;
         }
 
@@ -570,21 +588,168 @@
         }
 
 
-        .counter {
-            display: flex;
+        
+
+
+        /* Styles for the overlay background */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
             justify-content: center;
             align-items: center;
-            margin-top: 10px;
-            margin-bottom: 10px;
         }
 
-        .counter button {
-            background: #E1E8EE;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            margin: 0 5px;
-            cursor: pointer;
+        /* Styles for the checkout form */
+        .checkout-form {
+            width: 450px;
+            display: none;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 2;
+            text-align: center;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .checkout-form h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+
+        }
+
+        .checkout-form h3 {
+            font-size: 18px;
+            margin-top: 15px;
+
+        }
+
+        .checkout-form label {
+            display: block;
+            font-weight: bold;
+            /* margin-top: 10px; */
+        }
+
+        .checkout-form div {
+            margin-top: 10px;
+        }
+
+        .checkout-form div label {
+            display: inline-block;
+            width: 150px;
+        }
+
+        .checkout-form div span {
+            text-align: left;
+        }
+
+        .address-card,
+        .payment-card,
+        .bill-card {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .checkout-form .payment-card {
+            display: flex;
+            /* Make the payment card a flex container */
+            justify-content: space-between;
+            /* Push the radio button to the right */
+            align-items: center;
+            /* Center the content vertically */
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .checkout-form .payment-card .left {
+            display: flex;
+            align-items: center;
+            /* Center the content horizontally */
+        }
+
+        .checkout-form .payment-card img {
+            width: 30px;
+            margin-right: 2px;
+            vertical-align: middle;
+        }
+
+        .checkout-form .payment-card label {
+            margin-left: 2px;
+            /* Adjust the margin-left to control the space between image and label */
+        }
+
+        .checkout-form .payment-options input[type="radio"] {
+
+            margin-right: 0;
+            /* Remove any right margin on the radio button */
+        }
+
+
+        .checkout-form .bill-card {
+            max-height: 90px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .checkout-form .bill-card div {
+            margin-top: 5px;
+        }
+
+        .checkout-form .bill-card::-webkit-scrollbar {
+            width: 8px;
+            /* Set the width as needed */
+        }
+
+        .checkout-form .bill-card::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            /* Set the background color to match the background */
+        }
+
+        
+
+
+
+       
+
+        .checkout-form .bill-items {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkout-form .bill-item {
+            display: flex;
+            justify-content: space-between;
+            /* Align item name to the left, and price to the right */
+            margin-bottom: 5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .checkout-form .bill-item span.item-name {
+            margin-right: auto;
+            /* Push the item name to the left */
+        }
+
+        .checkout-form .bill-item span.item-price {
+            margin-left: auto;
+            /* Push the price to the right */
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -613,6 +778,7 @@
         </div>
 
         <div class="right">
+
             <a href="#" style="margin-top: 10px;height: 50px;" id="dashboard">Dashboard</a>
 
             <div class="dropdown hover">
@@ -629,9 +795,7 @@
 
                 </ul>
             </div>
-            <!-- <span class="search-icon" onclick="toggleSearch()"><i class='bx bx-search-alt-2'></i></span>
-            <input type="text" id="search-field" style="display: none;" placeholder="Search...">
-            <button id="reject-search" onclick="rejectSearch()"><i class='bx bx-x ' ></i></button> -->
+           
         </div>
 
     </div>
@@ -644,104 +808,69 @@
                 <div class="modal-content">
                     <div class="card-header3">
                         <h5 class="modal-title" id="exampleModalLabel">
-                            Your Orders
+                            Your Shopping Cart
                         </h5>
                     </div>
                     <div class="modal-body">
                         <table class="table table-image" style="border: none;">
+                            <thead>
+                                <tr>
 
+                                    <th scope="col">Order #53235</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
                                     <td>
                                         <div class="address-card"
                                             style="text-align: left; background: #f9f9f9;
-                                border: 1px solid #ddd;padding: 20px;padding-left: 10px;padding-right: 300px;border-radius: 10px;">
+                            border: 1px solid #ddd;padding: 20px;padding-left: 10px;padding-right: 300px;border-radius: 10px;">
                                             <span>
-                                                <div class="bill-items" style="border-bottom: 1px double #504848">
+                                                <div class="bill-items" style="margin-left: 14px;">
                                                     <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
+                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.8em;width: 220px;">
                                                         <span class="item-name">Item 2&emsp;X&emsp;5</span>
                                                         <span class="item-price" style="color: #84c622;">$20.00</span>
                                                     </div>
                                                     <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                        <span class="item-name">Item 2&emsp;X&emsp;2</span>
-                                                        <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                    </div>
-                                                    <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                        <span class="item-name">Item 3&emsp;X&emsp;10</span>
-                                                        <span class="item-price" style="color: #84c622;">$25.00</span>
-                                                    </div>
-                                                    <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                        <span class="item-name">Item 3&emsp;X&emsp;10</span>
-                                                        <span class="item-price" style="color: #84c622;">$25.00</span>
-                                                    </div>
-                                                    <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                        <span class="item-name">Item 3&emsp;X&emsp;10</span>
-                                                        <span class="item-price" style="color: #84c622;">$25.00</span>
-                                                    </div>
-                                                    <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                        <span class="item-name">Delivery</span>
-                                                        <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                    </div>
-                                                    <!-- Add more bill items here -->
-                                                </div>
-                                                <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <strong class="item-name">Total</strong>
-                                                    <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                </div>
-                                            </span>
-                                            <span class="tag bg-success">Delivered</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="address-card"
-                                            style="text-align: left; background: #f9f9f9;
-                                border: 1px solid #ddd;padding: 20px;padding-left: 10px;padding-right: 300px;border-radius: 10px;">
-                                            <span>
-                                                <div class="bill-items" style="border-bottom: 1px double #504848">
-                                                    <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                        <span class="item-name">Item 2&emsp;X&emsp;5</span>
-                                                        <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                    </div>
-                                                    <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
+                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.8em;width: 220px;">
                                                         <span class="item-name">Item 2&emsp;X &emsp;2</span>
                                                         <span class="item-price" style="color: #84c622;">$20.00</span>
                                                     </div>
                                                     <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
+                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.8em;width: 220px;">
                                                         <span class="item-name">Item 3&emsp;X&emsp;10</span>
                                                         <span class="item-price" style="color: #84c622;">$25.00</span>
                                                     </div>
-                                                    <div class="bill-item"
-                                                        style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                        <span class="item-name">Delivery</span>
-                                                        <span class="item-price" style="color: #84c622;">$20.00</span>
-                                                    </div>
+
                                                     <!-- Add more bill items here -->
                                                 </div>
                                                 <div class="bill-item"
-                                                    style="display: flex;justify-content: space-between;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.7em;width: 220px;">
-                                                    <strong class="item-name">Total</strong>
+                                                    style="display: flex;justify-content: flex-end;flex-direction: row;font-family: 'Open Sans', sans-serif;font-size: 0.9em;width: 220px; margin-top: 20px;margin-left: 14px;margin-bottom: 10px;">
+                                                    <strong class="item-name" style="margin-right:6px ;">Total:
+                                                    </strong>
                                                     <span class="item-price" style="color: #84c622;">$20.00</span>
                                                 </div>
                                             </span>
-                                            <span class="tag bg-secondary">Processing</span>
+                                            <div class="btn-container"
+                                                style="display: flex; justify-content: flex-end; align-items:center;flex-direction: row; font-size: 0.9em;font-weight: normal;">
+                                                <button class="btn-accept"
+                        style="padding: 8px;border-radius: 4px; background-color: #00a859;border-style:none ;margin-right: 10px;color: #ddd;border-style: none;">Accept
+                    </button>
+                    <button class="btn-reject"
+                    style="padding: 8px;border-radius: 4px; background-color: #F0F0F0;border-style:none ;">Reject
+                </button>
+                                            </div>
                                         </div>
                                     </td>
+
                                 </tr>
+
+
 
                             </tbody>
                         </table>
+
                     </div>
 
                 </div>
@@ -755,78 +884,55 @@
 
 
 
-
-    <footer style="width: 100%;background-color: #ffffff;padding: 60px;box-sizing: border-box;">
-        <!-- social elements -->
-        <div class="social-icons" style="text-align: right;">
-            <a href="#" class="margin-eight-right">
-                <i class='bx bxl-facebook bx-sm'></i>
-            </a>
-            <a href="#" class="margin-eight-right">
-                <i class='bx bxl-twitter bx-sm'></i>
-            </a>
-            <a href="#" class="margin-eight-right">
-                <i class='bx bxl-google-plus bx-sm'></i>
-            </a>
-            <a href="#" class="margin-eight-right">
-                <i class='bx bxl-pinterest bx-sm'></i>
-            </a>
-            <a href="#" class="margin-eight-right">
-                <i class='bx bxl-linkedin bx-sm'></i>
-            </a>
-            <a href="#">
-                <i class='bx bxl-youtube bx-sm'></i>
-            </a>
-        </div>
-        <!-- end social elements -->
-    </footer>
-    <script>
-         document.getElementById('dashboard').addEventListener('click', function () {
-            window.location.href = '/distributor_dashboard?email=<%= encodeURIComponent(email) %>';
-        });
-
-        document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/distributors_profile?email=<%= encodeURIComponent(email) %>';
-        });
+    <footer style=" width: 100%;background-color: #ffffff;padding: 60px;box-sizing: border-box;">
+                                                    <!-- social elements -->
+                                                    <div class="social-icons" style="text-align: right;">
+                                                        <a href="#" class="margin-eight-right">
+                                                            <i class='bx bxl-facebook bx-sm'></i>
+                                                        </a>
+                                                        <a href="#" class="margin-eight-right">
+                                                            <i class='bx bxl-twitter bx-sm'></i>
+                                                        </a>
+                                                        <a href="#" class="margin-eight-right">
+                                                            <i class='bx bxl-google-plus bx-sm'></i>
+                                                        </a>
+                                                        <a href="#" class="margin-eight-right">
+                                                            <i class='bx bxl-pinterest bx-sm'></i>
+                                                        </a>
+                                                        <a href="#" class="margin-eight-right">
+                                                            <i class='bx bxl-linkedin bx-sm'></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <i class='bx bxl-youtube bx-sm'></i>
+                                                        </a>
+                                                    </div>
+                                                    <!-- end social elements -->
+                                                    </footer>
+                                                    <script>
 
 
-        document.getElementById('requests').addEventListener('click', function () {
-            window.location.href = '/distributors_requests?email=<%= encodeURIComponent(email) %>';
-        });
-
-        document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/distributors_cart?email=<%= encodeURIComponent(email) %>';
-        });
+                                                        document.getElementById('profile').addEventListener('click', function () {
+                                                            window.location.href = '/distributors_profile?email=<%= encodeURIComponent(email) %>';
+                                                        });
 
 
+                                                        document.getElementById('dashboard').addEventListener('click', function () {
+                                                            window.location.href = '/distributor_dashboard?email=<%= encodeURIComponent(email) %>';
+                                                        });
 
-        document.getElementById('log-out').addEventListener('click', function () {
-            window.location.href = '/distributor_logout';
-        });
+                                                        document.getElementById('orders').addEventListener('click', function () {
+                                                            window.location.href = '/distributors_orders?email=<%= encodeURIComponent(email) %>';
+                                                        });
 
+                                                        document.getElementById('log-out').addEventListener('click', function () {
+                                                            window.location.href = '/distributor_logout';
+                                                        });
 
+                                                        
 
-        const incrementButton = document.getElementById("increment");
-        const decrementButton = document.getElementById("decrement");
-        const countSpan = document.getElementById("count");
+                                                       
 
-        let count = 0;
-
-        incrementButton.addEventListener("click", () => {
-            count++;
-            countSpan.innerText = count;
-        });
-
-        decrementButton.addEventListener("click", () => {
-            if (count > 0) {
-                count--;
-                countSpan.innerText = count;
-            }
-        });
-
-
-    </script>
-    </script>
+                                                    </script>
 </body>
 
 </html>
