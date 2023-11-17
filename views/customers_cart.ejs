@@ -846,7 +846,7 @@
                                         <img src="<%= cart_row.productImg %>" class="img-fluid img-thumbnail" alt="Product Image">
                                     </td>
                                     <td><%= cart_row.productName %></td>
-                                    <td><%= cart_row.price %></td>
+                                    <td>৳<%= cart_row.price %></td>
                                     <td class="qty" style="padding-left: 60px; padding-right: 60px;">
                                         <div class="counter">
                                             <button id="decrement">-</button>
@@ -854,7 +854,7 @@
                                             <button id="increment">+</button>
                                         </div>
                                     </td>
-                                    <td><%= cart_row.price * cart_row.quantity %></td>
+                                    <td>৳<%= cart_row.price * cart_row.quantity %></td>
                                     <td>
                                         <a href="#" class="btn btn-danger btn-sm">
                                             Remove
@@ -867,7 +867,7 @@
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-end">
-                        <h5>Total: <span class="price text-success">$<%= carts.length !== 0 ? carts[carts.length - 1].total : 0 %></span></h5>
+                        <h5>Total: <span class="price text-success">৳<%= carts.length !== 0 ? carts[carts.length - 1].total : 0 %></span></h5>
                     </div>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-end">
@@ -912,14 +912,14 @@
                                     <% carts.forEach(cart_row => { %>
                                     <div class="bill-item">
                                         <span class="item-name"><%= cart_row.productName %> x (<%= cart_row.quantity %>)</span>
-                                        <span class="item-price"><%= cart_row.totalPrice%></span>
+                                        <span class="item-price">৳<%= cart_row.totalPrice%></span>
                                     </div>
                                     <% }); %>
                                     
                                     <!-- Add more bill items here -->
                                 </div>
                             </div>
-                            <strong>Total Amount: $<%= carts.length !== 0 ? carts[carts.length - 1].total : 0 %></strong><br>
+                            <strong>Total Amount: ৳<%= carts.length !== 0 ? carts[carts.length - 1].total : 0 %></strong><br>
 
                             <div class="btns">
                                 <button onclick="closeCheckoutForm()"

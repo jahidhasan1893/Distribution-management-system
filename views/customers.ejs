@@ -1100,11 +1100,11 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
         });
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers_cart?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers_orders?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('log-out').addEventListener('click', function () {
@@ -1150,36 +1150,16 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
             var userEmail = '<%= email %>';
             console.log(userEmail);
 
-            // Create a new table row
-            var newRow = document.createElement('tr');
-            newRow.className = 'cart-item';
+            
 
-            // Create table cells and set their content
-            var imageCell = document.createElement('td');
-            imageCell.style.display = 'inline-flex';
-            imageCell.innerHTML = '<img src="' + element.parentNode.parentNode.querySelector('.imgBx img').src + '" alt="' + productName + '"><div class="product-details"><h3>' + productName + '</h3></div>';
-
-            var quantityCell = document.createElement('td');
-            quantityCell.innerText = quantity;
-
-            var priceCell = document.createElement('td');
-            priceCell.innerText = '৳' + parseFloat(price).toFixed(2);
-
-            var totalCell = document.createElement('td');
-            totalCell.innerText = '৳' + totalPrice.toFixed(2);
 
             total += totalPrice;
 
-            document.getElementById('totalPrice').innerText = total.toFixed(2);
+            console.log(total);
 
-            // Append cells to the new row
-            newRow.appendChild(imageCell);
-            newRow.appendChild(quantityCell);
-            newRow.appendChild(priceCell);
-            newRow.appendChild(totalCell);
+           
 
-            // Append the new row to the table
-            document.getElementById('cartTable').appendChild(newRow);
+            
             sendToServer(productImg, productName, quantity, price, totalPrice, total, userEmail);
 
         }
@@ -1192,6 +1172,9 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
             headers: {
                 'Content-Type': 'application/json',
             },
+
+            
+
             body: JSON.stringify({
                 productImg: productImg,
                 productName: productName,

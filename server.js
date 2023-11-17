@@ -576,6 +576,7 @@ app.post('/add-to-cart', (req, res) => {
   const sql = 'INSERT INTO cart (productImg, productName, quantity, price, totalPrice, total, userEmail) VALUES (?, ?, ?, ?, ?, ?, ?)';
   const values = [productImg, productName, quantity, price, totalPrice, total, userEmail];
 
+  console.log("added to cart");
   pool.query(sql, values, (err, results) => {
     if (err) {
       console.error('Error inserting data into MySQL:', err);
