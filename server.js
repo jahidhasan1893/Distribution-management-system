@@ -95,7 +95,7 @@ app.get('/', verifyToken, (req, res) => {
               if (error) {
                 return res.status(500).send('Error occurred. Please try again later.');
               }
-              pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
+              pool.query('SELECT * FROM distributors WHERE email = ?', [email], (error, results) => {
                 if (error) {
                   console.error('Error Log In:', error);
                   res.status(500).send('Error occurred. Please try again later.');
@@ -173,6 +173,11 @@ app.post('/customers1', (req, res) => {
             return res.status(500).send('Error occurred. Please try again later.');
           }
 
+          const token = jwt.sign({ email: email }, secretKey, { expiresIn: '1h' });
+
+            // Save the token, for example, in a cookie or in local storage
+            res.cookie('token', token, { httpOnly: true, maxAge: 3600000 });
+
           res.render('customers', { email: email, products: products, dp: dp });
         });
       }
@@ -217,6 +222,11 @@ app.post('/distributors1', (req, res) => {
             console.error('Error Log In:', error);
             return res.status(500).send('Error occurred. Please try again later.');
           }
+
+          const token = jwt.sign({ email: email }, secretKey, { expiresIn: '1h' });
+
+            // Save the token, for example, in a cookie or in local storage
+            res.cookie('token', token, { httpOnly: true, maxAge: 3600000 });
 
           res.render('distributors', { email: email, products: products, dp: dp });
         });
