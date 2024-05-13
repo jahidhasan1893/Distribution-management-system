@@ -33,7 +33,7 @@ With a focus on functionality and user satisfaction, our Distributor Management 
  
  
 
-<img    src=https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/distributor_1.png">
+<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/distributor_1.png">
 
 
  
