@@ -29,7 +29,7 @@ With a focus on functionality and user satisfaction, our Distributor Management 
   
 
   
- # 👉 Login Page 
+ # 👉  Distributor's Login Page 
  
  
 
@@ -37,7 +37,7 @@ With a focus on functionality and user satisfaction, our Distributor Management 
 
 
  
-# 👉 Sign Up Page 
+# 👉  Distributor's Sign Up Page 
 
 
 
