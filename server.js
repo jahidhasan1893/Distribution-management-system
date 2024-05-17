@@ -141,7 +141,7 @@ app.get('/', verifyToken, (req, res) => {
 
 
 
-app.post('/customers1', (req, res) => {
+app.post('/customer-sign-up', (req, res) => {
   const shopname = req.body.shopname;
   const email = req.body.email;
   const phonenumber = req.body.phonenumber;
@@ -188,7 +188,7 @@ app.post('/customers1', (req, res) => {
 });
 
 
-app.post('/distributors1', (req, res) => {
+app.post('/distributor-sign-up', (req, res) => {
   const firstname = req.body.firstname;
   const lastname = req.body.lastname;
   const email = req.body.email;
@@ -240,7 +240,7 @@ app.post('/distributors1', (req, res) => {
 
 
 
-app.post('/customers2', (req, res, next) => {
+app.post('/customer-sign-in', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
 
@@ -307,7 +307,7 @@ app.post('/customers2', (req, res, next) => {
 });
 
 
-app.post('/distributor2', (req, res, next) => {
+app.post('/distributor-sign-in', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
 
