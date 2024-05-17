@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
-const pool = require('../db'); // Ensure this points to your db connection module
+const pool = require('../db'); 
 const generateSecretKey = require('../middlewares/generateSecretKey');
 const verifyToken = require('../middlewares/verifyToken');
 

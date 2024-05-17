@@ -18,6 +18,8 @@ app.use(cookieParser());
 
 
 
+app.use('/customers', customerRoutes);
+app.use('/distributors', distributorRoutes);
 
 
 app.get('/', verifyToken, (req, res) => {
@@ -82,8 +84,6 @@ app.get('/', verifyToken, (req, res) => {
 });
 
 
-app.use('/customers', customerRoutes);
-app.use('/distributors', distributorRoutes);
 
 
 
