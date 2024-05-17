@@ -12,6 +12,7 @@
         <form id="login-form" action="/customer-sign-in" method="post">
             <h1>Sign In - Customer</h1>
             <div class="input-container">
+                <!-- <label for="email">email</label> -->
                 <input type="text" id="email" name="email" placeholder="email" required>
 				<i class='bx bx-user'></i>
             </div>
@@ -30,7 +31,7 @@
 
     <script>
         document.getElementById('customers_sign_up').addEventListener('click', function () {
-            window.location.href = '/customers_sign_up';
+            window.location.href = '/customers/sign_up';
         });
     </script>
 </body>
