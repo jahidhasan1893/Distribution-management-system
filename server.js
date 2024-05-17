@@ -6,12 +6,18 @@ const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const uuid = require('uuid');
 const cookieParser = require('cookie-parser');
+const customerRoutes = require('./routes/customerRoutes');
+const distributorRoutes = require('./routes/distributorRoutes');
 
 
 
 
 const app = express();
 const port = 3000;
+
+app.use('/customers', customerRoutes);
+app.use('/distributors', distributorRoutes);
+
 
 
 app.set('view engine', 'ejs');
