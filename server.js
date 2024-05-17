@@ -8,6 +8,8 @@ const uuid = require('uuid');
 const cookieParser = require('cookie-parser');
 const customerRoutes = require('./routes/customerRoutes');
 const distributorRoutes = require('./routes/distributorRoutes');
+const generateSecretKey=require('./middlewares/generateSecretKey')
+const verifyToken=require('./middlewares/verifyToken')
 
 
 
@@ -36,47 +38,10 @@ const pool = mysql.createPool({
   database: 'user',
 });
 
-// Function to generate a random string
-const generateRandomString = (length) => {
-  let result = '';
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  const charactersLength = characters.length;
 
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * charactersLength);
-    result += characters.charAt(randomIndex);
-  }
 
-  return result;
-};
-
-// Function to generate a secret key
-const generateSecretKey = () => {
-  // Adjust the length as needed
-  return generateRandomString(32); // Example: 32 characters
-};
 
 const secretKey = generateSecretKey();
-
-const verifyToken = (req, res, next) => {
-  const token = req.cookies.token;
-
-  if (!token) {
-    req.tokenValid = false;
-    next();
-  } else {
-    jwt.verify(token, secretKey, (err, decoded) => {
-      if (err) {
-        req.tokenValid = false;
-      } else {
-        req.tokenValid = true;
-        req.user = decoded;
-      }
-      next();
-    });
-  }
-};
-
 
 
 
