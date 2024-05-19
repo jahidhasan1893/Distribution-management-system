@@ -14,6 +14,16 @@ With a focus on functionality and user satisfaction, our Distributor Management 
 
  **Here, I have used HTML,CSS ,Javascript for frontend and NodeJS for backend. Beside I have used mySQL as a database.**
 
+ ## ✍️Technologies
+
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- MYSQL
+
+
+
 ## ✍️ Features
 
 - Registration as a Distributors
