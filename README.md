@@ -15,8 +15,6 @@ With a focus on functionality and user satisfaction, our Distributor Management 
 <img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Homepage_pusti.png">
   
 
- **Here, I have used HTML,CSS ,Javascript for frontend and NodeJS for backend. Beside I have used mySQL as a database.**
-
  ## ✍️Technologies
 
 - HTML
