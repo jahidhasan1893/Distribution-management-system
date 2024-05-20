@@ -12,6 +12,9 @@ Customers enjoy a user-friendly interface that allows for hassle-free signup and
 
 With a focus on functionality and user satisfaction, our Distributor Management Website aims to optimize distribution processes while delivering a seamless experience for both distributors and customers alike.
 
+<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Homepage_pusti.png">
+  
+
  **Here, I have used HTML,CSS ,Javascript for frontend and NodeJS for backend. Beside I have used mySQL as a database.**
 
  ## ✍️Technologies
@@ -37,57 +40,5 @@ With a focus on functionality and user satisfaction, our Distributor Management 
 - View Orders Cards
 - Update Orders Card.
   
-
-
- # 👉 Home Page 
- 
- 
-
-<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Homepage_pusti.png">
-  
- # 👉  Distributor's Login Page 
- 
- 
-
-<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/distributor_1.png">
-
-
- 
-# 👉  Distributor's Sign Up Page 
-
-
-
-<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/distributor_signUp.png">
-
- # 👉 Customer's Login Page 
- 
- 
-
-
-<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Customer_signup.png">
-
-
- # 👉 Customer's Sign Up Page 
- 
- 
-
-
-<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Customers_signin.png">
-
- # 👉  Order Page 
- 
- 
-
-
-<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/order_page.png">
-
-
-
- # 👉  Stock Page 
- 
- 
-
-
-<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Stock_pusti.png">
 
 
