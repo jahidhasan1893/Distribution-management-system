@@ -14,6 +14,16 @@ With a focus on functionality and user satisfaction, our Distributor Management 
 
  **Here, I have used HTML,CSS ,Javascript for frontend and NodeJS for backend. Beside I have used mySQL as a database.**
 
+ ## ✍️Technologies
+
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- MYSQL
+
+
+
 ## ✍️ Features
 
 - Registration as a Distributors
@@ -28,6 +38,12 @@ With a focus on functionality and user satisfaction, our Distributor Management 
 - Update Orders Card.
   
 
+
+ # 👉 Home Page 
+ 
+ 
+
+<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Homepage_pusti.png">
   
  # 👉  Distributor's Login Page 
  
@@ -43,8 +59,35 @@ With a focus on functionality and user satisfaction, our Distributor Management 
 
 <img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/distributor_signUp.png">
 
+ # 👉 Customer's Login Page 
+ 
+ 
+
+
+<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Customer_signup.png">
+
+
+ # 👉 Customer's Sign Up Page 
+ 
+ 
+
+
+<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Customers_signin.png">
+
+ # 👉  Order Page 
+ 
+ 
+
+
+<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/order_page.png">
 
 
 
+ # 👉  Stock Page 
+ 
+ 
+
+
+<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Stock_pusti.png">
 
 
