@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container-sign-up">
-        <form id="login-form" action="/distributors1" method="post">
+        <form id="login-form" action="/distributors/sign_up" method="post">
             <h1>Sign Up - Distributor</h1>
             <div class="input-container">
                 <input type="text" id="firstname" placeholder="first name" name="firstname" required>
@@ -69,7 +69,7 @@
     <script src="js/change.js"></script>
     <script>
         document.getElementById('distributors_sign_in').addEventListener('click', function () {
-            window.location.href = '/distributors_sign_in';
+            window.location.href = '/distributors/sign_in';
         });
     </script>
 </body>

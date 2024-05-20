@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <form id="login-form" action="/distributor2" method="post">
+        <form id="login-form" action="/distributors/sign_in" method="post">
             <h1>Sign In - Distributor</h1>
             <div class="input-container">
                 <input type="text" id="email" placeholder="email" name="email" required>
@@ -30,7 +30,7 @@
 
     <script>
         document.getElementById('distributors_sign_up').addEventListener('click', function () {
-            window.location.href = '/distributors_sign_up';
+            window.location.href = '/distributors/sign_up';
         });
     </script>
 </body>

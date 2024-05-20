@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container-sign-up">
-        <form id="login-form" action="/customers1" method="post">
+        <form id="login-form" action="/customers/sign_up" method="post">
             <h1>Sign Up - Customer</h1>
             <div class="input-container">
                 <input type="text" id="shopname" name="shopname" placeholder="shop name" required>
@@ -59,7 +59,7 @@
     <script src="js/change.js"></script>
     <script>
         document.getElementById('customers_sign_in').addEventListener('click', function () {
-            window.location.href = '/customers_sign_in';
+            window.location.href = '/customers/sign_in';
         });
     </script>
 </body>

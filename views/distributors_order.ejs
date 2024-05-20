@@ -786,16 +786,16 @@
         });
 
         document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/distributors_profile?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/profile?email=<%= encodeURIComponent(email) %>';
         });
 
 
         document.getElementById('requests').addEventListener('click', function () {
-            window.location.href = '/distributors_requests?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/requests?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/distributors_cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/cart?email=<%= encodeURIComponent(email) %>';
         });
 
 

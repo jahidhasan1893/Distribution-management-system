@@ -737,15 +737,15 @@
         
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/distributors_cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/cart?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('requests').addEventListener('click', function () {
-            window.location.href = '/distributors_requests?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/requests?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/distributors_orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/orders?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('log-out').addEventListener('click', function () {

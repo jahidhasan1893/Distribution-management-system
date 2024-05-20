@@ -1096,15 +1096,15 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
     <script>
 
         document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/customers_profile?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/profile?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/customers_cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/cart?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/customers_orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/orders?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('log-out').addEventListener('click', function () {

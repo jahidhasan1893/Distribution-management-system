@@ -970,7 +970,7 @@
 
 
         document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/customers_profile?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/profile?email=<%= encodeURIComponent(email) %>';
         });
 
         
@@ -979,7 +979,7 @@
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/customers_orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/orders?email=<%= encodeURIComponent(email) %>';
         });
 
         document.getElementById('log-out').addEventListener('click', function () {
