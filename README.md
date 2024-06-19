@@ -12,7 +12,18 @@ Customers enjoy a user-friendly interface that allows for hassle-free signup and
 
 With a focus on functionality and user satisfaction, our Distributor Management Website aims to optimize distribution processes while delivering a seamless experience for both distributors and customers alike.
 
- **Here, I have used HTML,CSS ,Javascript for frontend and NodeJS for backend. Beside I have used mySQL as a database.**
+<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/Homepage_pusti.png">
+  
+
+ ## ✍️Technologies
+
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- MYSQL
+
+
 
 ## ✍️ Features
 
@@ -27,24 +38,5 @@ With a focus on functionality and user satisfaction, our Distributor Management 
 - View Orders Cards
 - Update Orders Card.
   
-
-  
- # 👉  Distributor's Login Page 
- 
- 
-
-<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/distributor_1.png">
-
-
- 
-# 👉  Distributor's Sign Up Page 
-
-
-
-<img    src="https://github.com/Rasel-Mahmud-61/Distribution-management-system/blob/main/views/images/distributor_signUp.png">
-
-
-
-
 
 
