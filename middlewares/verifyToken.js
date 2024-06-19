@@ -1,23 +1,23 @@
+require('dotenv').config();
+
 const jwt = require('jsonwebtoken');
-const generateSecretKey = require('./generateSecretKey');
-const secretKey = generateSecretKey();
+const secretKey = process.env.SECRET_KEY;
+
 
 
 const verifyToken = (req, res, next) => {
   const token = req.cookies.token;
 
   if (!token) {
-    req.tokenValid = false;
-    next();
+    res.redirect('/home')
   } else {
-    jwt.verify(token, secretKey, (err, decoded) => {
+    jwt.verify(token, secretKey, (err, decodedToken) => {
       if (err) {
-        req.tokenValid = false;
+        console.log(err.message);
+        res.redirect('/home');
       } else {
-        req.tokenValid = true;
-        req.user = decoded;
+        next();
       }
-      next();
     });
   }
 };

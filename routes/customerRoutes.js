@@ -2,21 +2,13 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
-const pool = require('../db'); 
-const generateSecretKey = require('../middlewares/generateSecretKey');
+const pool = require('../config/db'); 
 const verifyToken = require('../middlewares/verifyToken');
 
 
 const router = express.Router();
-const secretKey = generateSecretKey();
+const secretKey = process.env.SECRET_KEY;
 
-
-// router.set('view engine', 'ejs');
-router.use(express.urlencoded({ extended: true }));
-// router.use(bodyParser.urlencoded({ extended: false }));
-router.use(express.json());
-router.use(express.static('views'));
-// router.use(cookieParser());
 
 
 
@@ -30,7 +22,7 @@ router.get('/sign_in', (req, res) => {
 
 router.post('/sign_up', (req, res) => {
   const { shopname, email, phonenumber, divisions, district, policestation, shopaddress, password } = req.body;
-  const dp = "images/businessman.png";
+  const dp = process.env.DEFAULT_DP;
 
   if (!validator.isEmail(email)) {
     res.status(400).send('Invalid email address');
@@ -94,7 +86,7 @@ router.post('/sign_in', (req, res) => {
   });
 });
 
-router.get('/dashboard', verifyToken, (req, res) => {
+router.get('/dashboard', (req, res) => {
   const email = req.query.email;
   pool.query('SELECT * FROM products', (error, products) => {
     if (error) {
