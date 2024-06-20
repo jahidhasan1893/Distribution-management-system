@@ -1,9 +1,6 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
-const validator = require('validator');
-const jwt = require('jsonwebtoken');
-const pool = require('../config/db'); 
-const verifyToken = require('../middlewares/verifyToken');
+const signupController = require('../controllers/signupController');
+const signinController = require('../controllers/signinController');
 
 
 const router = express.Router();
@@ -12,93 +9,17 @@ const secretKey = process.env.SECRET_KEY;
 
 
 
-router.get('/sign_up', (req, res) => {
-  res.render('customer_sign_up');
-});
+router.get('/sign_up', (req, res)=>signupController.getSignup(req.originalUrl, req, res)); 
 
-router.get('/sign_in', (req, res) => {
-  res.render('customer_sign_in');
-});
+router.get('/sign_in', (req, res)=>signinController.getSignin(req.originalUrl, req, res));
 
-router.post('/sign_up', (req, res) => {
-  const { shopname, email, phonenumber, divisions, district, policestation, shopaddress, password } = req.body;
-  const dp = process.env.DEFAULT_DP;
+router.post('/sign_up', (req, res)=>signupController.postSignup(req.originalUrl, req, res));
 
-  if (!validator.isEmail(email)) {
-    res.status(400).send('Invalid email address');
-    return;
-  }
+router.post('/sign_in', (req, res)=>signinController.postSignin(req.originalUrl, req, res));
 
-  bcrypt.hash(password, 10, (err, hashedPassword) => {
-    pool.query(
-      'INSERT INTO customers (shopname, email, phonenumber, division, district, policestation, address, password, dp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [shopname, email, phonenumber, divisions, district, policestation, shopaddress, hashedPassword, dp],
-      (error, results) => {
-        if (error) {
-          console.error('Error saving data to the database:', error);
-          res.status(500).send('Error occurred. Please try again later.');
-        } else {
-          const token = jwt.sign({ email }, secretKey, { expiresIn: '1h' });
-          res.cookie('token', token, { httpOnly: true, maxAge: 3600000 });
-          res.redirect(`/customers/dashboard?email=${email}`);
-        }
-      }
-    );
-  });
-});
-
-router.post('/sign_in', (req, res) => {
-  const { email, password } = req.body;
-
-  if (!validator.isEmail(email)) {
-    res.status(400).send('Invalid email address');
-    return;
-  }
-
-  pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
-    if (error) {
-      console.error('Error Log In:', error);
-      res.status(500).send('Error occurred. Please try again later.');
-      return;
-    }
-
-    if (results.length === 0) {
-      res.status(401).send('Invalid username or password.');
-      return;
-    }
-
-    const user = results[0];
-
-    bcrypt.compare(password, user.password, (err, result) => {
-      if (err) {
-        res.status(500).send('Error comparing passwords');
-        return;
-      }
-
-      if (result) {
-        const token = jwt.sign({ email }, secretKey, { expiresIn: '1h' });
-        res.cookie('token', token, { httpOnly: true, maxAge: 3600000 });
-        res.redirect(`/customers/dashboard?email=${email}`);
-      } else {
-        res.status(401).send('Invalid username or password.');
-      }
-    });
-  });
-});
 
 router.get('/dashboard', (req, res) => {
-  const email = req.query.email;
-  pool.query('SELECT * FROM products', (error, products) => {
-    if (error) {
-      return res.status(500).send('Error occurred. Please try again later.');
-    }
-    pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
-      if (error) {
-        res.status(500).send('Error occurred. Please try again later.');
-      }
-      res.render('customers', { email, products, dp: results[0].dp });
-    });
-  });
+  res.render('customers', { user: req.session.user , products: req.session.products });
 });
 
 router.get('/profile', (req, res) => {

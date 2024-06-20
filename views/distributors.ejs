@@ -224,6 +224,33 @@
             transition-delay: 0.6s;
         }
 
+        .counter {
+            display: flex;
+            align-items: center;
+        }
+
+        .counter button,
+        .counter input {
+            width: 40px;
+            height: 28px;
+            text-align: center;
+            font-size: 16px;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            margin: 0;
+        }
+
+        .counter input {
+            border-left: none;
+            border-right: none;
+        }
+
+        .counter button {
+            border-left: none;
+            border-right: none;
+        }
+
         #button {
             background-color: #00a859;
             color: #fff;
@@ -794,7 +821,7 @@
     <div class="navbar">
         <div class="left">
             <div class="logo">
-                <img src="images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
+                <img src="/images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
             </div>
         </div>
 
@@ -807,7 +834,7 @@
             <a href="#contact">Contact</a>
             <div class="dropdown hover">
                 <a href="#">
-                    <img src="<%= dp %>" alt="" style="object-fit: fill;">
+                    <img src=" <%= user ? user.dp : '' %>" alt="" style="object-fit: fill;">
                 </a>
                 <ul>
                     <li><a href="#">Item</a></li>
@@ -830,44 +857,45 @@
 
 
     <section id="products">
-        <div class="motto" style="margin-top: 150px; margin-bottom: 50px;align-items: center;">
-            <h1 style="font-size:40px;margin-bottom: 40px;font-family: 'Poppins', sans-serif;
-            font-family: 'Roboto', sans-serif;">Explore our range of PUSTI products.</h1>
-            <p style="font-size: 20px; font-family: 'Nunito Sans', sans-serif;
-            font-family: 'Poppins', sans-serif;">‘PUSTI’ is one of the leading consumer brands of Bangladesh from the
-                house of T. K.
-                GROUP.</p>
+        <div class="motto" style="margin-top: 150px; margin-bottom: 50px; align-items: center;">
+            <h1
+                style="font-size:40px; margin-bottom: 40px; font-family: 'Poppins', sans-serif; font-family: 'Roboto', sans-serif;">
+                Explore our range of PUSTI products.
+            </h1>
+            <p style="font-size: 20px; font-family: 'Nunito Sans', sans-serif; font-family: 'Poppins', sans-serif;">
+                ‘PUSTI’ is one of the leading consumer brands of Bangladesh from the house of T. K. GROUP.
+            </p>
         </div>
 
-
         <div class="grid-container" style="padding-bottom: 90px;">
-            <% products.forEach(product=> {%>
-                <div class="container">
-                    <div class="card">
-                        <div class="imgBx">
-                            <img class="product-img" src="<%= product.link_of_image %>">
-                        </div>
-                        <div class="contentBx">
-                            <h3>
-                                <%= product.product_name %>
-                            </h3>
-                            <p class="price" id="price">
-                                <%= product.DP %>
-                            </p>
-                            
-                            <div class="counter">
-                                <button class="decrement" onclick="decrementCount(this)">-</button>
-                                <span class="count">0</span>
-                                <button class="increment" onclick="incrementCount(this)">+</button>
+            <% if (Array.isArray(products) && products.length) { %>
+                <% products.forEach(product=> { %>
+                    <div class="container">
+                        <div class="card">
+                            <div class="imgBx">
+                                <img class="product-img" src="<%= product.link_of_image %>">
                             </div>
-                            <a href="#" class="add_to_cart" onclick="addToCart(this)">Add to Cart</a>
+                            <div class="contentBx">
+                                <h3>
+                                    <%= product.product_name %>
+                                </h3>
+                                <p class="price" id="price">
+                                    <%= product.MRP %>
+                                </p>
+                                <div class="counter">
+                                    <button class="decrement" onclick="decrementCount(this)">-</button>
+                                    <input type="text" class="count" value="0"
+                                        style="width: 40px; text-align: center;" />
+                                    <button class="increment" onclick="incrementCount(this)">+</button>
+                                </div>
+                                <a href="#" class="add_to_cart" onclick="addToCart(this)">Add to Cart</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <% }); %>
-
-
-
+                    <% }); %>
+                        <% } else { %>
+                            <p>No products available.</p>
+                            <% } %>
         </div>
     </section>
 
@@ -875,7 +903,6 @@
 
 
 
-   
 
 
 
@@ -887,23 +914,23 @@
             font-family: 'Poppins', sans-serif;
     font-family: 'Roboto', sans-serif; ">Photo Gallery</h2>
             <div class="gallery-item">
-                <img src="images/1.jpg" alt="Image 1">
+                <img src="/images/1.jpg" alt="Image 1">
             </div>
             <div class="gallery-item">
-                <img src="images/2.jpg" alt="Image 2">
+                <img src="/images/2.jpg" alt="Image 2">
             </div>
             <div class="gallery-item">
-                <img src="images/3.jpg" alt="Image 3">
+                <img src="/images/3.jpg" alt="Image 3">
             </div>
 
             <div class="gallery-item">
-                <img src="images/4.jpg" alt="Image 4">
+                <img src="/images/4.jpg" alt="Image 4">
             </div>
             <div class="gallery-item">
-                <img src="images/5.jpg" alt="Image 5">
+                <img src="/images/5.jpg" alt="Image 5">
             </div>
             <div class="gallery-item">
-                <img src="images/6.jpg" alt="Image 6">
+                <img src="/images/6.jpg" alt="Image 6">
             </div>
             <!-- Add more gallery items here -->
         </div>
@@ -925,7 +952,7 @@
 font-family: 'Roboto', sans-serif; ">News & Events</h2>
             <div class="card2">
                 <div class="card-header">
-                    <img src="images/Happy-Times-PR-460x295.jpg" alt="rover" />
+                    <img src="/images/Happy-Times-PR-460x295.jpg" alt="rover" />
                 </div>
                 <div class="card-body">
                     <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
@@ -944,7 +971,7 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
             </div>
             <div class="card2">
                 <div class="card-header">
-                    <img src="images/TK-460x295.jpg" alt="ballons" />
+                    <img src="/images/TK-460x295.jpg" alt="ballons" />
                 </div>
                 <div class="card-body">
                     <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
@@ -963,7 +990,7 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
             </div>
             <div class="card2">
                 <div class="card-header">
-                    <img src="images/2021-10-23_103239-460x295.png" alt="city" />
+                    <img src="/images/2021-10-23_103239-460x295.png" alt="city" />
                 </div>
                 <div class="card-body">
                     <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
@@ -982,7 +1009,7 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
             </div>
             <div class="card2">
                 <div class="card-header">
-                    <img src="images/PUSTI_Drinking-water-1-460x295.jpg" alt="city" />
+                    <img src="/images/PUSTI_Drinking-water-1-460x295.jpg" alt="city" />
                 </div>
                 <div class="card-body">
                     <span class="tag tag-purple" style="margin-bottom: 7px;">Popular</span>
@@ -1097,19 +1124,19 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
     <script>
 
         document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/distributors/profile?email=<%= encodeURIComponent(email) %>';
+            window.location.href = `/distributors/profile?id=${user.id}`;
         });
 
         document.getElementById('requests').addEventListener('click', function () {
-            window.location.href = '/distributors/requests?email=<%= encodeURIComponent(email) %>';
+            window.location.href = `/distributors/requests?id=${user.id}`;
         });
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/distributors/cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = `/distributors/cart?id=${user.id}`;
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/distributors/orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = `/distributors/orders?id=${user.id}`;
         });
 
         document.getElementById('log-out').addEventListener('click', function () {
@@ -1122,36 +1149,35 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
         // });
 
 
-        function incrementCount(element) {
-            var countElement = element.parentNode.querySelector('.count');
-            var count = parseInt(countElement.innerText);
-            count++;
-            countElement.innerText = count;
-        }
+        function decrementCount(button) {
+            var input = button.nextElementSibling;
+            var currentValue = parseInt(input.value, 10);
 
-        function decrementCount(element) {
-            var countElement = element.parentNode.querySelector('.count');
-            var count = parseInt(countElement.innerText);
-            if (count > 0) {
-                count--;
-                countElement.innerText = count;
+            if (currentValue > 0) {
+                input.value = currentValue - 1;
             }
         }
 
+        function incrementCount(button) {
+            var input = button.previousElementSibling;
+            var currentValue = parseInt(input.value, 10);
+
+            input.value = currentValue + 1;
+        }
 
         var total = 0;
 
         function addToCart(element) {
             var productName = element.parentNode.querySelector('h3').innerText;
             var price = element.parentNode.querySelector('.price').innerText;
-            var quantity = element.parentNode.querySelector('.count').innerText;
+            var quantity = element.parentNode.querySelector(input.value, 10).innerText;
             var totalPrice = parseInt(price) * parseInt(quantity);
             var productImg = element.parentNode.parentNode.querySelector('.imgBx img').src
 
 
             // Log the information including the product id to the console.
             console.log(" Name - " + productName + ", Quantity - " + quantity + ", Total Price - " + (parseInt(price) * parseInt(quantity)));
-            var userEmail = '<%= email %>';
+            var userEmail = `${user.email}`;
             console.log(userEmail);
 
             // Create a new table row
@@ -1190,30 +1216,30 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
 
 
         function sendToServer(productImg, productName, quantity, price, totalPrice, total, userEmail) {
-        // Using fetch API to send data to the server.
-        fetch('/add-to-cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                productImg: productImg,
-                productName: productName,
-                quantity: parseInt(quantity),
-                price: parseInt(price),
-                totalPrice: parseInt(totalPrice),
-                total: parseInt(total),
-                userEmail: userEmail
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Data sent to server:', data);
-        })
-        .catch(error => {
-            console.error('Error sending data to server:', error);
-        });
-    }
+            // Using fetch API to send data to the server.
+            fetch('/add-to-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    productImg: productImg,
+                    productName: productName,
+                    quantity: parseInt(quantity),
+                    price: parseInt(price),
+                    totalPrice: parseInt(totalPrice),
+                    total: parseInt(total),
+                    userEmail: userEmail
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Data sent to server:', data);
+                })
+                .catch(error => {
+                    console.error('Error sending data to server:', error);
+                });
+        }
 
     </script>
 

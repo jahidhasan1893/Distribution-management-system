@@ -10,6 +10,8 @@ const connection = mysql.createConnection({
 });
 
 connection.connect((err) => {
-    if (err) console.log('Database server is down');
+    if (err) console.log('Database server is down', err.message);
     else console.log('Connected to MySQL database');
 });
+
+module.exports = connection;
