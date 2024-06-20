@@ -782,20 +782,20 @@
     </footer>
     <script>
          document.getElementById('dashboard').addEventListener('click', function () {
-            window.location.href = '/distributor_dashboard?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributor/dashboard?id=<%= user?.id%>';
         });
 
         document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/distributors/profile?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/profile?id=<%= user?.id%>';
         });
 
 
         document.getElementById('requests').addEventListener('click', function () {
-            window.location.href = '/distributors/requests?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/requests?id=<%= user?.id%>';
         });
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/distributors/cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/cart?id=<%= user?.id%>';
         });
 
 

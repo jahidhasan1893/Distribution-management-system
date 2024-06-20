@@ -22,6 +22,7 @@ module.exports.createCustomer = async (customer, req, res) => {
 
         const token = jwt.sign({ id: customer.id, userType: 'distributor' }, secretKey, { expiresIn: '1h' });
         res.cookie('token', token, { httpOnly: true, maxAge: 3600000 });
+        req.session.user = customer;
         res.redirect(`/customers/dashboard?id=${customer.id}`);
     } catch (error) {
         console.error('Error creating customer:', error);
@@ -56,6 +57,7 @@ module.exports.createDistributor = async (distributor, req, res) => {
                     const token = jwt.sign({ id: distributor.id, userType: 'distributor' }, secretKey, { expiresIn: '1h' });
                     console.log(token);
                     res.cookie('token', token, { httpOnly: true, maxAge: 3600000 });
+                    req.session.user = distributor;
                     res.redirect(`/distributors/dashboard?id=${distributor.id}`);
                 } catch (error) {
                     res.status(500).send(error.message);

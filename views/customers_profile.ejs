@@ -587,23 +587,23 @@
     <div class="navbar1" style="font-family: 'Poppins', sans-serif;">
         <div class="left">
             <div class="logo">
-                <img src="images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
+                <img src="/images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
             </div>
         </div>
 
         <div class="right">
-            <a href="#" style="margin-top: 10px;height: 50px;" id="dashboard">Dashboard</a>
+            <a href="/customers/dashboard?id=<%= user?.id%>" style="margin-top: 10px;height: 50px;" id="dashboard">Dashboard</a>
 
             <div class="dropdown hover">
                 <a href="#">
-                    <img src="<%= dp %>" alt="" style="object-fit: fill;">
+                    <img src="<%= user ? user.dp : '' %>" alt="" style="object-fit: fill;">
                 </a>
                 <ul>
                     <li><a href="#">Item</a></li>
                     <li><a href="#" id="profile">Profile</a></li>
-                    <li><a href="#" id="cart">Your Cart</a></li>
-                    <li><a href="#" id="orders">Orders</a></li>
-                    <li><a href="#" id="log-out">Log Out</a></li>
+                    <li><a href="/customers/cart?id=<%= user?.id%>" id="cart">Your Cart</a></li>
+                    <li><a href="/customers/orders?id=<%= user?.id%>" id="orders">Orders</a></li>
+                    <li><a href="/customers/logout" id="log-out">Log Out</a></li>
 
                 </ul>
             </div>
@@ -620,7 +620,7 @@
         <div style="display:flex;justify-content: space-between;width: 950px;height: 80vh;font-family: 'Arial', sans-serif;margin-top: 160px;margin-bottom: 160px;">
             <div class="left5" >
                 
-                <img src="<%= dp %>" alt="" style="max-width: 90px;max-height: 90px;border-radius: 50%;background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);flex-shrink: 0;
+                <img src="<%= user ? user.dp : '' %>" alt="" style="max-width: 90px;max-height: 90px;border-radius: 50%;background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);flex-shrink: 0;
                 margin: 20px;
                 height: calc(150px + 6vw);
                 width: calc(150px + 6vw);
@@ -630,24 +630,24 @@
                 background-size: cover;
                 box-sizing: border-box;
                 box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);">
-                <h3 style="padding-top: 0px;"><%= shopname %></h3>
+                <h3 style="padding-top: 0px;"><%= user?.shopname %></h3>
                 <button style="margin-top: 10px;">Update Photo</button>
             </div>
             <div class="right5">
                 <form id="login-form">
                     <h1>Update Profile</h1>
                     <div class="input-container5">
-                        <input type="text" id="shopname" placeholder="shop name" value="<%= shopname %>">
+                        <input type="text" id="shopname" placeholder="shop name" value="<%= user?.shopname %>">
                         <!-- <i class='bx bx-user'></i> -->
                     </div>
                   
     
                     <div class="input-container5">
-                        <input type="text" id="phonenumber" placeholder="phone number" value="<%= phonenumber %>">
+                        <input type="text" id="phonenumber" placeholder="phone number" value="<%= user?.phonenumber %>">
                         <!-- <i class='bx bxs-envelope'></i> -->
                     </div>
                     <div class="input-container5">
-                        <select name="divisions" id="divisions" onchange="divisionsList();" >
+                        <select name="divisions" id="division" onchange="divisionsList();" >
                             <option disabled>Select Division</option>
                             <option value="Barishal">Barishal</option>
                             <option value="Chattogram">Chattogram</option>
@@ -658,20 +658,20 @@
                             <option value="Rangpur">Rangpur</option>
                             <option value="Sylhet">Sylhet</option>
                         </select>
-                        <select name="" id="distr" onchange="thanaList();"></select>
+                        <select name="" id="distr" onchange="thanaList()"></select>
                         <select name="" id="polic_sta"></select>
                         <!-- <i class='bx bxs-envelope'></i> -->
                     </div>
                     <div class="input-container5">
-                        <input type="text" id="address" placeholder="shop address" value="<%= address %>">
+                        <input type="text" id="address" placeholder="shop address" value="<%= user?.shopaddress %>">
                         <!-- <i class='bx bxs-envelope'></i> -->
                     </div>
                     <div class="input-container5">
-                        <input type="password" id="password" placeholder="update password" value="<%= password %>">
+                        <input type="password" id="password" placeholder="update password" value="<%= user?.password_hash %>">
                         <!-- <i class='bx bxs-lock-alt' ></i> -->
                     </div>
                     <div class="input-container5">
-                        <input type="password" id="password" placeholder="confirm password" value="<%= password %>">
+                        <input type="password" id="password" placeholder="confirm password" value="<%= user?.password_hash %>">
                         <!-- <i class='bx bxs-lock-alt' ></i> -->
                     </div>
                     <button type="submit">Update</button>
@@ -711,38 +711,35 @@
         </div>
         <!-- end social elements -->
     </footer>
-    <script src="js/change.js"></script>
+    
     <script>
         
 
-        document.getElementById('divisions').value = '<%= division %>';
+        document.getElementById('division').value = '<%= user?.division %>';
         divisionsList()
-        document.getElementById('distr').value = '<%= district %>';
+        document.getElementById('distr').value = '<%= user?.district %>';
         thanaList()
-        document.getElementById('polic_sta').value = '<%= policestation %>';
+        document.getElementById('polic_sta').value = '<%= user?.policestation %>';
 
         document.getElementById('dashboard').addEventListener('click', function () {
-            window.location.href = '/customer_dashboard?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/dashboard?id=<%= user?.id%>';
         });
         
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/customers/cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/cart?id=<%= user?.id %> ';
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/customers/orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/orders?id=<%= user?.id %> ';
         });
 
         document.getElementById('log-out').addEventListener('click', function () {
             window.location.href = '/customer_logout';
         });
-
-
-        
-
-       
+  
     </script>
+    <script src="js/change.js"></script>
 </body>
 
 </html>

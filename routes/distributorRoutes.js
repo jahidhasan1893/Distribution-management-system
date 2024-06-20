@@ -27,15 +27,7 @@ router.get('/dashboard', (req, res) => {
 });
 
 router.get('/profile', (req, res) => {
-  const email = req.query.email;
-  pool.query('SELECT * FROM distributors WHERE email = ?', [email], (error, results) => {
-    if (error) {
-      res.status(500).send('Error occurred. Please try again later.');
-      return;
-    }
-    const user = results[0];
-    res.render('distributors_profile', { ...user });
-  });
+  res.render('distributors_profile', { user });
 });
 
 router.get('/orders', (req, res) => {
@@ -51,7 +43,8 @@ router.get('/orders', (req, res) => {
 
 router.get('/logout', (req, res) => {
   res.clearCookie('token');
-  res.render('distributor_sign_in');
+  res.redirect('/distributors/sign_in')
 });
 
 module.exports = router;
+

@@ -1,7 +1,7 @@
 // Division Section select
 function divisionsList() {
 	// get value from division lists
-	var diviList = document.getElementById('divisions').value;
+	var diviList = document.getElementById('division').value;
 
 	// set barishal division districts
 	if(diviList == 'Barishal'){		

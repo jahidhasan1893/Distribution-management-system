@@ -1091,19 +1091,19 @@ font-family: 'Roboto', sans-serif; ">News & Events</h2>
     <script>
 
         document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/customers/profile?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/profile?id=<%= user?.id %>';
         });
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/customers/cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/cart?id=<%= user?.id %>';
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/customers/orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/orders?id=<%= user?.id %>';
         });
 
         document.getElementById('log-out').addEventListener('click', function () {
-            window.location.href = '/customer_logout';
+            window.location.href = '/customers/logout';
         });
 
         // document.getElementById('add_to_cart').addEventListener('click', function () {

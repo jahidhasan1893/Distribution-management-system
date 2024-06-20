@@ -788,7 +788,7 @@
     <div class="navbar1">
         <div class="left">
             <div class="logo">
-                <img src="images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
+                <img src="/images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
             </div>
         </div>
 
@@ -798,7 +798,7 @@
            
             <div class="dropdown hover">
                 <a href="#">
-                    <img src="<%= dp %>" alt="" style="object-fit: fill;">
+                    <img src="<%= user.dp %>" alt="" style="object-fit: fill;">
                 </a>
                 <ul>
                     <li><a href="#">Item</a></li>
@@ -840,35 +840,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% carts.forEach(cart_row => { %>
-                                <tr>
-                                    <td style="max-width: 70px; min-height: 70px;">
-                                        <img src="<%= cart_row.productImg %>" class="img-fluid img-thumbnail" alt="Product Image">
-                                    </td>
-                                    <td><%= cart_row.productName %></td>
-                                    <td>৳<%= cart_row.price %></td>
-                                    <td class="qty" style="padding-left: 60px; padding-right: 60px;">
-                                        <div class="counter">
-                                            <button id="decrement">-</button>
-                                            <span id="count"><%= cart_row.quantity %></span>
-                                            <button id="increment">+</button>
-                                        </div>
-                                    </td>
-                                    <td>৳<%= cart_row.price * cart_row.quantity %></td>
-                                    <td>
-                                        <a href="#" class="btn btn-danger btn-sm">
-                                            Remove
-                                        </a>
-                                    </td>
-                                </tr>
-                            <% }); %>
+                            
                             
                             
                         </tbody>
                     </table>
-                    <div class="d-flex justify-content-end">
-                        <h5>Total: <span class="price text-success">৳<%= carts.length !== 0 ? carts[carts.length - 1].total : 0 %></span></h5>
-                    </div>
+                    
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-end">
                     <button type="button" class="btn btn-success" onclick="openCheckoutForm()">Checkout</button>
@@ -877,9 +854,9 @@
                             <h2>Checkout</h2>
                             <h3 style="text-align: left;">Address</h3>
                             <div class="address-card">
-                                <span><%= address %><br>
-                                    <%= policestation %>, <%= district %>, <%= division %><br>
-                                    Phone: <%= phonenumber %></span>
+                                <span><%= user.shopaddress %><br>
+                                    <%= user.policestation %>, <%= user.district %>, <%= user.division %><br>
+                                    Phone: <%= user.phonenumber %></span>
                             </div>
                             <h3 style="text-align: left;">Payment Options</h3>
                             <div class="payment-card">
@@ -908,18 +885,9 @@
                             </div>
                             <h3 style="text-align: left;">Shopping Bill</h3>
                             <div class="bill-card" style="margin-bottom: 10px;">
-                                <div class="bill-items">
-                                    <% carts.forEach(cart_row => { %>
-                                    <div class="bill-item">
-                                        <span class="item-name"><%= cart_row.productName %> x (<%= cart_row.quantity %>)</span>
-                                        <span class="item-price">৳<%= cart_row.totalPrice%></span>
-                                    </div>
-                                    <% }); %>
-                                    
-                                    <!-- Add more bill items here -->
-                                </div>
+                                
                             </div>
-                            <strong>Total Amount: ৳<%= carts.length !== 0 ? carts[carts.length - 1].total : 0 %></strong><br>
+                           
 
                             <div class="btns">
                                 <button onclick="closeCheckoutForm()"
@@ -970,16 +938,16 @@
 
 
         document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/customers/profile?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/profile?id=<%= user?.id%>';
         });
 
         
         document.getElementById('dashboard').addEventListener('click', function () {
-            window.location.href = '/customer_dashboard?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/dashboard?id=<%= user?.id%>';
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/customers/orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/orders?id=<%= user?.id%>';
         });
 
         document.getElementById('log-out').addEventListener('click', function () {

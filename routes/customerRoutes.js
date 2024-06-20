@@ -23,49 +23,22 @@ router.get('/dashboard', (req, res) => {
 });
 
 router.get('/profile', (req, res) => {
-  const email = req.query.email;
-  pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
-    if (error) {
-      res.status(500).send('Error occurred. Please try again later.');
-      return;
-    }
-    const user = results[0];
-    res.render('customers_profile', { ...user });
-  });
+  res.render('customers_profile', { user: req.session.user });
 });
+
 
 router.get('/cart', (req, res) => {
-  const email = req.query.email;
-  pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
-    if (error) {
-      res.status(500).send('Error occurred. Please try again later.');
-      return;
-    }
-    const user = results[0];
-    pool.query('SELECT * FROM cart WHERE userEmail = ?', [email], (error, carts) => {
-      if (error) {
-        res.status(500).send('Error occurred. Please try again later.');
-        return;
-      }
-      res.render('customers_cart', { ...user, carts });
-    });
-  });
+  res.render('customers_cart', { user: req.session.user });
 });
 
+
 router.get('/orders', (req, res) => {
-  const email = req.query.email;
-  pool.query('SELECT * FROM customers WHERE email = ?', [email], (error, results) => {
-    if (error) {
-      res.status(500).send('Error occurred. Please try again later.');
-      return;
-    }
-    res.render('customer_orders', { email, dp: results[0].dp });
-  });
+  res.render('customer_orders', { user: req.session.user });
 });
 
 router.get('/logout', (req, res) => {
   res.clearCookie('token');
-  res.render('customer_sign_in');
+  res.redirect('/customers/sign_in')
 });
 
 module.exports = router;

@@ -608,7 +608,7 @@
     <div class="navbar1">
         <div class="left">
             <div class="logo">
-                <img src="images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
+                <img src="/images/Final-Pusti-Bangla-logo-trans-web-sm.png" alt="Logo">
             </div>
         </div>
 
@@ -617,7 +617,7 @@
 
             <div class="dropdown hover">
                 <a href="#">
-                    <img src="<%= dp %>" alt="" style="object-fit: fill;">
+                    <img src="<%= user?.dp %>" alt="" style="object-fit: fill;">
                 </a>
                 <ul>
                     <li><a href="#">Item</a></li>
@@ -781,23 +781,23 @@
     </footer>
     <script>
          document.getElementById('dashboard').addEventListener('click', function () {
-            window.location.href = '/customer_dashboard?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/dashboard?id=<%= user?.id%>';
         });
 
         document.getElementById('profile').addEventListener('click', function () {
-            window.location.href = '/customers/profile?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/profile?id=<%= user?.id%>';
         });
 
 
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/customers/cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/customers/cart?id=<%= user?.id%>';
         });
 
 
 
         document.getElementById('log-out').addEventListener('click', function () {
-            window.location.href = '/customer_logout';
+            window.location.href = '/customers/logout';
         });
 
 

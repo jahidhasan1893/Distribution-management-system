@@ -732,20 +732,20 @@
         document.getElementById('polic_sta').value = '<%= policestation %>';
 
         document.getElementById('dashboard').addEventListener('click', function () {
-            window.location.href = '/distributor_dashboard?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributor_dashboard?id=<%= user?.id%>';
         });
         
 
         document.getElementById('cart').addEventListener('click', function () {
-            window.location.href = '/distributors/cart?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/cart?id=<%= user?.id%>';
         });
 
         document.getElementById('requests').addEventListener('click', function () {
-            window.location.href = '/distributors/requests?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/requests?id=<%= user?.id%>';
         });
 
         document.getElementById('orders').addEventListener('click', function () {
-            window.location.href = '/distributors/orders?email=<%= encodeURIComponent(email) %>';
+            window.location.href = '/distributors/orders?id=<%= user?.id%>';
         });
 
         document.getElementById('log-out').addEventListener('click', function () {
